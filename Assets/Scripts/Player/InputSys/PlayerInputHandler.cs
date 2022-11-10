@@ -10,21 +10,24 @@ public class PlayerInputHandler : MonoBehaviour
     public bool JumpInputStop { get; private set; }
 
     [SerializeField]
-    private float inputHoldTime = 0f;
+    private float inputHoldTime;
 
     private float jumpInputStartTime;
-
+    private void Awake()
+    {
+        inputHoldTime = 0.2f;
+    }
     private void Update()
     {
         CheckJumpInputHoldTime();
     }
-    public void onMoveInput(InputAction.CallbackContext context) 
+    public void onMoveInput(InputAction.CallbackContext context)
     {
         RawMovementInput = context.ReadValue<Vector2>();
         NormalizeInputX = (int)(RawMovementInput * Vector2.right).normalized.x;
         NormalizeInputY = (int)(RawMovementInput * Vector2.up).normalized.y;
     }
-    public void onJumpInput(InputAction.CallbackContext context) 
+    public void onJumpInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
@@ -42,9 +45,9 @@ public class PlayerInputHandler : MonoBehaviour
         JumpInput = false;
     }
 
-    private void CheckJumpInputHoldTime() 
-    { 
-        if(Time.time >= jumpInputStartTime + inputHoldTime)
+    private void CheckJumpInputHoldTime()
+    {
+        if (Time.time >= jumpInputStartTime + inputHoldTime)
         {
             JumpInput = false;
         }

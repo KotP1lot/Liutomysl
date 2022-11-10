@@ -35,6 +35,7 @@ public class PlayerGroundedState : PlayerState
         base.LogicUpdate();
         xinput = player.InputHandler.NormalizeInputX;
         JumpInput = player.InputHandler.JumpInput;
+      //  Debug.Log($"INputStop = {player.InputHandler.JumpInputStop} || Jump = {player.InputHandler.JumpInput}");
         if (JumpInput)
         {
             player.InputHandler.UseJumpInput();
