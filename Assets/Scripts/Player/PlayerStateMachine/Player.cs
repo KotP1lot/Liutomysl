@@ -91,7 +91,7 @@ public class Player : MonoBehaviour
         }
     }
 
-    public bool CheckIfTouchingGround()
+    public bool CheckIfGrounded()
     {
         return Physics2D.OverlapBox(groundCheck.position, playerData.groundCheckSize, 0, playerData.whatIsGround);
     }
