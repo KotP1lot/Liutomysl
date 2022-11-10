@@ -6,7 +6,9 @@ using UnityEngine.Windows;
 public class PlayerGroundedState : PlayerState
 {
     protected int xinput;
+
     private bool JumpInput;
+    private bool isGrounded;
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string aminBoolName) : base(player, stateMachine, playerData, aminBoolName)
     {
     }
@@ -14,6 +16,8 @@ public class PlayerGroundedState : PlayerState
     public override void DoChecks()
     {
         base.DoChecks();
+
+        isGrounded = player.CheckIfGrounded();
     }
 
     public override void Enter()
@@ -35,6 +39,10 @@ public class PlayerGroundedState : PlayerState
         {
             player.InputHandler.UseJumpInput();
             stateMachine.ChangeState(player.JumpState);
+        }
+        else if (!isGrounded)
+        {
+            stateMachine.ChangeState(player.inAirState);
         }
     }
 

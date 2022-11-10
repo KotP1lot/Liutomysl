@@ -6,6 +6,8 @@ public class PlayerInAirState : PlayerState
 {
     private bool isGrounded;
     private int xinput;
+    private bool JumpInputStop;
+    private bool isJumping;
     public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string aminBoolName) : base(player, stateMachine, playerData, aminBoolName)
     {
     }
@@ -32,8 +34,11 @@ public class PlayerInAirState : PlayerState
         base.LogicUpdate();
 
         xinput = player.InputHandler.NormalizeInputX;
+        JumpInputStop = player.InputHandler.JumpInputStop;
 
-        if(isGrounded && player.CurrentVelocity.y < 0.01f)
+        CheckJumpMultiplier();
+
+        if (isGrounded && player.CurrentVelocity.y < 0.01f)
         {
             stateMachine.ChangeState(player.LandState);
         }
@@ -43,9 +48,26 @@ public class PlayerInAirState : PlayerState
             player.SetVelocityX(playerData.movementVelocity * xinput);
         }
     }
+    private void CheckJumpMultiplier()
+    {
 
+        if (isJumping)
+        {
+            if (JumpInputStop)
+            {
+                player.SetVelocityY(player.CurrentVelocity.y * playerData.variableJumpHeightMultiplier);
+                isJumping = false;
+            }
+            else if (player.CurrentVelocity.y <= 0f)
+            {
+                isJumping = false;
+            }
+        }
+    }
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
     }
+
+    public void SetIsJumping() => isJumping = true;
 }

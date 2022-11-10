@@ -6,6 +6,8 @@ public class PlayerState
     protected PlayerStateMachine stateMachine;
     protected PlayerData playerData;
 
+    protected bool isAnimationFinished;
+
     protected float startTime;
 
     private string aminBoolName;
@@ -23,6 +25,7 @@ public class PlayerState
         DoChecks();
       //  player.Animator.SetBool(aminBoolName, true);
         startTime = Time.time;
+        isAnimationFinished = false;
         Debug.Log(aminBoolName);
     }
 
@@ -44,5 +47,14 @@ public class PlayerState
     public  virtual void DoChecks()
     {
 
+    }
+    public virtual void AnimationTrigger()
+    {
+
+    }
+
+    public virtual void AnimationFinishTrigger()
+    {
+        isAnimationFinished = true;
     }
 }

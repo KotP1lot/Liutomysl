@@ -12,9 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5196f326482d06441baf24da99b365f8, type: 3}
   m_Name: playerData
   m_EditorClassIdentifier: 
-  movementVelocity: 7
-  jumpVelocity: 10
-  groundCheckSize: {x: 0.8, y: 1}
+  movementVelocity: 10
+  jumpVelocity: 20
+  variableJumpHeightMultiplier: 0.5
+  groundCheckSize: {x: 0.9, y: 0.4}
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8

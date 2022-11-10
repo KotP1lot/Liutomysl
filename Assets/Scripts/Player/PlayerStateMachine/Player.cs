@@ -96,7 +96,11 @@ public class Player : MonoBehaviour
         return Physics2D.OverlapBox(groundCheck.position, playerData.groundCheckSize, 0, playerData.whatIsGround);
     }
     #endregion
+
     #region Other Fucntoins
+    private void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
+
+    private void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
     private void FlipCharacter()
     {
         FacingDirection *= -1;

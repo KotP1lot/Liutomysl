@@ -10,6 +10,9 @@ public class PlayerData : ScriptableObject
     [Header("Jump State")]
     public float jumpVelocity = 10f;
 
+    [Header("In Air State")]
+    public float variableJumpHeightMultiplier = 0.5f;
+    
     [Header("Check Ground Box Size")]
     public Vector2 groundCheckSize;
     public LayerMask whatIsGround;
