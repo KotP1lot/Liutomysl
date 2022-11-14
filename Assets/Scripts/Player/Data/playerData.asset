@@ -16,11 +16,17 @@ MonoBehaviour:
   movementVelocityOnLadder: 5
   jumpVelocity: 20
   variableJumpHeightMultiplier: 0.5
+  ignoreCollisionMask:
+    serializedVersion: 2
+    m_Bits: 512
+  defaultMask:
+    serializedVersion: 2
+    m_Bits: 64
   groundCheckSize: {x: 0.9, y: 0.4}
   ladderCheckDistance: 0.5
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 8
+    m_Bits: 264
   whatIsLadder:
     serializedVersion: 2
     m_Bits: 128

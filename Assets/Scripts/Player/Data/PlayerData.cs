@@ -13,7 +13,7 @@ public class PlayerData : ScriptableObject
 
     [Header("In Air State")]
     public float variableJumpHeightMultiplier = 0.5f;
-    
+
     [Header("Check Ground Box Size")]
     public Vector2 groundCheckSize;
     public float ladderCheckDistance = 0.5f;

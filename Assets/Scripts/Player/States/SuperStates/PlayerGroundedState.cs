@@ -36,9 +36,12 @@ public class PlayerGroundedState : PlayerState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
+     
         xinput = player.InputHandler.NormalizeInputX;
         yinput = player.InputHandler.NormalizeInputY;
+       
         JumpInput = player.InputHandler.JumpInput;
+
         if (JumpInput)
         {
             player.InputHandler.UseJumpInput();
@@ -53,11 +56,11 @@ public class PlayerGroundedState : PlayerState
             stateMachine.ChangeState(player.LadderClimbState);
         }
     }
-
+ 
+    
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
 
-        
     }
 }

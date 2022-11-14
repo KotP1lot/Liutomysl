@@ -47,7 +47,7 @@ public class PlayerOnLadderState : PlayerState
         xInput = player.InputHandler.NormalizeInputX;
         yInput = player.InputHandler.NormalizeInputY;
 
-        if (isGrounded && yInput <=0)
+        if (isGrounded && yInput <=0 && !isTouchingLadder )
         {
             stateMachine.ChangeState(player.IdelState);
         }

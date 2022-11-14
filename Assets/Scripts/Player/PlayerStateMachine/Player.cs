@@ -23,6 +23,8 @@ public class Player : MonoBehaviour
     public Animator Animator { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
+    public Collider2D PlayerCollider { get; private set; }
+
     #endregion
 
     #region Check Transforms
@@ -33,10 +35,12 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Other Variables
+
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
 
     private Vector2 workspace;
+    private bool JumpDownInput;
     #endregion
 
     #region Unity Callback Functions
@@ -57,6 +61,7 @@ public class Player : MonoBehaviour
         RB = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
+        PlayerCollider = GetComponent<Collider2D>();
         StateMachine.Initialize(IdelState);
         FacingDirection = 1;
     }
@@ -65,6 +70,7 @@ public class Player : MonoBehaviour
     {
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
+        SetLayerMask();
     }
     private void FixedUpdate()
     {
@@ -73,6 +79,11 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Set Functions
+    public void SetLayerMask()
+    {
+        JumpDownInput = InputHandler.JumpDownInput;
+        gameObject.layer = JumpDownInput ? LayerMask.NameToLayer("IgnoreCollision") : LayerMask.NameToLayer("Player");
+    }
     public void SetVelocityX(float velocity)
     {
 
@@ -91,7 +102,7 @@ public class Player : MonoBehaviour
     #region Check Functions
     public bool CheckIfTouchingLadder()
     {
-        return Physics2D.Raycast(ladderCheck.position, Vector2.right * FacingDirection, playerData.ladderCheckDistance, playerData.whatIsLadder);
+        return Physics2D.OverlapCircle(ladderCheck.position, playerData.ladderCheckDistance, playerData.whatIsLadder);
     }
     public bool CheckIfGrounded()
     {
