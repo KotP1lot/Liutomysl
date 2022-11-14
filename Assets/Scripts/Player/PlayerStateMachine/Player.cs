@@ -13,6 +13,8 @@ public class Player : MonoBehaviour
     public PlayerJumpState JumpState { get; private set; }
     public PlayerInAirState inAirState { get; private set; }
     public PlayerLandState LandState { get; private set; }
+    public PlayerLadderClimbState LadderClimbState { get; private set; }
+    public PlayerLadderGrabState LadderGrabState { get; private set; }
     [SerializeField]
     private PlayerData playerData;
     #endregion
@@ -26,6 +28,8 @@ public class Player : MonoBehaviour
     #region Check Transforms
     [SerializeField]
     private Transform groundCheck;
+    [SerializeField]
+    private Transform ladderCheck;
     #endregion
 
     #region Other Variables
@@ -45,6 +49,8 @@ public class Player : MonoBehaviour
         JumpState = new PlayerJumpState(this, StateMachine, playerData, "inAir");
         inAirState = new PlayerInAirState(this, StateMachine, playerData, "inAir");
         LandState = new PlayerLandState(this, StateMachine, playerData, "land");
+        LadderGrabState = new PlayerLadderGrabState(this, StateMachine, playerData, "grabLadder");
+        LadderClimbState = new PlayerLadderClimbState(this, StateMachine, playerData, "climbLadder");
     }
     private void Start()
     {
@@ -83,17 +89,20 @@ public class Player : MonoBehaviour
     #endregion
 
     #region Check Functions
+    public bool CheckIfTouchingLadder()
+    {
+        return Physics2D.Raycast(ladderCheck.position, Vector2.right * FacingDirection, playerData.ladderCheckDistance, playerData.whatIsLadder);
+    }
+    public bool CheckIfGrounded()
+    {
+        return Physics2D.OverlapBox(groundCheck.position, playerData.groundCheckSize, 0, playerData.whatIsGround);
+    }
     public void CheckIfShouldFlip(int xInput)
     {
         if (xInput != 0 && xInput != FacingDirection)
         {
             FlipCharacter();
         }
-    }
-
-    public bool CheckIfGrounded()
-    {
-        return Physics2D.OverlapBox(groundCheck.position, playerData.groundCheckSize, 0, playerData.whatIsGround);
     }
     #endregion
 

@@ -13,9 +13,14 @@ MonoBehaviour:
   m_Name: playerData
   m_EditorClassIdentifier: 
   movementVelocity: 10
+  movementVelocityOnLadder: 5
   jumpVelocity: 20
   variableJumpHeightMultiplier: 0.5
   groundCheckSize: {x: 0.9, y: 0.4}
+  ladderCheckDistance: 0.5
   whatIsGround:
     serializedVersion: 2
     m_Bits: 8
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 128

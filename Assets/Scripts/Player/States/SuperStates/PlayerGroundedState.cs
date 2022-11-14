@@ -6,9 +6,11 @@ using UnityEngine.Windows;
 public class PlayerGroundedState : PlayerState
 {
     protected int xinput;
+    protected int yinput;
 
     private bool JumpInput;
     private bool isGrounded;
+    private bool isTouchingLadder;
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string aminBoolName) : base(player, stateMachine, playerData, aminBoolName)
     {
     }
@@ -18,6 +20,7 @@ public class PlayerGroundedState : PlayerState
         base.DoChecks();
 
         isGrounded = player.CheckIfGrounded();
+        isTouchingLadder = player.CheckIfTouchingLadder();
     }
 
     public override void Enter()
@@ -34,8 +37,8 @@ public class PlayerGroundedState : PlayerState
     {
         base.LogicUpdate();
         xinput = player.InputHandler.NormalizeInputX;
+        yinput = player.InputHandler.NormalizeInputY;
         JumpInput = player.InputHandler.JumpInput;
-      //  Debug.Log($"INputStop = {player.InputHandler.JumpInputStop} || Jump = {player.InputHandler.JumpInput}");
         if (JumpInput)
         {
             player.InputHandler.UseJumpInput();
@@ -44,6 +47,10 @@ public class PlayerGroundedState : PlayerState
         else if (!isGrounded)
         {
             stateMachine.ChangeState(player.inAirState);
+        }
+        else if (isTouchingLadder && yinput > 0)
+        {
+            stateMachine.ChangeState(player.LadderClimbState);
         }
     }
 
