@@ -16,7 +16,7 @@ public class PlayerLandState : PlayerGroundedState
         {
             stateMachine.ChangeState(player.MoveState);
         }
-        else if (isAnimationFinished)
+        else if (isAnimationFinished || xinput == 0)//«Ã≤Õ»“» œ–» ¿Õ≤Ã¿÷≤ø
         {
             stateMachine.ChangeState(player.IdelState);
         }
