@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Windows;
 
@@ -8,9 +9,10 @@ public class PlayerGroundedState : PlayerState
     protected int xinput;
     protected int yinput;
 
-    private bool JumpInput;
+    private bool jumpInput;
     private bool isGrounded;
     private bool isTouchingLadder;
+    private bool dashInput;
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string aminBoolName) : base(player, stateMachine, playerData, aminBoolName)
     {
     }
@@ -40,9 +42,14 @@ public class PlayerGroundedState : PlayerState
         xinput = player.InputHandler.NormalizeInputX;
         yinput = player.InputHandler.NormalizeInputY;
        
-        JumpInput = player.InputHandler.JumpInput;
+        jumpInput = player.InputHandler.JumpInput;
+        dashInput = player.InputHandler.DashInput;
 
-        if (JumpInput)
+        if (dashInput)
+        {
+            stateMachine.ChangeState(player.DashState);
+        }
+        if (jumpInput)
         {
             player.InputHandler.UseJumpInput();
             stateMachine.ChangeState(player.JumpState);

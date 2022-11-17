@@ -9,9 +9,13 @@ public class PlayerInputHandler : MonoBehaviour
     public bool JumpInput { get; private set; }
     public bool JumpInputStop { get; private set; }
     public bool JumpDownInput { get; private set; }
+    public bool DashInput { get; private set; }
 
     private float inputHoldTime = 0.2f;
     private float ignoreCollisionTime = 0.3f;
+    //ÇÌ²ÍÈÒÈ Ç ÏÎßÂÎÞ ÀÍ²ÌÀÖ²¯
+    private float startDashTime;
+    private float dashTime = 0.3f;
 
     private float jumpInputStartTime;
     private float ignoreCollisionStartTime;
@@ -23,6 +27,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         CheckJumpInputHoldTime();
         CheckIgnoreCollisionTime();
+        CheckDashTime();
     }
     public void onMoveInput(InputAction.CallbackContext context)
     {
@@ -51,11 +56,27 @@ public class PlayerInputHandler : MonoBehaviour
             JumpInputStop = true;
         }
     }
+    public void onDashInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            startDashTime = Time.time;
+            DashInput = true;
+        }
+    }
     public void UseJumpInput()
     {
         JumpInput = false;
     }
 
+    #region Check Functions
+    private void CheckDashTime()
+    {
+        if (Time.time >= startDashTime + dashTime)
+        {
+            DashInput = false;
+        }
+    }
     private void CheckIgnoreCollisionTime()
     {
         if (Time.time >= ignoreCollisionStartTime + ignoreCollisionTime)
@@ -70,4 +91,5 @@ public class PlayerInputHandler : MonoBehaviour
             JumpInput = false;
         }
     }
+    #endregion
 }

@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
     public PlayerLandState LandState { get; private set; }
     public PlayerLadderClimbState LadderClimbState { get; private set; }
     public PlayerLadderGrabState LadderGrabState { get; private set; }
+    public PlayerDashState DashState {get; private set; }
     [SerializeField]
     private PlayerData playerData;
     #endregion
@@ -55,6 +56,7 @@ public class Player : MonoBehaviour
         LandState = new PlayerLandState(this, StateMachine, playerData, "land");
         LadderGrabState = new PlayerLadderGrabState(this, StateMachine, playerData, "grabLadder");
         LadderClimbState = new PlayerLadderClimbState(this, StateMachine, playerData, "climbLadder");
+        DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
     }
     private void Start()
     {
