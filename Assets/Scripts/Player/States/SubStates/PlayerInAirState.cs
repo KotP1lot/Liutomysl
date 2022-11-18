@@ -39,7 +39,7 @@ public class PlayerInAirState : PlayerState
         xinput = player.InputHandler.NormalizeInputX;
         yinput = player.InputHandler.NormalizeInputY;
         JumpInputStop = player.InputHandler.JumpInputStop;
-       // Debug.Log($"INputStop = {JumpInputStop} || Jump = {player.InputHandler.JumpInput}");
+      
         CheckJumpMultiplier();
 
         if (isGrounded && player.CurrentVelocity.y < 0.01f)
