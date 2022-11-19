@@ -20,4 +20,10 @@ public class PlayerData : ScriptableObject
     public float ladderCheckDistance = 0.5f;
     public LayerMask whatIsGround;
     public LayerMask whatIsLadder;
+
+    [Header("Default Ñharacteristics Data")]
+    public float defaultHealthPoint = 100;
+    public float defaultEndurancePoint = 100;
+    public float HPGrowth = 0.1f;
+    public float EnduranceGrowth = 0.1f;
 }
