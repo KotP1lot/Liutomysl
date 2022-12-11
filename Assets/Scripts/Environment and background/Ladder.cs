@@ -22,7 +22,7 @@ public class Ladder : MonoBehaviour
     }
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Exit");
+        //Debug.Log("Exit");
         if (collision.gameObject.GetComponent<Move>() != null)
         {
             collision.gameObject.GetComponent<Move>().LadderState(false);
