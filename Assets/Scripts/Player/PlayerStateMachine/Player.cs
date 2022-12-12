@@ -16,11 +16,15 @@ public class Player : MonoBehaviour
     public PlayerLadderClimbState LadderClimbState { get; private set; }
     public PlayerLadderGrabState LadderGrabState { get; private set; }
     public PlayerDashState DashState {get; private set; }
+    public PlayerGroundedAttackState AttackState { get; private set; }
+
     [SerializeField]
     private PlayerData playerData;
     #endregion
 
     #region Components
+    [SerializeField]
+    public GameObject weapon;
     public Animator Animator { get; private set; }
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
@@ -57,6 +61,7 @@ public class Player : MonoBehaviour
         LadderGrabState = new PlayerLadderGrabState(this, StateMachine, playerData, "grabLadder");
         LadderClimbState = new PlayerLadderClimbState(this, StateMachine, playerData, "climbLadder");
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
+        AttackState = new PlayerGroundedAttackState(this, StateMachine, playerData, "attack");
     }
     private void Start()
     {

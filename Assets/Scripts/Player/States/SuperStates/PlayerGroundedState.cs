@@ -13,6 +13,7 @@ public class PlayerGroundedState : PlayerState
     private bool isGrounded;
     private bool isTouchingLadder;
     private bool dashInput;
+    private bool isAttacking;
     public PlayerGroundedState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string aminBoolName) : base(player, stateMachine, playerData, aminBoolName)
     {
     }
@@ -44,7 +45,11 @@ public class PlayerGroundedState : PlayerState
        
         jumpInput = player.InputHandler.JumpInput;
         dashInput = player.InputHandler.DashInput;
-
+        isAttacking = player.InputHandler.isAttacking;
+        if (isAttacking)
+        {
+            stateMachine.ChangeState(player.AttackState);
+        }
         if (dashInput)
         {
             stateMachine.ChangeState(player.DashState);
