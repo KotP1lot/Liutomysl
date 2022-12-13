@@ -10,28 +10,32 @@ public class EnemyState
 
     protected float startTime;
 
-    private string aminBoolName;
+    protected string animBoolName;
 
-    public EnemyState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string aminBoolName)
+    public EnemyState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName)
     {
         this.enemy = enemy;
         this.stateMachine = stateMachine;
         this.enemyData = enemyData;
-        this.aminBoolName = aminBoolName;
+        this.animBoolName = animBoolName;
     }
 
     public virtual void Enter()
     {
         DoChecks();
-        //  enemy.Animator.SetBool(aminBoolName, true);
+
+        enemy.Animator.SetBool(animBoolName, true);
+
         startTime = Time.time;
         isAnimationFinished = false;
-        Debug.Log(aminBoolName);
+        Debug.Log("enemy - " + animBoolName);
     }
 
     public virtual void Exit()
     {
-        //  enemy.Animator.SetBool(aminBoolName, false);
+
+        enemy.Animator.SetBool(animBoolName, false);
+
     }
 
     public virtual void LogicUpdate()
@@ -49,6 +53,11 @@ public class EnemyState
 
     }
     public virtual void AnimationTrigger()
+    {
+
+    }
+
+    public virtual void AnimationTrigger(bool something)
     {
 
     }
