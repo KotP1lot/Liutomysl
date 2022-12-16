@@ -34,19 +34,17 @@ public class PlayerInputHandler : MonoBehaviour
 
     #region Attack
     public AttackType attackInput { get; private set; }
-    public bool isAttacking { get; private set; }
+    [HideInInspector]public bool isAttacking;
     public int countAttack { get; private set; }
     public Dictionary<int, AttackType> AttackInputs { get; private set; }
     private float timeToContinueAttack;
     private float timeForContinueAttack;
-    private bool canContinueAttack;
     
     #endregion
     private void Start()
     {
         inputHoldTime = 0.2f;
         countAttack = 0;
-        canContinueAttack = true;
         AttackInputs = new Dictionary<int, AttackType>();
         isAttacking = false;
     }
@@ -115,7 +113,7 @@ public class PlayerInputHandler : MonoBehaviour
             //    timeToContinueAttack = Time.time + 0.2f;
             //    timeForContinueAttack = timeToContinueAttack + 1f;
             //    canContinueAttack = false;
-            //    isAttacking = true;
+            isAttacking = true;
 
             //    if (countAttack + 1 > 2) countAttack = 0; else countAttack++;
             //    Debug.Log("Light Attack Added, counter" + countAttack);
@@ -132,6 +130,8 @@ public class PlayerInputHandler : MonoBehaviour
     {
         StrongAttackInput = false;
         LightAttackInput = false;
+
+        isAttacking = false;
     }
 
     public void onStrongAttackInput(InputAction.CallbackContext context)
@@ -148,7 +148,7 @@ public class PlayerInputHandler : MonoBehaviour
 
             //    timeToContinueAttack = Time.time + 0.5f;
             //    timeForContinueAttack = timeToContinueAttack + 1f;
-            //    isAttacking = true;
+                isAttacking = true;
 
             //    canContinueAttack = false;
             //    countAttack = countAttack > 2 ? 0 : countAttack++;
@@ -196,12 +196,6 @@ public class PlayerInputHandler : MonoBehaviour
         {
             JumpInput = false;
         }
-    }
-
-    private void CheckIfCanContinueAttack()
-    {
-        if(Time.time>= timeToContinueAttack) canContinueAttack = true;
-        if (Time.time >= timeForContinueAttack) { AttackInputs.Clear(); countAttack = 0; }
     }
     #endregion
 }

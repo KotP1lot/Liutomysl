@@ -8,6 +8,7 @@ public class PlayerData : ScriptableObject
     public float movementVelocity = 10f;
     public float movementVelocityOnLadder = 5f;
     public float dashVelocity = 20f;
+    public float stepForce;
 
     [Header("Jump State")]
     public float jumpVelocity = 10f;
@@ -20,4 +21,13 @@ public class PlayerData : ScriptableObject
     public float ladderCheckDistance = 0.5f;
     public LayerMask whatIsGround;
     public LayerMask whatIsLadder;
+
+    [Header("Attack damage")]
+    public int LightDamage1;
+    public int LightDamage2;
+    public int LightDamage3;
+    public int StrongDamage1;
+    public int StrongDamage2;
+    public int StrongDamage3;
+
 }
