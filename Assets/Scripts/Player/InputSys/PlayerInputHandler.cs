@@ -19,6 +19,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool JumpInputStop { get; private set; }
     public bool JumpDownInput { get; private set; }
     public bool DashInput { get; private set; }
+    public bool LightAttackInput { get; private set; }
+    public bool StrongAttackInput { get; private set; }
 
     private float inputHoldTime = 0.2f;
     private float ignoreCollisionTime = 0.3f;
@@ -55,7 +57,7 @@ public class PlayerInputHandler : MonoBehaviour
         CheckJumpInputHoldTime();
         CheckIgnoreCollisionTime();
         CheckDashTime();
-        CheckIfCanContinueAttack();
+        //CheckIfCanContinueAttack();
     }
     public void onMoveInput(InputAction.CallbackContext context)
     {
@@ -101,51 +103,62 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (context.started)
         {
-            Debug.Log("Light Attack Pressed");
-            if (canContinueAttack)
-            {
+            LightAttackInput = true;
+            //Debug.Log("Light Attack Pressed");
+            //if (canContinueAttack)
+            //{
    
-                attackInput = AttackType.Light;
-                if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
-                AttackInputs.Add(countAttack, attackInput);
+            //    attackInput = AttackType.Light;
+            //    if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
+            //    AttackInputs.Add(countAttack, attackInput);
       
-                timeToContinueAttack = Time.time + 0.2f;
-                timeForContinueAttack = timeToContinueAttack + 1f;
-                canContinueAttack = false;
-                isAttacking = true;
+            //    timeToContinueAttack = Time.time + 0.2f;
+            //    timeForContinueAttack = timeToContinueAttack + 1f;
+            //    canContinueAttack = false;
+            //    isAttacking = true;
 
-                if (countAttack + 1 > 2) countAttack = 0; else countAttack++;
-                Debug.Log("Light Attack Added, counter" + countAttack);
-            }
+            //    if (countAttack + 1 > 2) countAttack = 0; else countAttack++;
+            //    Debug.Log("Light Attack Added, counter" + countAttack);
+            //}
         }
         if (context.canceled)
         {
-            if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
+            LightAttackInput = false;
+            //if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
         }
     }
+
+    public void ResetAttackInput()
+    {
+        StrongAttackInput = false;
+        LightAttackInput = false;
+    }
+
     public void onStrongAttackInput(InputAction.CallbackContext context)
     {
         if (context.started)
         {
-            Debug.Log("Strong Attack Pressed");
-            if (canContinueAttack)
-            {
-                attackInput = AttackType.Strong;
-                if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
-                AttackInputs.Add(countAttack, attackInput);
+            StrongAttackInput = true;
+            //Debug.Log("Strong Attack Pressed");
+            //if (canContinueAttack)
+            //{
+            //    attackInput = AttackType.Strong;
+            //    if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
+            //    AttackInputs.Add(countAttack, attackInput);
 
-                timeToContinueAttack = Time.time + 0.5f;
-                timeForContinueAttack = timeToContinueAttack + 1f;
-                isAttacking = true;
+            //    timeToContinueAttack = Time.time + 0.5f;
+            //    timeForContinueAttack = timeToContinueAttack + 1f;
+            //    isAttacking = true;
 
-                canContinueAttack = false;
-                countAttack = countAttack > 2 ? 0 : countAttack++;
-                Debug.Log("Strong Attack Added");
-            }
+            //    canContinueAttack = false;
+            //    countAttack = countAttack > 2 ? 0 : countAttack++;
+            //    Debug.Log("Strong Attack Added");
+            //}
         }
         if (context.canceled)
         {
-            if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
+            StrongAttackInput = false;
+            //if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
         }
     }
     public void OnAttackAnimFinished()
