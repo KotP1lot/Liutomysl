@@ -1,0 +1,58 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9e2256d418af54c438325e60ea526b0a, type: 3}
+  m_Name: SimpleEnemy
+  m_EditorClassIdentifier: 
+  movementVelocity: 2
+  jumpVelocity: 10
+  startingPosition: {x: -23.98, y: -2.99, z: 0}
+  jumpRayLength: 1.3
+  fallDelay: 10
+  groundCheckPosition: {x: 0, y: -1, z: 0}
+  groundCheckSize: {x: 0.3, y: 0.2}
+  groundMask:
+    serializedVersion: 2
+    m_Bits: 264
+  playerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  health: 0
+  damage: 0
+  attackRange: 1.2
+  waitAfterAttack: 2
+  detectSize: {x: 15, y: 7}
+  detectOffset: {x: 4, y: 0, z: 0}
+  playerCollider: {fileID: 0}
+  waitBeforeChase: 1
+  chaseBeforeReturnFor: 5
+  continueChasing: 1
+  idleTimeMin: 1
+  idleTimeMax: 2
+  canWander: 0
+  wanderRange: 8
+  wanderDistanceMin: 3
+  wanderDistanceMax: 5
+  canPatrol: 0
+  patrolRange: 6
+  canShoot: 0
+  bulletPrefab: {fileID: 707118291018039046, guid: 1a4c8068c80b5cb4eb52675bd23a9733, type: 3}
+  shootRange: 11
+  shootPoint: {x: 0.8, y: 0.8, z: 0}
+  bulletVelocity: 5
+  waitBeforeShoot: 5
+  waitBeforeReturn: 2
+  wanderGizmos: 0
+  patrolGizmos: 0
+  detectGizmos: 1
+  attackGizmos: 1
+  jumpGizmos: 1
+  shootGizmos: 0
