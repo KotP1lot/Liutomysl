@@ -15,6 +15,8 @@ public class Enemy : MonoBehaviour
     public EnemyReturnState ReturnState { get; private set; }
     public EnemyJumpState JumpState { get; private set; }
     public EnemyAttackState AttackState { get; private set; }
+    public EnemyPatrolState PatrolState { get; private set; }
+    public EnemyShootState ShootState { get; private set; }
 
     [SerializeField]
     private EnemyData enemyData;
@@ -48,6 +50,8 @@ public class Enemy : MonoBehaviour
         ReturnState = new EnemyReturnState(this, StateMachine, enemyData, "return");
         JumpState = new EnemyJumpState(this, StateMachine, enemyData, "jump");
         AttackState = new EnemyAttackState(this, StateMachine, enemyData, "attack");
+        PatrolState = new EnemyPatrolState(this, StateMachine, enemyData, "patrol");
+        ShootState = new EnemyShootState(this, StateMachine, enemyData, "shoot");
 
         enemyData.continueChasing = false;
         enemyData.startingPosition = transform.position;
@@ -100,8 +104,6 @@ public class Enemy : MonoBehaviour
     {
         FacingDirection *= -1;
 
-        //transform.localScale.Set(FacingDirection, 1, 1);
-
         transform.Rotate(0.0f, 180.0f, 0, 0f);
     }
 
@@ -129,6 +131,19 @@ public class Enemy : MonoBehaviour
             Gizmos.DrawRay(transform.position, new Vector2(enemyData.jumpRayLength * FacingDirection, 0));
 
             Gizmos.DrawWireCube(transform.position + enemyData.groundCheckPosition, enemyData.groundCheckSize);
+        }
+        if (enemyData.patrolGizmos)
+        {
+            Gizmos.color = Color.green;
+            Gizmos.DrawLine(new Vector2(enemyData.startingPosition.x - enemyData.patrolRange, enemyData.startingPosition.y-0.5f),
+                new Vector2(enemyData.startingPosition.x + enemyData.patrolRange, enemyData.startingPosition.y - 0.5f));
+        }
+        if (enemyData.shootGizmos)
+        {
+            Gizmos.color = Color.cyan;
+            var actualShootPoint = new Vector3(enemyData.shootPoint.x * FacingDirection, enemyData.shootPoint.y, 0);
+            Gizmos.DrawWireSphere(transform.position + actualShootPoint, 0.2f);
+            Gizmos.DrawWireSphere(transform.position, enemyData.shootRange);
         }
     }
 
@@ -166,6 +181,15 @@ public class Enemy : MonoBehaviour
         if (CheckIfGrounded())
         {
             return Physics2D.OverlapCircle(transform.position, enemyData.attackRange, enemyData.playerMask);
+        }
+        return false;
+    }
+
+    public bool CanShoot()
+    {
+        if (enemyData.canShoot && CheckIfGrounded())
+        {
+            return Physics2D.OverlapCircle(transform.position, enemyData.shootRange, enemyData.playerMask);
         }
         return false;
     }

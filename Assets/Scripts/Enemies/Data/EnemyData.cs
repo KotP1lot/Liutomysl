@@ -1,3 +1,4 @@
+using MyBox;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,12 +15,12 @@ public class EnemyData : ScriptableObject
     public Vector3 groundCheckPosition;
     public Vector2 groundCheckSize;
 
-    [Header("Layer Masks")]
+    [Header("\nLayer Masks")]
     public LayerMask groundMask;
     public LayerMask playerMask;
 
     
-    [Header("Combat info")]
+    [Header("\nCombat info")]
     public int health;
     public int damage;
     public float attackRange;
@@ -28,25 +29,41 @@ public class EnemyData : ScriptableObject
     public Vector3 detectOffset;
     [HideInInspector] public Collider2D playerCollider;
 
-    [Header("Chase State")]
+    [Header("\nChase State")]
     public float waitBeforeChase;
     public float chaseBeforeReturnFor;
     [HideInInspector] public bool continueChasing;
 
-    [Header("Wander State")]
-    public bool canWander;
-    public float wanderRange;
-    public float wanderDistanceMin;
-    public float wanderDistanceMax;
+    [Header("\nIdle State")]
     public float idleTimeMin;
     public float idleTimeMax;
 
-    [Header("Return State")]
+    [Header("\nWander State")]
+    public bool canWander;
+    [ConditionalField("canWander")] public float wanderRange;
+    [ConditionalField("canWander")] public float wanderDistanceMin;
+    [ConditionalField("canWander")] public float wanderDistanceMax;
+
+    [Header("\nPatrol State")]
+    public bool canPatrol;
+    [ConditionalField("canPatrol")] public float patrolRange;
+
+    [Header("\nShoot State")]
+    public bool canShoot;
+    [ConditionalField("canShoot")] public GameObject bulletPrefab;
+    [ConditionalField("canShoot")] public float shootRange;
+    [ConditionalField("canShoot")] public Vector3 shootPoint;
+    [ConditionalField("canShoot")] public float bulletVelocity;
+    [ConditionalField("canShoot")] public float waitBeforeShoot;
+
+    [Header("\nReturn State")]
     public float waitBeforeReturn;
 
-    [Header("Gizmos")]
+    [Header("\nGizmos")]
     public bool wanderGizmos;
+    public bool patrolGizmos;
     public bool detectGizmos;
     public bool attackGizmos;
     public bool jumpGizmos;
+    public bool shootGizmos;
 }

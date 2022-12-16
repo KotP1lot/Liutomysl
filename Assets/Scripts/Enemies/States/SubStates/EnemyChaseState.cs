@@ -16,12 +16,16 @@ public class EnemyChaseState : EnemyOnGroundState
         base.DoChecks();
 
         if (!returnTimerStarted && !enemy.CheckDetection()) startReturnTimer();
+
         if (returnTimerStarted && enemy.CheckDetection()) returnTimerStarted = false;
+
         if (returnTimerStarted && Time.time >= returnTimerStart) stateMachine.ChangeState(enemy.ReturnState);
 
         if (enemy.CheckIfNeedsToJump()) { stateMachine.ChangeState(enemy.JumpState); enemyData.continueChasing = true; }
 
-        if (enemy.CanAttack()) { stateMachine.ChangeState(enemy.AttackState); enemyData.continueChasing = true; return; }
+        if (enemy.CanAttack()) { stateMachine.ChangeState(enemy.AttackState); enemyData.continueChasing = true; }
+
+        if (Time.time >= timerStart && enemy.CanShoot()) { stateMachine.ChangeState(enemy.ShootState); enemyData.continueChasing = true; }
     }
 
     public override void Enter()

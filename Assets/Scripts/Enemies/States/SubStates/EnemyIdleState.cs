@@ -14,6 +14,7 @@ public class EnemyIdleState : EnemyOnGroundState
 
         if (enemy.CheckDetection()) stateMachine.ChangeState(enemy.ChaseState);
         if (enemy.CheckIfNeedsToJump()) stateMachine.ChangeState(enemy.JumpState);
+
         //if ( (int)enemy.transform.position.x != (int)enemyData.startingPosition.x) stateMachine.ChangeState(enemy.ReturnState);
     }
 
@@ -23,10 +24,8 @@ public class EnemyIdleState : EnemyOnGroundState
 
         enemy.SetVelocityX(0f);
 
-        if (enemyData.canWander)
-        {
-            startExitTimer();
-        }
+        if ((enemyData.canWander && !enemyData.canPatrol)
+            || (!enemyData.canWander && enemyData.canPatrol)) startExitTimer();
     }
 
     private float timerStart = 0f;
@@ -45,11 +44,10 @@ public class EnemyIdleState : EnemyOnGroundState
     {
         base.LogicUpdate();
 
-
-
-        if (enemyData.canWander && Time.time >= timerStart)
+        if (Time.time >= timerStart)
         {
-            stateMachine.ChangeState(enemy.WanderState);
+            if (enemyData.canWander && !enemyData.canPatrol) stateMachine.ChangeState(enemy.WanderState);
+            if (!enemyData.canWander && enemyData.canPatrol) stateMachine.ChangeState(enemy.PatrolState);
         }
     }
 

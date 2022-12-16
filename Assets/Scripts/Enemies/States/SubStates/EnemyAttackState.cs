@@ -16,10 +16,6 @@ public class EnemyAttackState : EnemyOnGroundState
     public override void DoChecks()
     {
         base.DoChecks();
-
-        //if (enemy.CheckDetection()) stateMachine.ChangeState(enemy.ChaseState);
-        //if (enemy.CheckIfNeedsToJump()) stateMachine.ChangeState(enemy.JumpState);
-        //if ( (int)enemy.transform.position.x != (int)enemyData.startingPosition.x) stateMachine.ChangeState(enemy.ReturnState);
     }
 
     public override void Enter()
@@ -27,6 +23,8 @@ public class EnemyAttackState : EnemyOnGroundState
         base.Enter();
 
         ignoreAnimFinish = false;
+        isAnimationFinished = false;
+        timerStarted = false;
 
         enemy.SetVelocityX(0f);
     }

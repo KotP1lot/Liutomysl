@@ -17,6 +17,7 @@ public class EnemyWanderState : EnemyOnGroundState
         base.DoChecks();
 
         if (enemy.CheckDetection()) stateMachine.ChangeState(enemy.ChaseState);
+        if (enemy.CheckIfNeedsToJump()) stateMachine.ChangeState(enemy.JumpState);
     }
 
     public override void Enter()
