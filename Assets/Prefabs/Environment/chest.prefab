@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3039980062092501016}
   - component: {fileID: 3039980062092501019}
   - component: {fileID: 3039980062092501020}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: chest
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -146,6 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: 
-  animator: {fileID: 3039980062092501016}
-  chestCollider: {fileID: 3039980062092501019}
+  _animator: {fileID: 0}
+  _chestCollider: {fileID: 0}
   _givesCurrency: 0
