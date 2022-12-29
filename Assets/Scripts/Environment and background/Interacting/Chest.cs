@@ -5,8 +5,8 @@ using UnityEngine;
 public class Chest : MonoBehaviour, IInteractable
 {
     [SerializeField] private string _prompt;
-    [SerializeField] private Animator animator;
-    [SerializeField] private Collider2D chestCollider;
+    [SerializeField] private Animator _animator;
+    [SerializeField] private Collider2D _chestCollider;
     [SerializeField] private int _givesCurrency = 0;
     public string InteractionPrompt => _prompt;
 
@@ -21,8 +21,8 @@ public class Chest : MonoBehaviour, IInteractable
             Debug.Log("Отримано " + _givesCurrency + " сахару");
         }
 
-        animator.SetTrigger("open_chest");
-        chestCollider.enabled = true;
+        _animator.SetTrigger("open_chest");
+        _chestCollider.enabled = true;
 
         return true;
     }
