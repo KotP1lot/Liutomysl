@@ -426,6 +426,7 @@ MonoBehaviour:
   weapon: {fileID: 7602817957312984092}
   groundCheck: {fileID: 7602817958045706793}
   ladderCheck: {fileID: 7602817957940623715}
+  isDamaged: 0
 --- !u!1 &7602817957940623714
 GameObject:
   m_ObjectHideFlags: 0
@@ -497,7 +498,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7602817958178661880}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}

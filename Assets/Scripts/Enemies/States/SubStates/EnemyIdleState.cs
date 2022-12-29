@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EnemyIdleState : EnemyOnGroundState
 {
+    private float timerStart = 0f;
+
     public EnemyIdleState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string aminBoolName) : base(enemy, stateMachine, enemyData, aminBoolName)
     {
     }
@@ -14,8 +16,6 @@ public class EnemyIdleState : EnemyOnGroundState
 
         if (enemy.CheckDetection()) stateMachine.ChangeState(enemy.ChaseState);
         if (enemy.CheckIfNeedsToJump()) stateMachine.ChangeState(enemy.JumpState);
-
-        //if ( (int)enemy.transform.position.x != (int)enemyData.startingPosition.x) stateMachine.ChangeState(enemy.ReturnState);
     }
 
     public override void Enter()
@@ -24,11 +24,8 @@ public class EnemyIdleState : EnemyOnGroundState
 
         enemy.SetVelocityX(0f);
 
-        if ((enemyData.canWander && !enemyData.canPatrol)
-            || (!enemyData.canWander && enemyData.canPatrol)) startExitTimer();
+        if ((enemyData.canWander && !enemyData.canPatrol) || (!enemyData.canWander && enemyData.canPatrol)) startExitTimer();
     }
-
-    private float timerStart = 0f;
 
     private void startExitTimer()
     {

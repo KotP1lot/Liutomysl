@@ -17,6 +17,9 @@ public class Enemy : MonoBehaviour
     public EnemyAttackState AttackState { get; private set; }
     public EnemyPatrolState PatrolState { get; private set; }
     public EnemyShootState ShootState { get; private set; }
+    public EnemyDamagedState DamagedState { get; private set; }
+    public EnemyBlockState BlockState { get; private set; }
+    public EnemyActState ActState { get; private set; }
 
     [SerializeField]
     private EnemyData enemyData;
@@ -24,8 +27,9 @@ public class Enemy : MonoBehaviour
 
     #region Other Variables
     public Rigidbody2D RB { get; private set; }
+    public Collider2D enemyCollider { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
-    public int FacingDirection = 1; // { get; private set; }
+    public int FacingDirection { get; private set; }
 
     public Ray2D jumpRay = new Ray2D();
 
@@ -52,6 +56,9 @@ public class Enemy : MonoBehaviour
         AttackState = new EnemyAttackState(this, StateMachine, enemyData, "attack");
         PatrolState = new EnemyPatrolState(this, StateMachine, enemyData, "patrol");
         ShootState = new EnemyShootState(this, StateMachine, enemyData, "shoot");
+        DamagedState = new EnemyDamagedState(this, StateMachine, enemyData, "damaged");
+        BlockState = new EnemyBlockState(this, StateMachine, enemyData, "block");
+        ActState = new EnemyActState(this, StateMachine, enemyData, "act");
 
         enemyData.continueChasing = false;
         enemyData.startingPosition = transform.position;
@@ -59,8 +66,7 @@ public class Enemy : MonoBehaviour
     private void Start()
     {
         RB = GetComponent<Rigidbody2D>();
-        //Animator = GetComponent<Animator>();
-        //PlayerCollider = GetComponent<Collider2D>();
+        enemyCollider = GetComponent<Collider2D>();
         StateMachine.Initialize(IdleState);
         FacingDirection = 1;
         attackCollider.enabled = false;
@@ -78,11 +84,16 @@ public class Enemy : MonoBehaviour
     #endregion
     public void CheckIfShouldFlip(int xInput)
     {
-
         if (xInput != 0 && xInput != FacingDirection)
         {
             FlipCharacter();
         }
+    }
+    private void FlipCharacter()
+    {
+        FacingDirection *= -1;
+
+        transform.Rotate(0.0f, 180.0f, 0, 0f);
     }
     public void SetVelocityX(float velocity)
     {
@@ -100,53 +111,7 @@ public class Enemy : MonoBehaviour
         RB.velocity = workspace;
         CurrentVelocity = workspace;
     }
-    private void FlipCharacter()
-    {
-        FacingDirection *= -1;
-
-        transform.Rotate(0.0f, 180.0f, 0, 0f);
-    }
-
-    private void OnDrawGizmos()
-    {
-        if (enemyData.wanderGizmos)
-        {
-            Gizmos.color = Color.yellow;
-            Gizmos.DrawWireSphere(enemyData.startingPosition, enemyData.wanderRange);
-        }
-        if (enemyData.detectGizmos)
-        {
-            Gizmos.color = Color.magenta;
-
-            Gizmos.DrawWireCube(transform.position + enemyData.detectOffset * FacingDirection,enemyData.detectSize);
-        }
-        if (enemyData.attackGizmos)
-        {
-            Gizmos.color = Color.red;
-            Gizmos.DrawWireSphere(transform.position, enemyData.attackRange);
-        }
-        if (enemyData.jumpGizmos)
-        {
-            Gizmos.color = Color.blue;
-            Gizmos.DrawRay(transform.position, new Vector2(enemyData.jumpRayLength * FacingDirection, 0));
-
-            Gizmos.DrawWireCube(transform.position + enemyData.groundCheckPosition, enemyData.groundCheckSize);
-        }
-        if (enemyData.patrolGizmos)
-        {
-            Gizmos.color = Color.green;
-            Gizmos.DrawLine(new Vector2(enemyData.startingPosition.x - enemyData.patrolRange, enemyData.startingPosition.y-0.5f),
-                new Vector2(enemyData.startingPosition.x + enemyData.patrolRange, enemyData.startingPosition.y - 0.5f));
-        }
-        if (enemyData.shootGizmos)
-        {
-            Gizmos.color = Color.cyan;
-            var actualShootPoint = new Vector3(enemyData.shootPoint.x * FacingDirection, enemyData.shootPoint.y, 0);
-            Gizmos.DrawWireSphere(transform.position + actualShootPoint, 0.2f);
-            Gizmos.DrawWireSphere(transform.position, enemyData.shootRange);
-        }
-    }
-
+    
     public bool CheckDetection()
     {
         var collider = Physics2D.OverlapBox(transform.position+enemyData.detectOffset * FacingDirection,enemyData.detectSize,0,enemyData.playerMask);
@@ -156,8 +121,7 @@ public class Enemy : MonoBehaviour
             enemyData.playerCollider = collider;
             return true;
         }
-
-        enemyData.playerCollider = collider;
+        enemyData.playerCollider = null;
         return false;
     }
     public bool CheckIfGrounded()
@@ -176,18 +140,22 @@ public class Enemy : MonoBehaviour
         return false;
     }
 
-    public bool CanAttack()
+    public bool CanAct()
     {
+        if (CheckIfGrounded() && enemyData.useShootAsActRange && enemyData.canShoot)
+        {
+            return Physics2D.OverlapCircle(transform.position, enemyData.shootRange, enemyData.playerMask);
+        }
         if (CheckIfGrounded())
         {
-            return Physics2D.OverlapCircle(transform.position, enemyData.attackRange, enemyData.playerMask);
+            return Physics2D.OverlapCircle(transform.position, enemyData.actRange, enemyData.playerMask);
         }
         return false;
     }
 
     public bool CanShoot()
     {
-        if (enemyData.canShoot && CheckIfGrounded())
+        if (CheckIfGrounded() && enemyData.canShoot)
         {
             return Physics2D.OverlapCircle(transform.position, enemyData.shootRange, enemyData.playerMask);
         }
@@ -197,4 +165,72 @@ public class Enemy : MonoBehaviour
     public void AnimationTrigger() => StateMachine.CurrentState.AnimationTrigger();
     public void EnableAttackCollider(int binaryBool) { StateMachine.CurrentState.AnimationTrigger(binaryBool == 1 ? true : false); }
     public void AnimationFinishTrigger() => StateMachine.CurrentState.AnimationFinishTrigger();
+
+    public void GetDamaged(int amount, Collider2D sender)
+    {
+        if (StateMachine.CurrentState == BlockState)
+        {
+            GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, enemyData.knockbackForce/3);
+            StateMachine.CurrentState.StateFunction();
+
+            var player = sender.GetComponent<Player>();
+            player.GetStunned(enemyCollider);
+        }
+        else
+        {
+            GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, enemyData.knockbackForce);
+            enemyData.continueChasing = true;
+            StateMachine.ChangeState(DamagedState);
+        }
+    }
+    public void GetKnockedBack(int direction, float force)
+    {
+        SetVelocityX(0f);
+        RB.constraints = RigidbodyConstraints2D.FreezeRotation;
+
+        RB.AddForce(new Vector2(force * direction, 0), ForceMode2D.Impulse);
+    }
+
+    private void OnDrawGizmos()
+    {
+        if (enemyData.showGizmos)
+        {
+            if (enemyData.canWander)
+            {
+                Gizmos.color = Color.yellow;
+                Gizmos.DrawWireSphere(enemyData.startingPosition, enemyData.wanderRange);
+            }
+            if (enemyData.detectGizmos)
+            {
+                Gizmos.color = Color.magenta;
+
+                Gizmos.DrawWireCube(transform.position + enemyData.detectOffset * FacingDirection, enemyData.detectSize);
+            }
+            if (enemyData.actGizmos)
+            {
+                Gizmos.color = Color.red;
+                Gizmos.DrawWireSphere(transform.position, enemyData.actRange);
+            }
+            if (enemyData.jumpGizmos)
+            {
+                Gizmos.color = Color.blue;
+                Gizmos.DrawRay(transform.position, new Vector2(enemyData.jumpRayLength * FacingDirection, 0));
+
+                Gizmos.DrawWireCube(transform.position + enemyData.groundCheckPosition, enemyData.groundCheckSize);
+            }
+            if (enemyData.canPatrol)
+            {
+                Gizmos.color = Color.green;
+                Gizmos.DrawLine(new Vector2(enemyData.startingPosition.x - enemyData.patrolRange, enemyData.startingPosition.y - 0.5f),
+                    new Vector2(enemyData.startingPosition.x + enemyData.patrolRange, enemyData.startingPosition.y - 0.5f));
+            }
+            if (enemyData.canShoot)
+            {
+                Gizmos.color = Color.cyan;
+                var actualShootPoint = new Vector3(enemyData.shootPoint.x * FacingDirection, enemyData.shootPoint.y, 0);
+                Gizmos.DrawWireSphere(transform.position + actualShootPoint, 0.2f);
+                Gizmos.DrawWireSphere(transform.position, enemyData.shootRange);
+            }
+        }
+    }
 }

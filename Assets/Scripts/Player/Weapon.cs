@@ -61,19 +61,15 @@ public class Weapon : MonoBehaviour
     {
         weaponCollider.enabled = binaryBool == 1 ? true : false;
     }
-
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag=="Enemy")
         {
-            //Debug.Log("enemy hit");
-            
-
             var animatorInfo = animator.GetCurrentAnimatorClipInfo(0);
             var currentAnim =animatorInfo[0].clip.name;
-            Debug.Log(damage[currentAnim]);
 
-            //damage enemy by damage[currentAnim]
+            var enemy = collision.GetComponent<Enemy>();
+            enemy.GetDamaged(damage[currentAnim], player.PlayerCollider);
 
             weaponCollider.enabled = false; 
         }

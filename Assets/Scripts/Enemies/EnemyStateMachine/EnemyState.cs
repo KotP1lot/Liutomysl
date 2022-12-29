@@ -12,19 +12,22 @@ public class EnemyState
 
     protected string animBoolName;
 
+    protected bool autoAnimStart;
+
     public EnemyState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName)
     {
         this.enemy = enemy;
         this.stateMachine = stateMachine;
         this.enemyData = enemyData;
         this.animBoolName = animBoolName;
+        autoAnimStart = true;
     }
 
     public virtual void Enter()
     {
         DoChecks();
 
-        enemy.Animator.SetBool(animBoolName, true);
+        if (autoAnimStart) enemy.Animator.SetBool(animBoolName, true);
 
         startTime = Time.time;
         isAnimationFinished = false;
@@ -33,9 +36,7 @@ public class EnemyState
 
     public virtual void Exit()
     {
-
         enemy.Animator.SetBool(animBoolName, false);
-
     }
 
     public virtual void LogicUpdate()
@@ -65,5 +66,10 @@ public class EnemyState
     public virtual void AnimationFinishTrigger()
     {
         isAnimationFinished = true;
+    }
+
+    public virtual void StateFunction()
+    {
+
     }
 }

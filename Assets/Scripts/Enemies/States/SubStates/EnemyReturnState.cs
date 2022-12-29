@@ -4,11 +4,12 @@ using UnityEngine;
 
 public class EnemyReturnState : EnemyOnGroundState
 {
+    private int returnDirection;
+    private float timerStart = 0f;
+
     public EnemyReturnState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string aminBoolName) : base(enemy, stateMachine, enemyData, aminBoolName)
     {
     }
-
-    private int returnDirection;
 
     public override void DoChecks()
     {
@@ -40,8 +41,6 @@ public class EnemyReturnState : EnemyOnGroundState
 
         enemy.spriteRenderer2.enabled = false; //temp
     }
-
-    private float timerStart = 0f;
 
     private void startTimer()
     {

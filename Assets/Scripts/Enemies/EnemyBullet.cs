@@ -27,15 +27,9 @@ public class EnemyBullet : MonoBehaviour
     {
         if (collision.gameObject.layer == 6)
         {
-            Debug.Log("Пуля попала");
-            // damage player
-
-
-            Destroy(gameObject);
+            var player = collision.gameObject.GetComponent<Player>();
+            player.GetDamaged(damage, GetComponent<Collider2D>());
         }
-        else
-        {
-            Destroy(gameObject);
-        }
+        Destroy(gameObject);
     }
 }

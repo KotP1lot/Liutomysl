@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyWanderState : EnemyOnGroundState
 {
-    public EnemyWanderState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string aminBoolName) : base(enemy, stateMachine, enemyData, aminBoolName)
-    {
-    }
-
     private int wanderDirection;
     private int nextDirection = 1;
     private float targetX;
+
+    public EnemyWanderState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string aminBoolName) : base(enemy, stateMachine, enemyData, aminBoolName)
+    {
+    }
 
     public override void DoChecks()
     {

@@ -2,11 +2,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyJumpState : EnemyOnGroundState
+public class EnemyBlockState : EnemyOnGroundState
 {
     private float timerStart = 0f;
 
-    public EnemyJumpState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string aminBoolName) : base(enemy, stateMachine, enemyData, aminBoolName)
+    public EnemyBlockState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string aminBoolName) : base(enemy, stateMachine, enemyData, aminBoolName)
     {
     }
 
@@ -19,15 +19,20 @@ public class EnemyJumpState : EnemyOnGroundState
     {
         base.Enter();
 
-        enemy.SetVelocityY(enemyData.jumpVelocity);
-        enemy.SetVelocityX(enemyData.movementVelocity * enemy.FacingDirection);
+        enemy.SetVelocityX(0f);
 
         startTimer();
     }
 
     private void startTimer()
     {
-        timerStart = Time.time + enemyData.fallDelay;
+        timerStart = Time.time + enemyData.blockExitDelay;
+    }
+
+    public override void StateFunction()
+    {
+        if(enemyData.counterAttack) stateMachine.ChangeState(enemy.AttackState);
+        else stateMachine.ChangeState(enemy.ChaseState);
     }
 
     public override void Exit()
@@ -40,10 +45,6 @@ public class EnemyJumpState : EnemyOnGroundState
         base.LogicUpdate();
 
         if (Time.time >= timerStart)
-        {
-            enemy.SetVelocityY(0f);
-        }
-        if (enemy.CheckIfGrounded())
         {
             stateMachine.ChangeState(enemy.ChaseState);
         }

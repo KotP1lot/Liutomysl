@@ -14,6 +14,8 @@ public class EnemyData : ScriptableObject
     public float fallDelay;
     public Vector3 groundCheckPosition;
     public Vector2 groundCheckSize;
+    public float stepForce;
+    public float knockbackForce;
 
     [Header("\nLayer Masks")]
     public LayerMask groundMask;
@@ -22,9 +24,6 @@ public class EnemyData : ScriptableObject
     
     [Header("\nCombat info")]
     public int health;
-    public int damage;
-    public float attackRange;
-    public float waitAfterAttack;
     public Vector2 detectSize;
     public Vector3 detectOffset;
     [HideInInspector] public Collider2D playerCollider;
@@ -38,6 +37,9 @@ public class EnemyData : ScriptableObject
     public float idleTimeMin;
     public float idleTimeMax;
 
+    [Header("\nReturn State")]
+    public float waitBeforeReturn;
+
     [Header("\nWander State")]
     public bool canWander;
     [ConditionalField("canWander")] public float wanderRange;
@@ -48,22 +50,32 @@ public class EnemyData : ScriptableObject
     public bool canPatrol;
     [ConditionalField("canPatrol")] public float patrolRange;
 
+    [Header("\nAct State")]
+    public float actRange;
+
+    [Header("\nAttack State")]
+    public bool canAttack;
+    [ConditionalField("canAttack")] public bool hasTwoAttacks;
+    [ConditionalField("canAttack")] public int damage;
+    [ConditionalField("canAttack")] public float waitAfterAttack;
+
     [Header("\nShoot State")]
     public bool canShoot;
     [ConditionalField("canShoot")] public GameObject bulletPrefab;
     [ConditionalField("canShoot")] public float shootRange;
+    [ConditionalField("canShoot")] public bool useShootAsActRange;
     [ConditionalField("canShoot")] public Vector3 shootPoint;
     [ConditionalField("canShoot")] public float bulletVelocity;
     [ConditionalField("canShoot")] public float waitBeforeShoot;
 
-    [Header("\nReturn State")]
-    public float waitBeforeReturn;
+    [Header("\nBlock State")]
+    public bool canBlock;
+    [ConditionalField("canBlock")] public bool counterAttack;
+    [ConditionalField("canBlock")] public float blockExitDelay;
 
     [Header("\nGizmos")]
-    public bool wanderGizmos;
-    public bool patrolGizmos;
-    public bool detectGizmos;
-    public bool attackGizmos;
-    public bool jumpGizmos;
-    public bool shootGizmos;
+    public bool showGizmos;
+    [ConditionalField("showGizmos")] public bool detectGizmos;
+    [ConditionalField("showGizmos")] public bool jumpGizmos;
+    [ConditionalField("showGizmos")] public bool actGizmos;
 }

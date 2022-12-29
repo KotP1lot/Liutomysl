@@ -4,28 +4,27 @@ using UnityEngine;
 
 public class EnemyChaseState : EnemyOnGroundState
 {
+    private GameObject playerObject;
+    private int playerDirection;
+    private float timerStart = 0f;
+    private float returnTimerStart = 0f;
+    private bool returnTimerStarted = false;
+
     public EnemyChaseState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string aminBoolName) : base(enemy, stateMachine, enemyData, aminBoolName)
     {
     }
-
-    private GameObject playerObject;
-    private int playerDirection;
 
     public override void DoChecks()
     {
         base.DoChecks();
 
         if (!returnTimerStarted && !enemy.CheckDetection()) startReturnTimer();
-
         if (returnTimerStarted && enemy.CheckDetection()) returnTimerStarted = false;
-
         if (returnTimerStarted && Time.time >= returnTimerStart) stateMachine.ChangeState(enemy.ReturnState);
 
         if (enemy.CheckIfNeedsToJump()) { stateMachine.ChangeState(enemy.JumpState); enemyData.continueChasing = true; }
 
-        if (enemy.CanAttack()) { stateMachine.ChangeState(enemy.AttackState); enemyData.continueChasing = true; }
-
-        if (Time.time >= timerStart && enemy.CanShoot()) { stateMachine.ChangeState(enemy.ShootState); enemyData.continueChasing = true; }
+        if (enemy.CanAct()) { stateMachine.ChangeState(enemy.ActState); enemyData.continueChasing = true; }
     }
 
     public override void Enter()
@@ -43,21 +42,16 @@ public class EnemyChaseState : EnemyOnGroundState
         if (!enemyData.continueChasing) {  startTimer(); }
     }
 
-    private float timerStart = 0f;
     private void startTimer()
     {
         enemy.spriteRenderer1.enabled = true; //temp
         timerStart = Time.time + enemyData.waitBeforeChase;
     }
 
-    private float returnTimerStart = 0f;
-    private bool returnTimerStarted = false;
     private void startReturnTimer()
     {
         returnTimerStarted = true;
         returnTimerStart = Time.time + enemyData.chaseBeforeReturnFor;
-
-        Debug.Log("Searching...");
     }
 
     public override void Exit()

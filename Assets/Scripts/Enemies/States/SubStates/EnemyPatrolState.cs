@@ -4,13 +4,13 @@ using UnityEngine;
 
 public class EnemyPatrolState : EnemyOnGroundState
 {
-    public EnemyPatrolState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string aminBoolName) : base(enemy, stateMachine, enemyData, aminBoolName)
-    {
-    }
-
     private int patrolDirection;
     private int nextDirection = 1;
     private float targetX;
+
+    public EnemyPatrolState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string aminBoolName) : base(enemy, stateMachine, enemyData, aminBoolName)
+    {
+    }
 
     public override void DoChecks()
     {
@@ -38,7 +38,6 @@ public class EnemyPatrolState : EnemyOnGroundState
     {
         base.Exit();
     }
-
 
     public override void LogicUpdate()
     {

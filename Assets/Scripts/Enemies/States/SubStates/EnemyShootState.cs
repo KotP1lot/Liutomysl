@@ -12,7 +12,7 @@ public class EnemyShootState : EnemyOnGroundState
     {
         base.DoChecks();
 
-        if (!enemy.CanShoot()) stateMachine.ChangeState(enemy.ChaseState);
+        if (!enemy.CanShoot() || !enemy.CheckDetection()) stateMachine.ChangeState(enemy.ChaseState);
 
         var playerObject = enemyData.playerCollider.gameObject;
         var playerDirection = enemy.transform.position.x > playerObject.transform.position.x ? -1 : 1;
@@ -29,7 +29,6 @@ public class EnemyShootState : EnemyOnGroundState
     }
 
     private float timerStart = 0f;
-
     private void startTimer()
     {
         timerStart = Time.time + enemyData.waitBeforeShoot;

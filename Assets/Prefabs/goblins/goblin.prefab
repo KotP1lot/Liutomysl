@@ -124,6 +124,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2354c706ba39ae343b4583c8aad359eb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  enemyCollider: {fileID: 1527585464028200755}
 --- !u!1 &1527585463385272809
 GameObject:
   m_ObjectHideFlags: 0
@@ -254,7 +255,7 @@ CapsuleCollider2D:
   m_GameObject: {fileID: 1527585464028200759}
   m_Enabled: 1
   m_Density: 1
-  m_Material: {fileID: 6200000, guid: 0e968385faeaf004bbd97e20fad93149, type: 2}
+  m_Material: {fileID: 0}
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
@@ -297,7 +298,6 @@ MonoBehaviour:
   spriteRenderer1: {fileID: 1527585464031109417}
   spriteRenderer2: {fileID: 1527585463385272811}
   enemyData: {fileID: 11400000, guid: bff671a519946e74fa9ca5a35b71f5cd, type: 2}
-  FacingDirection: 1
   attackCollider: {fileID: 1527585463057679253}
   Animator: {fileID: 1527585464764390714}
   spriteRenderer: {fileID: 1527585464764390712}

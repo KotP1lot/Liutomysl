@@ -17,6 +17,8 @@ public class Player : MonoBehaviour
     public PlayerLadderGrabState LadderGrabState { get; private set; }
     public PlayerDashState DashState {get; private set; }
     public PlayerAttackState AttackState { get; private set; }
+    public PlayerDamagedState DamagedState { get; private set; }
+    public PlayerStunnedState StunnedState { get; private set; }
 
     [SerializeField]
     public PlayerData playerData;
@@ -46,6 +48,8 @@ public class Player : MonoBehaviour
 
     private Vector2 workspace;
     private bool JumpDownInput;
+
+    [HideInInspector] public bool isDamaged;
     #endregion
 
     #region Unity Callback Functions
@@ -62,6 +66,8 @@ public class Player : MonoBehaviour
         LadderClimbState = new PlayerLadderClimbState(this, StateMachine, playerData, "climbLadder");
         DashState = new PlayerDashState(this, StateMachine, playerData, "dash");
         AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
+        DamagedState = new PlayerDamagedState(this, StateMachine, playerData, "damaged");
+        StunnedState = new PlayerStunnedState(this, StateMachine, playerData, "stunned");
     }
     private void Start()
     {
@@ -131,6 +137,26 @@ public class Player : MonoBehaviour
     {
         FacingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0, 0f);
+    }
+
+    public void GetDamaged(int amount, Collider2D sender)
+    {
+        isDamaged = true;
+        GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1);
+        StateMachine.ChangeState(DamagedState);
+    }
+    public void GetStunned(Collider2D sender)
+    {
+        isDamaged = true;
+        GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1);
+
+        StateMachine.ChangeState(StunnedState);
+    }
+    public void GetKnockedBack(int direction)
+    {
+        SetVelocityX(0);
+
+        RB.AddForce(new Vector2(playerData.knockbackForce * direction, 0), ForceMode2D.Impulse);
     }
     #endregion
 }

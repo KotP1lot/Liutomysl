@@ -16,6 +16,7 @@ MonoBehaviour:
   movementVelocityOnLadder: 5
   dashVelocity: 20
   stepForce: 5
+  knockbackForce: 8
   jumpVelocity: 20
   variableJumpHeightMultiplier: 0.5
   groundCheckSize: {x: 0.9, y: 0.4}
@@ -26,6 +27,7 @@ MonoBehaviour:
   whatIsLadder:
     serializedVersion: 2
     m_Bits: 128
+  maxHP: 0
   LightDamage1: 1
   LightDamage2: 2
   LightDamage3: 3
