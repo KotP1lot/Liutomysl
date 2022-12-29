@@ -5,6 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Ladder
+  - Enemy
+  - EnemyJump
   layers:
   - Default
   - TransparentFX
@@ -12,11 +15,11 @@ TagManager:
   - Ground
   - Water
   - UI
-  - Background
-  - Interactable
-  - 
-  - 
-  - 
+  - Player
+  - Ladder
+  - Platform
+  - IgnoreCollision
+  - Enemy
   - 
   - 
   - 
@@ -39,12 +42,9 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Background
-    uniqueID: 2619753565
-    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Overlay
-    uniqueID: 230549339
+  - name: Player
+    uniqueID: 1119540263
     locked: 0
