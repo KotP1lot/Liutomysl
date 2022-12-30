@@ -73,5 +73,12 @@ public class Weapon : MonoBehaviour
 
             weaponCollider.enabled = false; 
         }
+        if(collision.tag=="Breakable")
+        {
+            var obj = collision.GetComponent<Breakable>();
+            obj.GetDamaged();
+
+            weaponCollider.enabled = false;
+        }
     }
 }

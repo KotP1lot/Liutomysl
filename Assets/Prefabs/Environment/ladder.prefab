@@ -1,36 +1,5 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!1 &4099769031900276428
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4099769031900276431}
-  m_Layer: 0
-  m_Name: placeToClimb
-  m_TagString: Untagged
-  m_Icon: {fileID: 8418204508859773708, guid: 0000000000000000d000000000000000, type: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4099769031900276431
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4099769031900276428}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.75, z: 0}
-  m_LocalScale: {x: 1.1098, y: 5.6990447, z: 1.1098}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 1367228134761667111}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &4099769032025749284
 GameObject:
   m_ObjectHideFlags: 0
@@ -42,7 +11,7 @@ GameObject:
   - component: {fileID: 4099769032025749287}
   - component: {fileID: 4099769032025749305}
   - component: {fileID: 4099769032025749286}
-  m_Layer: 7
+  m_Layer: 8
   m_Name: Platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -62,7 +31,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 1367228134761667111}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!70 &4099769032025749305
 CapsuleCollider2D:
@@ -91,7 +60,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 511
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0
@@ -111,7 +80,7 @@ GameObject:
   - component: {fileID: 5668105609110844022}
   - component: {fileID: 5668105609110844020}
   - component: {fileID: 5668105609110844021}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: ladder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -130,7 +99,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 4099769031900276431}
   - {fileID: 4099769032025749287}
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -175,7 +143,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -2
   m_Sprite: {fileID: 21300000, guid: 6f32c39a95d5bf1459badc59c46092a4, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -225,6 +193,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f30bb8abeb118154bb31ff5e407ce844, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _placeToClimb: {fileID: 4099769031900276431}
   _platform: {fileID: 4099769032025749305}
   _spriteRenderer: {fileID: 5668105609110844022}

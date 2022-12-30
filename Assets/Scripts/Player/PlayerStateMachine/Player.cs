@@ -77,6 +77,10 @@ public class Player : MonoBehaviour
         PlayerCollider = GetComponent<Collider2D>();
         StateMachine.Initialize(IdelState);
         FacingDirection = 1;
+
+        playerData.HP = playerData.maxHP;
+
+        //aweapon.SetActive(false);
     }
 
     private void Update()
@@ -139,16 +143,23 @@ public class Player : MonoBehaviour
         transform.Rotate(0.0f, 180.0f, 0, 0f);
     }
 
-    public void GetDamaged(int amount, Collider2D sender)
+    public void GetDamaged(int amount, Collider2D sender=null)
     {
-        isDamaged = true;
-        GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1);
-        StateMachine.ChangeState(DamagedState);
+        if (amount > 0)
+        {
+            playerData.HP -= amount;
+            Debug.Log($"Damaged by {amount}  |  HP: {playerData.HP}/{playerData.maxHP} ");
+            // death?
+
+            isDamaged = true;
+            if (CheckIfGrounded() && sender != null) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1);
+            StateMachine.ChangeState(DamagedState);
+        }
     }
     public void GetStunned(Collider2D sender)
     {
         isDamaged = true;
-        GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1);
+        if (CheckIfGrounded()) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1);
 
         StateMachine.ChangeState(StunnedState);
     }

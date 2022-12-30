@@ -16,6 +16,7 @@ public class PlayerData : ScriptableObject
 
     [Header("In Air State")]
     public float variableJumpHeightMultiplier = 0.5f;
+    public int fallDamageModifier = 10;
 
     [Header("Check Ground Box Size")]
     public Vector2 groundCheckSize;
@@ -25,6 +26,7 @@ public class PlayerData : ScriptableObject
 
     [Header("Combat info")]
     public int maxHP;
+    [HideInInspector] public int HP;
     public int LightDamage1;
     public int LightDamage2;
     public int LightDamage3;

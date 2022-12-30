@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &941348361
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 941348362}
+  m_Layer: 6
+  m_Name: interact point
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &941348362
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 941348361}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.71, y: -0.65, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7602817957490940788}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &7602817957312984092
 GameObject:
   m_ObjectHideFlags: 0
@@ -173,9 +204,11 @@ GameObject:
   - component: {fileID: 7602817957490940790}
   - component: {fileID: 7602817957490940792}
   - component: {fileID: 7602817957490940793}
+  - component: {fileID: 1546905921}
+  - component: {fileID: 1991643830724831822}
   m_Layer: 6
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -195,6 +228,7 @@ Transform:
   - {fileID: 7602817958045706793}
   - {fileID: 7602817957940623715}
   - {fileID: 7602817958178661880}
+  - {fileID: 941348362}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -392,6 +426,10 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: d0eb5695-c9b7-40d4-9a37-d6def3b60866
     m_ActionName: Gameplay/StrongAttack[/Mouse/rightButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: be4e2516-f55c-4c9a-94f8-b654006bed62
+    m_ActionName: Gameplay/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Gameplay
@@ -427,6 +465,36 @@ MonoBehaviour:
   groundCheck: {fileID: 7602817958045706793}
   ladderCheck: {fileID: 7602817957940623715}
   isDamaged: 0
+--- !u!114 &1546905921
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7602817957490940784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8c0f92b3013e4e04b9ed8c195bc21818, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _interactPoint: {fileID: 941348362}
+  _pointRadius: 0.3
+  _interactableMask:
+    serializedVersion: 2
+    m_Bits: 2048
+  _collider: {fileID: 0}
+--- !u!114 &1991643830724831822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7602817957490940784}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bdd78bba8a3fc9349958718620401573, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7602817957940623714
 GameObject:
   m_ObjectHideFlags: 0

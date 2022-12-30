@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class Spikes : MonoBehaviour
 {
+    public int damage;
+
     public ParticleSystem particle;
     public SpriteRenderer spriteRenderer;
     public BoxCollider2D box_collider;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Player"  /*&& player state = in air */ )
+        if (collision.gameObject.tag == "Player")
         {
-            //do damage
-            StartCoroutine(Destruct());
+            var player = collision.GetComponent<Player>();
+            if (player.StateMachine.CurrentState == player.inAirState)
+            {
+                player.GetDamaged(damage, box_collider);
+                StartCoroutine(Destruct());
+            }
         }
     }
 

@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6467085174908623179}
   - component: {fileID: 4389419945272989909}
   - component: {fileID: 289590803527582023}
-  m_Layer: 3
+  m_Layer: 8
   m_Name: platform
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -113,7 +113,7 @@ PlatformEffector2D:
   m_UseColliderMask: 1
   m_ColliderMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 511
   m_RotationalOffset: 0
   m_UseOneWay: 1
   m_UseOneWayGrouping: 0

@@ -19,7 +19,7 @@ public class PlayerDamagedState : PlayerAbilityState
     {
         base.Enter();
 
-        weaponAnimator.Play("Idle");
+        if(player.weapon.activeSelf) weaponAnimator.Play("Idle");
     }
 
     public override void Exit()

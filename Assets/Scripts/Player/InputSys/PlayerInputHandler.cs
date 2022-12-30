@@ -4,11 +4,7 @@ using System.Security.Cryptography.X509Certificates;
 using TMPro;
 using UnityEngine;
 using UnityEngine.InputSystem;
-public enum AttackType { 
-Light,
-Strong,
-none
-}
+
 public class PlayerInputHandler : MonoBehaviour
 {
     #region
@@ -33,19 +29,12 @@ public class PlayerInputHandler : MonoBehaviour
     #endregion
 
     #region Attack
-    public AttackType attackInput { get; private set; }
     [HideInInspector]public bool isAttacking;
-    public int countAttack { get; private set; }
-    public Dictionary<int, AttackType> AttackInputs { get; private set; }
-    private float timeToContinueAttack;
-    private float timeForContinueAttack;
     
     #endregion
     private void Start()
     {
         inputHoldTime = 0.2f;
-        countAttack = 0;
-        AttackInputs = new Dictionary<int, AttackType>();
         isAttacking = false;
     }
 
@@ -55,7 +44,6 @@ public class PlayerInputHandler : MonoBehaviour
         CheckJumpInputHoldTime();
         CheckIgnoreCollisionTime();
         CheckDashTime();
-        //CheckIfCanContinueAttack();
     }
     public void onMoveInput(InputAction.CallbackContext context)
     {
@@ -102,27 +90,11 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             LightAttackInput = true;
-            //Debug.Log("Light Attack Pressed");
-            //if (canContinueAttack)
-            //{
-   
-            //    attackInput = AttackType.Light;
-            //    if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
-            //    AttackInputs.Add(countAttack, attackInput);
-      
-            //    timeToContinueAttack = Time.time + 0.2f;
-            //    timeForContinueAttack = timeToContinueAttack + 1f;
-            //    canContinueAttack = false;
             isAttacking = true;
-
-            //    if (countAttack + 1 > 2) countAttack = 0; else countAttack++;
-            //    Debug.Log("Light Attack Added, counter" + countAttack);
-            //}
         }
         if (context.canceled)
         {
             LightAttackInput = false;
-            //if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
         }
     }
 
@@ -139,34 +111,16 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.started)
         {
             StrongAttackInput = true;
-            //Debug.Log("Strong Attack Pressed");
-            //if (canContinueAttack)
-            //{
-            //    attackInput = AttackType.Strong;
-            //    if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
-            //    AttackInputs.Add(countAttack, attackInput);
-
-            //    timeToContinueAttack = Time.time + 0.5f;
-            //    timeForContinueAttack = timeToContinueAttack + 1f;
-                isAttacking = true;
-
-            //    canContinueAttack = false;
-            //    countAttack = countAttack > 2 ? 0 : countAttack++;
-            //    Debug.Log("Strong Attack Added");
-            //}
+            isAttacking = true;
         }
         if (context.canceled)
         {
             StrongAttackInput = false;
-            //if (AttackInputs.ContainsKey(countAttack)) AttackInputs.Remove(countAttack);
         }
     }
     public void OnAttackAnimFinished()
     {
-        if (AttackInputs.Count == 0)
-        {
-            isAttacking = false;
-        }
+        isAttacking = false;
     }
     public void UseJumpInput()
     {

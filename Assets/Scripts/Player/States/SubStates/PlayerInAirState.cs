@@ -10,6 +10,7 @@ public class PlayerInAirState : PlayerState
     private int yinput;
     private bool JumpInputStop;
     private bool isJumping;
+    private float lastYvelocity;
     public PlayerInAirState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string aminBoolName) : base(player, stateMachine, playerData, aminBoolName)
     {
     }
@@ -39,12 +40,20 @@ public class PlayerInAirState : PlayerState
         xinput = player.InputHandler.NormalizeInputX;
         yinput = player.InputHandler.NormalizeInputY;
         JumpInputStop = player.InputHandler.JumpInputStop;
-      
+
         CheckJumpMultiplier();
 
         if (isGrounded && player.CurrentVelocity.y < 0.01f)
         {
-            stateMachine.ChangeState(player.LandState);
+            if (lastYvelocity < -30f)
+            {
+                int damage = ((int)lastYvelocity*-1 - 30) * playerData.fallDamageModifier;
+                player.GetDamaged(damage);
+            }
+            else
+            {
+                stateMachine.ChangeState(player.LandState);
+            }
         }
         else if(isTouchingLadder && yinput != 0) 
         {
@@ -55,6 +64,8 @@ public class PlayerInAirState : PlayerState
             player.CheckIfShouldFlip(xinput);
             player.SetVelocityX(playerData.movementVelocity * xinput);
         }
+
+        if(player.CurrentVelocity.y!=0f) lastYvelocity = player.CurrentVelocity.y;
     }
     private void CheckJumpMultiplier()
     {

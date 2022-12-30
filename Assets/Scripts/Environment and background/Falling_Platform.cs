@@ -19,7 +19,6 @@ public class Falling_Platform : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log("yo");
         if (collision.gameObject.tag == "Player")
         {
             StartCoroutine(startBreaking());

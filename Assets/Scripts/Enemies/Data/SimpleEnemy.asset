@@ -46,7 +46,7 @@ MonoBehaviour:
   actRange: 1.69
   canAttack: 1
   hasTwoAttacks: 0
-  damage: 0
+  damage: 10
   waitAfterAttack: 1
   canShoot: 0
   bulletPrefab: {fileID: 707118291018039046, guid: 1a4c8068c80b5cb4eb52675bd23a9733, type: 3}

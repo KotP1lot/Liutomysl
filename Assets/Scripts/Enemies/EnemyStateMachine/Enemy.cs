@@ -170,7 +170,7 @@ public class Enemy : MonoBehaviour
     {
         if (StateMachine.CurrentState == BlockState)
         {
-            GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, enemyData.knockbackForce/3);
+            if(CheckIfGrounded()) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, enemyData.knockbackForce/3);
             StateMachine.CurrentState.StateFunction();
 
             var player = sender.GetComponent<Player>();
@@ -178,7 +178,7 @@ public class Enemy : MonoBehaviour
         }
         else
         {
-            GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, enemyData.knockbackForce);
+            if (CheckIfGrounded()) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, enemyData.knockbackForce);
             enemyData.continueChasing = true;
             StateMachine.ChangeState(DamagedState);
         }
