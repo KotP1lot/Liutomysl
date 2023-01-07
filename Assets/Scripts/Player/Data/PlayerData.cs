@@ -22,6 +22,7 @@ public class PlayerData : ScriptableObject
     public Vector2 groundCheckSize;
     public float ladderCheckDistance = 0.5f;
     public LayerMask whatIsGround;
+    public LayerMask whatIsPlatform;
     public LayerMask whatIsLadder;
 
     [Header("Combat info")]

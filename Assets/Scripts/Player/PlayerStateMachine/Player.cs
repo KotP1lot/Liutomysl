@@ -103,6 +103,9 @@ public class Player : MonoBehaviour
     }
     public void SetVelocityX(float velocity)
     {
+        if (velocity == 0) RB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        else { CheckIfShouldFlip(velocity < 0 ? -1 : 1); RB.constraints = RigidbodyConstraints2D.FreezeRotation; }
+
         workspace.Set(velocity, CurrentVelocity.y);
         RB.velocity = workspace;
         CurrentVelocity = workspace;
@@ -122,7 +125,12 @@ public class Player : MonoBehaviour
     }
     public bool CheckIfGrounded()
     {
-        return Physics2D.OverlapBox(groundCheck.position, playerData.groundCheckSize, 0, playerData.whatIsGround);
+        return Physics2D.OverlapBox(groundCheck.position, playerData.groundCheckSize, 0, playerData.whatIsGround) 
+            || Physics2D.OverlapBox(groundCheck.position, playerData.groundCheckSize, 0, playerData.whatIsPlatform);
+    }
+    public bool CheckIfOnlyOnGround()
+    {
+        return Physics2D.OverlapBox(groundCheck.position, playerData.groundCheckSize, 0, playerData.whatIsGround) && !Physics2D.OverlapBox(groundCheck.position, playerData.groundCheckSize, 0, playerData.whatIsPlatform);
     }
     public void CheckIfShouldFlip(int xInput)
     {

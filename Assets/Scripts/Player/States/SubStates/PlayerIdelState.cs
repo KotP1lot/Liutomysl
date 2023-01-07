@@ -32,7 +32,7 @@ public class PlayerIdelState : PlayerGroundedState
         base.LogicUpdate();
         player.SetVelocityX(0f);
         isIgnoreCollision = player.InputHandler.JumpDownInput;
-        if(!isIgnoreCollision) HoldPosition();
+        //if(!isIgnoreCollision && player.CheckIfOnlyOnGround()) HoldPosition();
         if (xinput != 0)
         {
             stateMachine.ChangeState(player.MoveState);

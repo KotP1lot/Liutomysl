@@ -24,7 +24,10 @@ MonoBehaviour:
   ladderCheckDistance: 0.5
   whatIsGround:
     serializedVersion: 2
-    m_Bits: 264
+    m_Bits: 8
+  whatIsPlatform:
+    serializedVersion: 2
+    m_Bits: 256
   whatIsLadder:
     serializedVersion: 2
     m_Bits: 128
