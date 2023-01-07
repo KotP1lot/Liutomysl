@@ -427,7 +427,19 @@ MonoBehaviour:
     m_ActionId: d0eb5695-c9b7-40d4-9a37-d6def3b60866
     m_ActionName: Gameplay/StrongAttack[/Mouse/rightButton]
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7602817957490940792}
+        m_TargetAssemblyTypeName: PlayerInputHandler, Assembly-CSharp
+        m_MethodName: onInteractInput
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: be4e2516-f55c-4c9a-94f8-b654006bed62
     m_ActionName: Gameplay/Interact[/Keyboard/e]
   m_NeverAutoSwitchControlSchemes: 0
@@ -447,6 +459,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a77a8c6d38107e4e87a95894bb6af20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  InteractInput: 0
   isAttacking: 0
 --- !u!114 &7602817957490940793
 MonoBehaviour:

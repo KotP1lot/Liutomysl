@@ -80,7 +80,7 @@ public class Player : MonoBehaviour
 
         playerData.HP = playerData.maxHP;
 
-        //aweapon.SetActive(false);
+        weapon.SetActive(false);
     }
 
     private void Update()

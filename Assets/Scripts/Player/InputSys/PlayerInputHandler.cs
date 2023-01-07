@@ -17,6 +17,7 @@ public class PlayerInputHandler : MonoBehaviour
     public bool DashInput { get; private set; }
     public bool LightAttackInput { get; private set; }
     public bool StrongAttackInput { get; private set; }
+    [HideInInspector] public bool InteractInput;
 
     private float inputHoldTime = 0.2f;
     private float ignoreCollisionTime = 0.3f;
@@ -116,6 +117,17 @@ public class PlayerInputHandler : MonoBehaviour
         if (context.canceled)
         {
             StrongAttackInput = false;
+        }
+    }
+    public void onInteractInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            InteractInput = true;
+        }
+        if (context.canceled)
+        {
+            InteractInput = false;
         }
     }
     public void OnAttackAnimFinished()

@@ -146,6 +146,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _prompt: 
-  _animator: {fileID: 0}
-  _chestCollider: {fileID: 0}
+  _animator: {fileID: 3039980062092501016}
+  _chestCollider: {fileID: 3039980062092501019}
   _givesCurrency: 0

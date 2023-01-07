@@ -9,6 +9,12 @@ public class Interactor : MonoBehaviour
     [SerializeField] private LayerMask _interactableMask;
 
     [SerializeField] private Collider2D _collider;
+    private Player player;
+
+    private void Start()
+    {
+        player = GetComponent<Player>();
+    }
 
     private void Update()
     {
@@ -18,8 +24,9 @@ public class Interactor : MonoBehaviour
         {
             var interactable = _collider.GetComponent<IInteractable>();
 
-            if (interactable != null && Input.GetKeyDown("e"))
+            if (interactable != null && player.InputHandler.InteractInput)
             {
+                player.InputHandler.InteractInput = false;
                 interactable.Interact(this);
             }
         }
