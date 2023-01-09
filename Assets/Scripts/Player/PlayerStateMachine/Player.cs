@@ -178,4 +178,10 @@ public class Player : MonoBehaviour
         RB.AddForce(new Vector2(playerData.knockbackForce * direction, 0), ForceMode2D.Impulse);
     }
     #endregion
+
+    private void OnDrawGizmos()
+    {
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(groundCheck.position, playerData.groundCheckSize);
+    }
 }

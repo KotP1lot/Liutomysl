@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1834578609749288947}
   - component: {fileID: 1834578609749288948}
   - component: {fileID: 1411240153557249309}
+  - component: {fileID: 3975543341637958878}
   m_Layer: 3
   m_Name: ang_roof
   m_TagString: Untagged
@@ -114,3 +115,29 @@ PolygonCollider2D:
       - {x: 1.5775902, y: 0.040164173}
       - {x: -1.579302, y: 0.27976176}
       - {x: -1.5821311, y: -0.025691703}
+--- !u!61 &3975543341637958878
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1834578609749288946}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 6200000, guid: 0e968385faeaf004bbd97e20fad93149, type: 2}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 1.5760641, y: -0.11468482}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.16, y: 0.56}
+    newSize: {x: 3.16, y: 0.56}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 0.021936417, y: 0.31564188}
+  m_EdgeRadius: 0
