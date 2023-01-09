@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Item : MonoBehaviour, IInteractable
 {
@@ -9,6 +10,9 @@ public class Item : MonoBehaviour, IInteractable
     [SerializeField] private string _prompt;
     [SerializeField] private Keys _givesKey=Keys.None;
     [SerializeField] private int _givesCurrency = 0;
+    private string message;
+    public string InteractedMessage => message;
+    public TextAlignmentOptions MessageAlignment => TextAlignmentOptions.Center;
     public string InteractionPrompt => _prompt;
 
     public bool Interact(Interactor interactor)
@@ -18,12 +22,12 @@ public class Item : MonoBehaviour, IInteractable
 
         if (_givesCurrency != 0)
         {
-            Debug.Log("Отримано " + _givesCurrency + " сахару"); 
+            message = "Отримано " + _givesCurrency + " сахару"; 
         }
         if (_givesKey != Keys.None)
         {
             inventory.acquireKey(_givesKey.ToString());
-            Debug.Log("Отримано " + inventory.getFullKeyName(_givesKey.ToString()));
+            message = "Отримано " + inventory.getFullKeyName(_givesKey.ToString());
         }
         Destroy(gameObject);
         return true;

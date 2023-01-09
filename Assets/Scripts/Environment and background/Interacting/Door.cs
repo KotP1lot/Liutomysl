@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public class Door : MonoBehaviour, IInteractable
 {
@@ -13,6 +14,10 @@ public class Door : MonoBehaviour, IInteractable
     [SerializeField] Keys needsKey = Keys.None;
     [SerializeField] private string _prompt;
 
+    private string message;
+    public string InteractedMessage => message;
+    public TextAlignmentOptions MessageAlignment => TextAlignmentOptions.Center;
+
     public string InteractionPrompt => _prompt;
 
     public bool Interact(Interactor interactor)
@@ -23,20 +28,20 @@ public class Door : MonoBehaviour, IInteractable
         if (opensFrom == OpenFrom.Left && !(interactor.transform.position.x < transform.position.x))
         {
             animator.SetTrigger("door_budge");
-            Debug.Log("Не відкривається з цієї сторони.");
+            message = "Не відкривається з цієї сторони.";
             return false;
         }
         if (opensFrom == OpenFrom.Right && !(interactor.transform.position.x > transform.position.x))
         {
             animator.SetTrigger("door_budge");
-            Debug.Log("Не відкривається з цієї сторони.");
+            message = "Не відкривається з цієї сторони.";
             return false;
         }
 
         if (inventory.hasKey(needsKey.ToString()))
         {
-            if (needsKey == Keys.None) Debug.Log("Двері відкрито");
-            else Debug.Log("Використано " + inventory.getFullKeyName(needsKey.ToString()));
+            if (needsKey == Keys.None) message = "Двері відкрито";
+            else message = "Використано " + inventory.getFullKeyName(needsKey.ToString());
 
             animator.SetBool("door_open", true);
             doorCollider.enabled = false;
@@ -44,7 +49,7 @@ public class Door : MonoBehaviour, IInteractable
         }
 
         animator.SetTrigger("door_budge");
-        Debug.Log("Потрібен "+ inventory.getFullKeyName(needsKey.ToString()));
+        message = "Потрібен "+ inventory.getFullKeyName(needsKey.ToString());
         return false;
     }
 }

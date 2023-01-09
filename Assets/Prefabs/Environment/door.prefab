@@ -149,4 +149,5 @@ MonoBehaviour:
   doorCollider: {fileID: 2357630840132853265}
   opensFrom: 0
   needsKey: 0
-  _prompt: 
+  _prompt: "[E] - \u0432\u0456\u0434\u043A\u0440\u0438\u0442\u0438 \u0434\u0432\u0435\u0440\u0456"
+  _message: 

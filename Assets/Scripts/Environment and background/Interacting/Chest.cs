@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro; 
 
 public class Chest : MonoBehaviour, IInteractable
 {
@@ -8,6 +9,8 @@ public class Chest : MonoBehaviour, IInteractable
     [SerializeField] private Animator _animator;
     [SerializeField] private Collider2D _chestCollider;
     [SerializeField] private int _givesCurrency = 0;
+    public string InteractedMessage => $"Отримано {_givesCurrency} сахару.";
+    public TextAlignmentOptions MessageAlignment => TextAlignmentOptions.Center;
     public string InteractionPrompt => _prompt;
 
     public bool Interact(Interactor interactor)
@@ -15,14 +18,10 @@ public class Chest : MonoBehaviour, IInteractable
         var inventory = interactor.GetComponent<KeyInventory>();
         if (inventory == null) return false;
 
-        if (_givesCurrency != 0)
-        {
-
-            Debug.Log("Отримано " + _givesCurrency + " сахару");
-        }
+        // нарахувати сахар
 
         _animator.SetTrigger("open_chest");
-        _chestCollider.enabled = true;
+        _chestCollider.enabled = false;
 
         return true;
     }
