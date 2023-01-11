@@ -28,6 +28,8 @@ public class PlayerDashState : PlayerAbilityState
     public override void Enter()
     {
         base.Enter();
+
+        player.SpendStamina(playerData.dashStaminaCost);
     }
 
     public override void Exit()

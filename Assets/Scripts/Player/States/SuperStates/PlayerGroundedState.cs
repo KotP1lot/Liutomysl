@@ -46,13 +46,13 @@ public class PlayerGroundedState : PlayerState
         jumpInput = player.InputHandler.JumpInput;
         dashInput = player.InputHandler.DashInput;
         isAttacking = player.InputHandler.isAttacking;
+        if (dashInput && playerData.SP > 0)
+        {
+            stateMachine.ChangeState(player.DashState);
+        }
         if (!player.isDamaged && isAttacking && player.weapon.activeSelf)
         {
             stateMachine.ChangeState(player.AttackState);
-        }
-        if (dashInput)
-        {
-            stateMachine.ChangeState(player.DashState);
         }
         if (jumpInput)
         {

@@ -7,6 +7,8 @@ public class UI_Controller : MonoBehaviour
 {
     public GameObject messageBox;
     public GameObject interactPrompt;
+    public ProgressBar HpBar;
+    public ProgressBar StaminaBar;
     public bool messageActive { get; private set; }
 
     private TextMeshProUGUI messageBoxText;
@@ -16,6 +18,9 @@ public class UI_Controller : MonoBehaviour
     {
         messageBoxText = messageBox.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
         interactPromptText = interactPrompt.transform.GetChild(0).GetComponent<TextMeshProUGUI>();
+
+        messageBox.SetActive(false);
+        interactPrompt.SetActive(false);
     }
 
     void Update()

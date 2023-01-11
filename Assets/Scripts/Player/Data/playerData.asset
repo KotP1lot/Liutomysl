@@ -15,6 +15,7 @@ MonoBehaviour:
   movementVelocity: 7
   movementVelocityOnLadder: 5
   dashVelocity: 20
+  dashStaminaCost: 10
   stepForce: 5
   knockbackForce: 8
   jumpVelocity: 16
@@ -31,11 +32,23 @@ MonoBehaviour:
   whatIsLadder:
     serializedVersion: 2
     m_Bits: 128
-  maxHP: 1000
-  HP: 1000
+  maxHP: 100
+  HP: 100
+  maxSP: 40
+  spRegenDelayMin: 3
+  spRegenDelayMax: 5
+  spRegenAmount: 1
+  spRegenSpeed: 0.03
+  SP: 40
   LightDamage1: 1
+  LightCost1: 10
   LightDamage2: 2
+  LightCost2: 10
   LightDamage3: 3
+  LightCost3: 10
   StrongDamage1: 11
+  StrongCost1: 17
   StrongDamage2: 22
+  StrongCost2: 17
   StrongDamage3: 33
+  StrongCost3: 17

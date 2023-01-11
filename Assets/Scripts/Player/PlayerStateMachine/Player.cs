@@ -50,6 +50,8 @@ public class Player : MonoBehaviour
     private bool JumpDownInput;
 
     [HideInInspector] public bool isDamaged;
+
+    public UI_Controller UI;
     #endregion
 
     #region Unity Callback Functions
@@ -79,6 +81,10 @@ public class Player : MonoBehaviour
         FacingDirection = 1;
 
         playerData.HP = playerData.maxHP;
+        UI.HpBar.SetValue(playerData.HP,playerData.maxHP);
+
+        playerData.SP = playerData.maxSP;
+        UI.StaminaBar.SetValue(playerData.SP, playerData.maxSP);
 
         weapon.SetActive(false);
     }
@@ -106,7 +112,8 @@ public class Player : MonoBehaviour
         if (velocity == 0) RB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         else { CheckIfShouldFlip(velocity < 0 ? -1 : 1); RB.constraints = RigidbodyConstraints2D.FreezeRotation; }
 
-        workspace.Set(velocity, CurrentVelocity.y);
+        if (playerData.SP == 0) workspace.Set(velocity/2, CurrentVelocity.y);
+        else workspace.Set(velocity, CurrentVelocity.y);
         RB.velocity = workspace;
         CurrentVelocity = workspace;
     }
@@ -156,6 +163,9 @@ public class Player : MonoBehaviour
         if (amount > 0)
         {
             playerData.HP -= amount;
+            if (playerData.HP < 0) { playerData.HP = 0; }
+            UI.HpBar.SetValue(playerData.HP, playerData.maxHP);
+
             Debug.Log($"Damaged by {amount}  |  HP: {playerData.HP}/{playerData.maxHP} ");
             // death?
 
@@ -177,6 +187,41 @@ public class Player : MonoBehaviour
 
         RB.AddForce(new Vector2(playerData.knockbackForce * direction, 0), ForceMode2D.Impulse);
     }
+    public void SpendStamina(int amount)
+    {
+        if (amount > 0)
+        {
+            StopAllCoroutines();
+
+            playerData.SP -= amount;
+            if (playerData.SP < 0) { playerData.SP = 0; }
+            UI.StaminaBar.SetValue(playerData.SP, playerData.maxSP);
+
+            StartCoroutine(RegenStamina());
+        }
+        
+    }
+
+    IEnumerator RegenStamina()
+    {
+        if (playerData.SP == 0)  yield return new WaitForSeconds(playerData.spRegenDelayMax);
+        else yield return new WaitForSeconds(playerData.spRegenDelayMin);
+
+
+        do
+        {
+            playerData.SP += playerData.spRegenAmount;
+            
+            UI.StaminaBar.SetValue(playerData.SP, playerData.maxSP);
+
+            yield return new WaitForSeconds(playerData.spRegenSpeed);
+
+        } while (playerData.SP < playerData.maxSP);
+
+        Debug.Log("REGEN DONE");
+        if(playerData.SP > playerData.maxSP) { playerData.SP = playerData.maxSP; }
+    }
+
     #endregion
 
     private void OnDrawGizmos()
@@ -184,4 +229,6 @@ public class Player : MonoBehaviour
         Gizmos.color = Color.blue;
         Gizmos.DrawWireCube(groundCheck.position, playerData.groundCheckSize);
     }
+
+    
 }

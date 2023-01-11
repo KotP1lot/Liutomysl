@@ -7,7 +7,6 @@ public class Interactor : MonoBehaviour
     [SerializeField] private Transform _interactPoint;
     [SerializeField] private float _pointRadius;
     [SerializeField] private LayerMask _interactableMask;
-    [SerializeField] private UI_Controller UI;
 
     [SerializeField] private Collider2D _collider;
     private Player player;
@@ -21,9 +20,9 @@ public class Interactor : MonoBehaviour
     {
         _collider = Physics2D.OverlapCircle(_interactPoint.position, _pointRadius, _interactableMask);
 
-        if (UI.messageActive && player.InputHandler.InteractInput)
+        if (player.UI.messageActive && player.InputHandler.InteractInput)
         {
-            UI.hideMessage();
+            player.UI.hideMessage();
             player.InputHandler.InteractInput = false;
         }
 
@@ -32,25 +31,25 @@ public class Interactor : MonoBehaviour
             var interactable = _collider.GetComponent<IInteractable>();
             if (interactable != null)
             {
-                if (!UI.messageActive) UI.showInteractPrompt(interactable.InteractionPrompt);
+                if (!player.UI.messageActive) player.UI.showInteractPrompt(interactable.InteractionPrompt);
 
-                if (!UI.messageActive && player.InputHandler.InteractInput)
+                if (!player.UI.messageActive && player.InputHandler.InteractInput)
                 {
                     player.InputHandler.InteractInput = false;
                     interactable.Interact(this);
-                    UI.showMessage(interactable.InteractedMessage, interactable.MessageAlignment);
-                    UI.hideInteractPrompt();
+                    player.UI.showMessage(interactable.InteractedMessage, interactable.MessageAlignment);
+                    player.UI.hideInteractPrompt();
                 }
 
             }
             else
             {
-                UI.hideInteractPrompt();
+                player.UI.hideInteractPrompt();
             }
         }
         else
         {
-            UI.hideInteractPrompt();
+            player.UI.hideInteractPrompt();
         }
 
     }

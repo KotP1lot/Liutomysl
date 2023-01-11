@@ -11,6 +11,7 @@ public class Weapon : MonoBehaviour
 
     private Animator animator;
     private Dictionary<string, int> damage = new Dictionary<string, int>();
+    private Dictionary<string, int> staminaCost = new Dictionary<string, int>();
 
     private void Start()
     {
@@ -23,6 +24,13 @@ public class Weapon : MonoBehaviour
         damage.Add("StrongAttack_1", data.StrongDamage1);
         damage.Add("StrongAttack_2", data.StrongDamage2);
         damage.Add("StrongAttack_3", data.StrongDamage3);
+
+        staminaCost.Add("LightAttack_1", data.LightCost1);
+        staminaCost.Add("LightAttack_2", data.LightCost2);
+        staminaCost.Add("LightAttack_3", data.LightCost3);
+        staminaCost.Add("StrongAttack_1", data.StrongCost1);
+        staminaCost.Add("StrongAttack_2", data.StrongCost2);
+        staminaCost.Add("StrongAttack_3", data.StrongCost3);
     }
 
     private void Update()
@@ -32,8 +40,8 @@ public class Weapon : MonoBehaviour
 
         if (player.CheckIfGrounded())
         {
-            if (player.InputHandler.LightAttackInput) animator.SetTrigger("lightAttack");
-            else if (player.InputHandler.StrongAttackInput) animator.SetTrigger("strongAttack");
+            if (player.InputHandler.LightAttackInput && player.playerData.SP > 0) animator.SetTrigger("lightAttack");
+            else if (player.InputHandler.StrongAttackInput && player.playerData.SP > 0) animator.SetTrigger("strongAttack");
         }
         
     }
@@ -50,6 +58,10 @@ public class Weapon : MonoBehaviour
     private void onAnimationStarted()
     {
         OnAnimStarted.Invoke();
+
+        var animatorInfo = animator.GetCurrentAnimatorClipInfo(0);
+        var currentAnim = animatorInfo[0].clip.name;
+        player.SpendStamina(staminaCost[currentAnim]);
     }
 
     private void onAnimationFinished()
