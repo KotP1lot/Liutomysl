@@ -6,10 +6,11 @@ using TMPro;
 public class Item : MonoBehaviour, IInteractable
 {
     enum Keys { None, Prison, Lift, Mason, Boss }
+    enum Upgrade { None, HP, SP, Damage, AtkSpd }
 
     [SerializeField] private string _prompt;
     [SerializeField] private Keys _givesKey=Keys.None;
-    [SerializeField] private int _givesCurrency = 0;
+    [SerializeField] private Upgrade _givesUpgrade=Upgrade.None;
     private string message;
     public string InteractedMessage => message;
     public TextAlignmentOptions MessageAlignment => TextAlignmentOptions.Center;
@@ -17,17 +18,50 @@ public class Item : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        var inventory = interactor.GetComponent<KeyInventory>();
-        if (inventory == null) return false;
+        
 
-        if (_givesCurrency != 0)
+        if (_givesUpgrade != Upgrade.None)
         {
-            message = "Отримано " + _givesCurrency + " сахару"; 
+            var player = interactor.GetComponent<Player>();
+            if (player == null) return false;
+
+            switch (_givesUpgrade)
+            {
+                case Upgrade.HP:
+                    {
+                        message = "Ви знайшли покращення Здоров'я!\n Максимальну кількість здоров'я збільшено!";
+                        player.UpgradeHP();
+                        break;
+                    }
+                case Upgrade.SP:
+                    {
+                        message = "Ви знайшли покращення Витривалості!\n Максимальну кількість витривалості збільшено!";
+                        player.UpgradeSP();
+
+                        break;
+                    }
+                case Upgrade.Damage:
+                    {
+                        message = "Ви знайшли покращення Сили!\n Шкоду яку ви завдаєте збільшено!";
+                        player.UpgradeDamage();
+                        break;
+                    }
+                case Upgrade.AtkSpd:
+                    {
+                        message = "Ви знайшли покращення Швидкості!\n Швидкість атаки збільшено!";
+                        player.UpgradeAtkSpd();
+                        break;
+                    }
+            }
+            
         }
         if (_givesKey != Keys.None)
         {
-            inventory.acquireKey(_givesKey.ToString());
-            message = "Отримано " + inventory.getFullKeyName(_givesKey.ToString());
+            var keys = interactor.GetComponent<KeyInventory>();
+            if (keys == null) return false;
+
+            keys.acquireKey(_givesKey.ToString());
+            message = "Отримано " + keys.getFullKeyName(_givesKey.ToString());
         }
         Destroy(gameObject);
         return true;

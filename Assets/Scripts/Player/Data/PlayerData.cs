@@ -27,6 +27,8 @@ public class PlayerData : ScriptableObject
     public LayerMask whatIsLadder;
 
     [Header("Combat info")]
+    public int damage;
+    public float atkSpd;
     public int maxHP;
     [HideInInspector] public int HP;
     public int maxSP;
@@ -54,4 +56,10 @@ public class PlayerData : ScriptableObject
     [Header("Strong Attack 3")]
     public int StrongDamage3;
     public int StrongCost3;
+
+    [Header("Upgrades")]
+    public int damageUpgrade;
+    public float atkSpdUpgrade;
+    public int hpUpgrade;
+    public int spUpgrade;
 }

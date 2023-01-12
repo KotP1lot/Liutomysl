@@ -474,10 +474,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 4bed707c16007f94fba4daabe7c9ad87, type: 2}
-  weapon: {fileID: 7602817957312984092}
+  weapon: {fileID: 7602817957312984064}
   groundCheck: {fileID: 7602817958045706793}
   ladderCheck: {fileID: 7602817957940623715}
   isDamaged: 0
+  UI: {fileID: 0}
 --- !u!114 &1546905921
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.Enter();
         player.SetVelocityX(0f);
+        weaponAnimator.SetFloat("speedMultiplier", playerData.atkSpd);
     }
 
     public override void Exit()

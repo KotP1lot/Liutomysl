@@ -217,11 +217,30 @@ public class Player : MonoBehaviour
             yield return new WaitForSeconds(playerData.spRegenSpeed);
 
         } while (playerData.SP < playerData.maxSP);
-
-        Debug.Log("REGEN DONE");
-        if(playerData.SP > playerData.maxSP) { playerData.SP = playerData.maxSP; }
     }
 
+
+    public void UpgradeHP()
+    {
+        playerData.maxHP += playerData.hpUpgrade;
+        UI.HpBar.SetValue(playerData.HP, playerData.maxHP);
+    }
+    public void UpgradeSP()
+    {
+        playerData.maxSP += playerData.spUpgrade;
+        UI.StaminaBar.SetValue(playerData.SP, playerData.maxSP);
+    }
+    public void UpgradeDamage()
+    {
+        playerData.damage += playerData.damageUpgrade;
+        UI.DamageBar.Upgrade();
+    }
+    public void UpgradeAtkSpd()
+    {
+        playerData.atkSpd += playerData.atkSpdUpgrade;
+
+        UI.AtkSpdBar.Upgrade();
+    }
     #endregion
 
     private void OnDrawGizmos()

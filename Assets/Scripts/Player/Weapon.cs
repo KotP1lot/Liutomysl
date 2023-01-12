@@ -9,7 +9,7 @@ public class Weapon : MonoBehaviour
     public Player player;
     public Collider2D weaponCollider;
 
-    private Animator animator;
+    public Animator animator { get; private set; }
     private Dictionary<string, int> damage = new Dictionary<string, int>();
     private Dictionary<string, int> staminaCost = new Dictionary<string, int>();
 
@@ -81,7 +81,7 @@ public class Weapon : MonoBehaviour
             var currentAnim =animatorInfo[0].clip.name;
 
             var enemy = collision.GetComponent<Enemy>();
-            enemy.GetDamaged(damage[currentAnim], player.PlayerCollider);
+            enemy.GetDamaged(damage[currentAnim]+player.playerData.damage, player.PlayerCollider);
 
             weaponCollider.enabled = false; 
         }

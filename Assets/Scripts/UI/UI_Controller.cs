@@ -9,6 +9,8 @@ public class UI_Controller : MonoBehaviour
     public GameObject interactPrompt;
     public ProgressBar HpBar;
     public ProgressBar StaminaBar;
+    public CounterBar DamageBar;
+    public CounterBar AtkSpdBar;
     public bool messageActive { get; private set; }
 
     private TextMeshProUGUI messageBoxText;

@@ -7,6 +7,8 @@ public class ProgressBar : MonoBehaviour
 {
     private Slider slider;
     public float fillSpeed = 0.5f;
+    public int defaultValue;
+    public int upgradeStep;
     private float targetProgress = 100;
     private RectTransform rect;
     // Start is called before the first frame update
@@ -19,28 +21,22 @@ public class ProgressBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(slider.value != targetProgress)
+        if (slider.value < targetProgress)
         {
-            if (slider.value < targetProgress)
-            {
-                slider.value += fillSpeed;
-            }
-            else if (slider.value > targetProgress)
-            {
-                slider.value -= fillSpeed;
-            }
+            slider.value += fillSpeed;
         }
-        
-        
-        
+        else if (slider.value > targetProgress)
+        {
+            slider.value -= fillSpeed;
+        }
     }
 
     public void SetValue(int curVal, int maxVal)
     {
-        if (maxVal > 100)
+        if (maxVal > defaultValue)
         {
-            int add = (maxVal - 100) / 50;
-            rect.offsetMax = new Vector2(-1529+30*add, rect.offsetMax.y);
+            int add = (maxVal - defaultValue) / upgradeStep;
+            rect.offsetMax = new Vector2(-1529+50*add, rect.offsetMax.y);
         }
 
         var percent = curVal * 100 / maxVal;
