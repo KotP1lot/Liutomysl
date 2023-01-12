@@ -18,8 +18,6 @@ public class Item : MonoBehaviour, IInteractable
 
     public bool Interact(Interactor interactor)
     {
-        
-
         if (_givesUpgrade != Upgrade.None)
         {
             var player = interactor.GetComponent<Player>();
@@ -53,7 +51,7 @@ public class Item : MonoBehaviour, IInteractable
                         break;
                     }
             }
-            
+            player.UI.ItemFound();
         }
         if (_givesKey != Keys.None)
         {

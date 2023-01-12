@@ -49,6 +49,7 @@ public class Chest : MonoBehaviour, IInteractable
                     break;
                 }
         }
+        player.UI.ItemFound();
 
         _animator.SetTrigger("open_chest");
         _chestCollider.enabled = false;

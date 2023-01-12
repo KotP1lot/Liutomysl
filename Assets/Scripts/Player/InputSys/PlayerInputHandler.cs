@@ -17,6 +17,8 @@ public class PlayerInputHandler : MonoBehaviour
     public bool DashInput { get; private set; }
     public bool LightAttackInput { get; private set; }
     public bool StrongAttackInput { get; private set; }
+    public bool pauseActive { get; private set; }
+
     [HideInInspector] public bool InteractInput;
 
     private float inputHoldTime = 0.2f;
@@ -27,6 +29,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     private float jumpInputStartTime;
     private float ignoreCollisionStartTime;
+
     #endregion
 
     #region Attack
@@ -48,13 +51,16 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void onMoveInput(InputAction.CallbackContext context)
     {
-        RawMovementInput = context.ReadValue<Vector2>();
-        NormalizeInputX = (int)(RawMovementInput * Vector2.right).normalized.x;
-        NormalizeInputY = (int)(RawMovementInput * Vector2.up).normalized.y;
+        if (!pauseActive)
+        {
+            RawMovementInput = context.ReadValue<Vector2>();
+            NormalizeInputX = (int)(RawMovementInput * Vector2.right).normalized.x;
+            NormalizeInputY = (int)(RawMovementInput * Vector2.up).normalized.y;
+        }
     }
     public void onJumpInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!pauseActive && context.started)
         {
             if (NormalizeInputY < 0)
             {
@@ -75,7 +81,7 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void onDashInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!pauseActive && context.started)
         {
             startDashTime = Time.time;
             DashInput = true;
@@ -88,7 +94,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void onLightAttackInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!pauseActive && context.started)
         {
             LightAttackInput = true;
             isAttacking = true;
@@ -109,7 +115,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public void onStrongAttackInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!pauseActive && context.started)
         {
             StrongAttackInput = true;
             isAttacking = true;
@@ -121,7 +127,7 @@ public class PlayerInputHandler : MonoBehaviour
     }
     public void onInteractInput(InputAction.CallbackContext context)
     {
-        if (context.started)
+        if (!pauseActive && context.started)
         {
             InteractInput = true;
         }
@@ -129,6 +135,22 @@ public class PlayerInputHandler : MonoBehaviour
         {
             InteractInput = false;
         }
+    }
+    public void onPauseInput(InputAction.CallbackContext context)
+    {
+        if (context.started)
+        {
+            
+        }
+        if (context.canceled)
+        {
+            pauseActive = !pauseActive;
+        }
+    }
+
+    public void ClosePauseMenu()
+    {
+        pauseActive = false;
     }
     public void OnAttackAnimFinished()
     {

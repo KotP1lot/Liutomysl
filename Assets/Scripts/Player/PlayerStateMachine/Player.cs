@@ -94,6 +94,12 @@ public class Player : MonoBehaviour
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
         SetLayerMask();
+
+        if (InputHandler.pauseActive && !UI.pauseMenu.activeSelf)
+        {
+            UI.ShowPauseMenu();
+        }
+        else if(!InputHandler.pauseActive && UI.pauseMenu.activeSelf) UI.HidePauseMenu();
     }
     private void FixedUpdate()
     {
@@ -228,6 +234,7 @@ public class Player : MonoBehaviour
     public void UpgradeSP()
     {
         playerData.maxSP += playerData.spUpgrade;
+        playerData.SP = playerData.maxSP;  
         UI.StaminaBar.SetValue(playerData.SP, playerData.maxSP);
     }
     public void UpgradeDamage()

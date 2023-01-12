@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class UI_Controller : MonoBehaviour
 {
@@ -11,6 +12,11 @@ public class UI_Controller : MonoBehaviour
     public ProgressBar StaminaBar;
     public CounterBar DamageBar;
     public CounterBar AtkSpdBar;
+    public GameObject pauseMenu;
+    public TextMeshProUGUI itemCounter;
+    private int itemCount=0;
+
+    private int mainMenuID =1;
     public bool messageActive { get; private set; }
 
     private TextMeshProUGUI messageBoxText;
@@ -23,6 +29,7 @@ public class UI_Controller : MonoBehaviour
 
         messageBox.SetActive(false);
         interactPrompt.SetActive(false);
+        pauseMenu.SetActive(false);
     }
 
     void Update()
@@ -64,5 +71,31 @@ public class UI_Controller : MonoBehaviour
         messageBoxText.text = "NO MESSAGE";
         messageBox.SetActive(false);
         messageActive = false;
+    }
+
+    public void ToggleFullScreen()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+    }
+
+    public void ShowPauseMenu()
+    {
+        pauseMenu.SetActive(true);
+    }
+
+    public void HidePauseMenu()
+    {
+        pauseMenu.SetActive(false);
+    }
+
+    public void ItemFound()
+    {
+        itemCount++;
+        itemCounter.text = $"Знайдено покращень {itemCount}/12";
+    }
+
+    public void ReturnToMainMenu()
+    {
+        SceneManager.LoadScene(mainMenuID);
     }
 }
