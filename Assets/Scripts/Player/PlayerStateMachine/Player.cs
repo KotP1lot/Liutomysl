@@ -184,7 +184,7 @@ public class Player : MonoBehaviour, IDataPersistence
     public void GetKnockedBack(int direction)
     {
         SetVelocityX(0);
-
+        RB.constraints = RigidbodyConstraints2D.FreezeRotation;
         RB.AddForce(new Vector2(playerData.knockbackForce * direction, 0), ForceMode2D.Impulse);
     }
     public void SpendStamina(int amount)

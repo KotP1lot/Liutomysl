@@ -23,7 +23,7 @@ public class PlayerState
     public virtual void Enter() 
     {
         DoChecks();
-      //  player.Animator.SetBool(aminBoolName, true);
+        player.Animator.SetBool(aminBoolName, true);
         startTime = Time.time;
         isAnimationFinished = false;
         Debug.Log(aminBoolName);
@@ -31,7 +31,7 @@ public class PlayerState
 
     public virtual void Exit() 
     {
-      //  player.Animator.SetBool(aminBoolName, false);
+       player.Animator.SetBool(aminBoolName, false);
     }
 
     public virtual void LogicUpdate() 
