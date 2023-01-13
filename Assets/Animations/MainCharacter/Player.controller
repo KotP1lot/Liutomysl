@@ -283,7 +283,7 @@ AnimatorStateMachine:
     m_Position: {x: 390, y: 150, z: 0}
   - serializedVersion: 1
     m_State: {fileID: 2076479313952918913}
-    m_Position: {x: -100, y: 340, z: 0}
+    m_Position: {x: 50, y: 390, z: 0}
   - serializedVersion: 1
     m_State: {fileID: -3783971923047254044}
     m_Position: {x: 380, y: 240, z: 0}
@@ -304,6 +304,7 @@ AnimatorStateMachine:
   - {fileID: -4257652738011765356}
   - {fileID: -1190991344225850130}
   - {fileID: 6866329942589659661}
+  - {fileID: 3342065656234481490}
   m_StateMachineTransitions: {}
   m_StateMachineBehaviours: []
   m_AnyStatePosition: {x: -130, y: -90, z: 0}
@@ -441,6 +442,12 @@ AnimatorController:
     m_DefaultInt: 0
     m_DefaultBool: 0
     m_Controller: {fileID: 0}
+  - m_Name: death
+    m_Type: 4
+    m_DefaultFloat: 0
+    m_DefaultInt: 0
+    m_DefaultBool: 0
+    m_Controller: {fileID: 0}
   m_AnimatorLayers:
   - serializedVersion: 5
     m_Name: Base Layer
@@ -549,6 +556,23 @@ AnimatorState:
   m_MirrorParameter: 
   m_CycleOffsetParameter: 
   m_TimeParameter: 
+--- !u!1109 &3342065656234481490
+AnimatorTransition:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_Conditions:
+  - m_ConditionMode: 1
+    m_ConditionEvent: death
+    m_EventTreshold: 0
+  m_DstStateMachine: {fileID: 0}
+  m_DstState: {fileID: 2076479313952918913}
+  m_Solo: 0
+  m_Mute: 0
+  m_IsExit: 0
+  serializedVersion: 1
 --- !u!1101 &3555974830168573730
 AnimatorStateTransition:
   m_ObjectHideFlags: 1
