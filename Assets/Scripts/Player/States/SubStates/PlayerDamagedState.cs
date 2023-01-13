@@ -31,7 +31,7 @@ public class PlayerDamagedState : PlayerAbilityState
     {
         base.LogicUpdate();
 
-        if(player.CurrentVelocity.x==0) // ÇĞÎÁÈÒÜ ÏÎ ÇÀÊ²Í×ÅÍÍŞ ÀÍ²ÌÀÖ²¯
+        if(isAnimationFinished) 
         {
             player.isDamaged = false;
             isAbilityDone = true;

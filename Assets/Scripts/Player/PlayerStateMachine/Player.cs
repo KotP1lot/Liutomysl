@@ -174,7 +174,7 @@ public class Player : MonoBehaviour
     public void GetKnockedBack(int direction)
     {
         SetVelocityX(0);
-
+        RB.constraints = RigidbodyConstraints2D.FreezeRotation;
         RB.AddForce(new Vector2(playerData.knockbackForce * direction, 0), ForceMode2D.Impulse);
     }
     #endregion
