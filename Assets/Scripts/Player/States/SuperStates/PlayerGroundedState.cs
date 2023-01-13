@@ -46,6 +46,9 @@ public class PlayerGroundedState : PlayerState
         jumpInput = player.InputHandler.JumpInput;
         dashInput = player.InputHandler.DashInput;
         isAttacking = player.InputHandler.isAttacking;
+
+        if (player.StateMachine.CurrentState == player.DeathState) return;
+
         if (dashInput && playerData.SP > 0)
         {
             stateMachine.ChangeState(player.DashState);

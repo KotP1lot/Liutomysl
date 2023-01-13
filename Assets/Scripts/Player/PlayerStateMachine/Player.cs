@@ -19,6 +19,7 @@ public class Player : MonoBehaviour, IDataPersistence
     public PlayerAttackState AttackState { get; private set; }
     public PlayerDamagedState DamagedState { get; private set; }
     public PlayerStunnedState StunnedState { get; private set; }
+    public PlayerDeathState DeathState { get; private set; }
 
     [SerializeField]
     public PlayerData playerData;
@@ -52,6 +53,7 @@ public class Player : MonoBehaviour, IDataPersistence
     [HideInInspector] public bool isDamaged;
 
     public UI_Controller UI;
+    public SceneTransition sceneTransition;
 
     private Vector3 lastSavePosition;
     #endregion
@@ -72,6 +74,7 @@ public class Player : MonoBehaviour, IDataPersistence
         AttackState = new PlayerAttackState(this, StateMachine, playerData, "attack");
         DamagedState = new PlayerDamagedState(this, StateMachine, playerData, "damaged");
         StunnedState = new PlayerStunnedState(this, StateMachine, playerData, "stunned");
+        DeathState = new PlayerDeathState(this, StateMachine, playerData, "death");
     }
     private void Start()
     {
@@ -112,8 +115,16 @@ public class Player : MonoBehaviour, IDataPersistence
         if (velocity == 0) RB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
         else { CheckIfShouldFlip(velocity < 0 ? -1 : 1); RB.constraints = RigidbodyConstraints2D.FreezeRotation; }
 
-        if (playerData.SP == 0) workspace.Set(velocity/2, CurrentVelocity.y);
-        else workspace.Set(velocity, CurrentVelocity.y);
+        if (playerData.SP == 0)
+        {
+            workspace.Set(velocity / 2, CurrentVelocity.y);
+            Animator.SetFloat("SpeedMod", 0.5f);
+        }
+        else
+        {
+            workspace.Set(velocity, CurrentVelocity.y);
+            Animator.SetFloat("SpeedMod", 1f);
+        }
         RB.velocity = workspace;
         CurrentVelocity = workspace;
     }
@@ -163,11 +174,16 @@ public class Player : MonoBehaviour, IDataPersistence
         if (amount > 0)
         {
             playerData.HP -= amount;
-            if (playerData.HP < 0) { playerData.HP = 0; }
-            UI.HpBar.SetValue(playerData.HP, playerData.maxHP);
+            if (playerData.HP <= 0) 
+            { 
+                playerData.HP = 0;
+                UI.HpBar.HideFill();
 
-            Debug.Log($"Damaged by {amount}  |  HP: {playerData.HP}/{playerData.maxHP} ");
-            // death?
+                StateMachine.ChangeState(DeathState);
+                return;
+            }
+
+            UI.HpBar.SetValue(playerData.HP, playerData.maxHP);
 
             isDamaged = true;
             if (CheckIfGrounded() && sender != null) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1);
@@ -176,6 +192,7 @@ public class Player : MonoBehaviour, IDataPersistence
     }
     public void GetStunned(Collider2D sender)
     {
+        if (StateMachine.CurrentState == DamagedState) return;
         isDamaged = true;
         if (CheckIfGrounded()) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1);
 

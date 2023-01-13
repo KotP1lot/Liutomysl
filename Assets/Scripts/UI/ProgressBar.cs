@@ -45,4 +45,10 @@ public class ProgressBar : MonoBehaviour
         var percent = curVal * 100 / maxVal;
         targetProgress = percent;
     }
+
+    public void HideFill()
+    {
+        slider = GetComponent<Slider>();
+        slider.fillRect.gameObject.SetActive(false);
+    }
 }
