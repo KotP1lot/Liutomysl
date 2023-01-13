@@ -41,14 +41,13 @@ public class PlayerDashState : PlayerAbilityState
     {
         base.LogicUpdate();
 
-        dashInput = player.InputHandler.DashInput;
-        if (!dashInput)
-            stateMachine.ChangeState(player.IdelState);
-        else
+        CurrentVelocityY = player.CurrentVelocity.y;
+        player.SetVelocityY(CurrentVelocityY < 0 ? CurrentVelocityY : 0);
+        player.SetVelocityX(playerData.dashVelocity * player.FacingDirection);
+
+        if(player.InputHandler.stopDash)
         {
-            CurrentVelocityY = player.CurrentVelocity.y;
-            player.SetVelocityY(CurrentVelocityY < 0 ? CurrentVelocityY : 0);
-            player.SetVelocityX(playerData.dashVelocity * player.FacingDirection);
+            stateMachine.ChangeState(player.IdelState);
         }
     }
 

@@ -25,7 +25,8 @@ public class PlayerInputHandler : MonoBehaviour
     private float ignoreCollisionTime = 0.3f;
     //ÇÌ²ÍÈÒÈ Ç ÏÎßÂÎÞ ÀÍ²ÌÀÖ²¯
     private float startDashTime;
-    private float dashTime = 0.3f;
+    private float dashTime = 0.15f;
+    public bool stopDash { get; private set; }
 
     private float jumpInputStartTime;
     private float ignoreCollisionStartTime;
@@ -83,6 +84,7 @@ public class PlayerInputHandler : MonoBehaviour
     {
         if (!pauseActive && context.started)
         {
+            stopDash = false;
             startDashTime = Time.time;
             DashInput = true;
         }
@@ -169,6 +171,7 @@ public class PlayerInputHandler : MonoBehaviour
         if (Time.time >= startDashTime + dashTime)
         {
             DashInput = false;
+            stopDash=true;
         }
     }
     private void CheckIgnoreCollisionTime()
