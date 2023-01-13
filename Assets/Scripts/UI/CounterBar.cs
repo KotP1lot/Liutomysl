@@ -27,10 +27,26 @@ public class CounterBar : MonoBehaviour
 
     public void SetValue(int val)
     {
-        slider.maxValue=val;
-        slider.value=val;
+        slider = GetComponent<Slider>();
+        rect = GetComponent<RectTransform>();
+
+        if (slider != null)
+        {
+            slider.maxValue = val;
+            slider.value = val;
+        }
             
         rect.offsetMin = new Vector2(1741-12*(val- defaultValue), rect.offsetMin.y);
+    }
+
+    public void SetValueFromPlayerData(int value, int upgradeStep)
+    {
+        SetValue((value / upgradeStep)+defaultValue);
+    }
+
+    public void SetValueFromPlayerData(float value, float upgradeStep)
+    {
+        SetValue(Mathf.CeilToInt(((value-1) / upgradeStep) + defaultValue));
     }
 
     public void Upgrade()

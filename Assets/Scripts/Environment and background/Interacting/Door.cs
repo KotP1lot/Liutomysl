@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Door : MonoBehaviour, IInteractable
+public class Door : MonoBehaviour, IInteractable, IDataPersistence
 {
     enum OpenFrom { Both, Left, Right }
     enum Keys { None, Prison, Lift, Mason, Boss }
@@ -19,6 +19,15 @@ public class Door : MonoBehaviour, IInteractable
     public TextAlignmentOptions MessageAlignment => TextAlignmentOptions.Center;
 
     public string InteractionPrompt => _prompt;
+
+    [SerializeField] private string id;
+    private bool opened;
+
+    [ContextMenu("Generate guid for id")]
+    private void GenerateGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
 
     public bool Interact(Interactor interactor)
     {
@@ -45,11 +54,33 @@ public class Door : MonoBehaviour, IInteractable
 
             animator.SetBool("door_open", true);
             doorCollider.enabled = false;
+
+            opened = true;
+            DataPersistenceManager.instance.SaveGame();
             return true;
         }
 
         animator.SetTrigger("door_budge");
         message = "Потрібен "+ inventory.getFullKeyName(needsKey.ToString());
         return false;
+    }
+
+    public void LoadData(GameData data)
+    {
+        data.objectsInteracted.TryGetValue(id, out opened);
+        if (opened)
+        {
+            animator.SetBool("door_open", true);
+            doorCollider.enabled = false;
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (data.objectsInteracted.ContainsKey(id))
+        {
+            data.objectsInteracted.Remove(id);
+        }
+        data.objectsInteracted.Add(id, opened);
     }
 }

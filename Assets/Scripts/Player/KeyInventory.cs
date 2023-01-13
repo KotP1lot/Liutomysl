@@ -2,19 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class KeyInventory : MonoBehaviour
+public class KeyInventory : MonoBehaviour, IDataPersistence
 {
-    private Dictionary<string, bool> _keys = new Dictionary<string, bool>();
+    private SerializableDictionary<string, bool> _keys = new SerializableDictionary<string, bool>();
     private Dictionary<string, string> _fullKeyNames = new Dictionary<string, string>();
 
     private void Start()
     {
-        _keys.Add("None", true);
-        _keys.Add("Prison", false);
-        _keys.Add("Lift", false);
-        _keys.Add("Mason", false);
-        _keys.Add("Boss", false);
-
         _fullKeyNames.Add("None", "None");
         _fullKeyNames.Add("Prison", "Ключ Тюремника");
         _fullKeyNames.Add("Lift", "Ключ від ліфту");
@@ -37,5 +31,15 @@ public class KeyInventory : MonoBehaviour
     {
         if (_fullKeyNames.ContainsKey(name)) return _fullKeyNames[name];
         return null;
+    }
+
+    public void LoadData(GameData data)
+    {
+        _keys = data.keyInventory;
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.keyInventory = _keys;
     }
 }

@@ -4,7 +4,7 @@ using System.Security.Cryptography;
 using UnityEngine;
 using UnityEngine.InputSystem.XInput;
 
-public class Player : MonoBehaviour
+public class Player : MonoBehaviour, IDataPersistence
 {
     #region State Variables
     public PlayerStateMachine StateMachine { get; private set; }
@@ -52,6 +52,8 @@ public class Player : MonoBehaviour
     [HideInInspector] public bool isDamaged;
 
     public UI_Controller UI;
+
+    private Vector3 lastSavePosition;
     #endregion
 
     #region Unity Callback Functions
@@ -79,14 +81,6 @@ public class Player : MonoBehaviour
         PlayerCollider = GetComponent<Collider2D>();
         StateMachine.Initialize(IdelState);
         FacingDirection = 1;
-
-        playerData.HP = playerData.maxHP;
-        UI.HpBar.SetValue(playerData.HP,playerData.maxHP);
-
-        playerData.SP = playerData.maxSP;
-        UI.StaminaBar.SetValue(playerData.SP, playerData.maxSP);
-
-        weapon.SetActive(false);
     }
 
     private void Update()
@@ -248,6 +242,41 @@ public class Player : MonoBehaviour
 
         UI.AtkSpdBar.Upgrade();
     }
+
+    public void SetSavePosition(Vector3 position)
+    {
+        lastSavePosition = position;
+    }
+
+    public void LoadData(GameData data)
+    {
+        if (!data.axeAcquired) weapon.SetActive(false);
+        lastSavePosition = data.lastSavePosition;
+        transform.position = data.lastSavePosition;
+
+        playerData.damage = data.playerDamage;
+        playerData.atkSpd = data.playerAtkSpd;
+        playerData.maxHP = data.playerMaxHP;
+        playerData.maxSP = data.playerMaxSP;
+
+        playerData.HP = playerData.maxHP;
+        UI.HpBar.SetValue(playerData.HP, playerData.maxHP);
+        playerData.SP = playerData.maxSP;
+        UI.StaminaBar.SetValue(playerData.SP, playerData.maxSP);
+        UI.DamageBar.SetValueFromPlayerData(playerData.damage, playerData.damageUpgrade);
+        UI.AtkSpdBar.SetValueFromPlayerData(playerData.atkSpd, playerData.atkSpdUpgrade);
+
+        Debug.Log((int)1.1f);
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.lastSavePosition = lastSavePosition;
+        data.playerDamage = playerData.damage;
+        data.playerAtkSpd = playerData.atkSpd;
+        data.playerMaxSP = playerData.maxSP;
+        data.playerMaxHP = playerData.maxHP;
+    }
     #endregion
 
     private void OnDrawGizmos()
@@ -256,5 +285,5 @@ public class Player : MonoBehaviour
         Gizmos.DrawWireCube(groundCheck.position, playerData.groundCheckSize);
     }
 
-    
+
 }

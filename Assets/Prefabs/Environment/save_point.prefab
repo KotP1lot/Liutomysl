@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 5880757064414133639}
   - component: {fileID: 5880757064414133636}
   - component: {fileID: 6136843581080078703}
-  m_Layer: 0
+  - component: {fileID: 181776023195222239}
+  m_Layer: 11
   m_Name: save_point
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -132,3 +133,18 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.56, y: 3.0891666}
   m_EdgeRadius: 0
+--- !u!114 &181776023195222239
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5880757064414133634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7616c7e39b80ca478700145f5b7b36b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _prompt: "[E] - \u0412\u0456\u0434\u043F\u043E\u0447\u0438\u0442\u0438"
+  message: "\u0413\u0440\u0443 \u0437\u0431\u0435\u0440\u0435\u0436\u0435\u043D\u043E
+    \u0456 \u0437\u0434\u043E\u0440\u043E\u0432'\u044F \u0432\u0456\u0434\u043D\u043E\u0432\u043B\u0435\u043D\u043E!"

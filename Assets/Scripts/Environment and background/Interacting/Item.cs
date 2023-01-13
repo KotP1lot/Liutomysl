@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 
-public class Item : MonoBehaviour, IInteractable
+public class Item : MonoBehaviour, IInteractable, IDataPersistence
 {
     enum Keys { None, Prison, Lift, Mason, Boss }
     enum Upgrade { None, HP, SP, Damage, AtkSpd }
@@ -15,6 +15,16 @@ public class Item : MonoBehaviour, IInteractable
     public string InteractedMessage => message;
     public TextAlignmentOptions MessageAlignment => TextAlignmentOptions.Center;
     public string InteractionPrompt => _prompt;
+
+    [SerializeField] private string id;
+    private bool collected;
+
+    [ContextMenu("Generate guid for id")]
+
+    private void GenerateGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
 
     public bool Interact(Interactor interactor)
     {
@@ -52,6 +62,8 @@ public class Item : MonoBehaviour, IInteractable
                     }
             }
             player.UI.ItemFound();
+            collected = true;
+            DataPersistenceManager.instance.SaveGame();
         }
         if (_givesKey != Keys.None)
         {
@@ -60,8 +72,29 @@ public class Item : MonoBehaviour, IInteractable
 
             keys.acquireKey(_givesKey.ToString());
             message = "Отримано " + keys.getFullKeyName(_givesKey.ToString());
+
+            collected = true;
+            DataPersistenceManager.instance.SaveGame();
         }
         Destroy(gameObject);
         return true;
+    }
+
+    public void LoadData(GameData data)
+    {
+        data.objectsInteracted.TryGetValue(id, out collected);
+        if (collected)
+        {
+            gameObject.SetActive(false);
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (data.objectsInteracted.ContainsKey(id))
+        {
+            data.objectsInteracted.Remove(id);
+        }
+        data.objectsInteracted.Add(id, collected);
     }
 }

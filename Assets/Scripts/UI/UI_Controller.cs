@@ -4,7 +4,7 @@ using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
 
-public class UI_Controller : MonoBehaviour
+public class UI_Controller : MonoBehaviour, IDataPersistence
 {
     public GameObject messageBox;
     public GameObject interactPrompt;
@@ -32,11 +32,6 @@ public class UI_Controller : MonoBehaviour
         pauseMenu.SetActive(false);
     }
 
-    void Update()
-    {
-        
-    }
-
     public void showInteractPrompt(string text)
     {
         interactPromptText.text = text;
@@ -51,6 +46,8 @@ public class UI_Controller : MonoBehaviour
 
     public void showMessage(string text, TextAlignmentOptions alignment)
     {
+        StopAllCoroutines();
+
         messageBoxText.text = text;
         messageBoxText.alignment = alignment;
         messageBox.SetActive(true);
@@ -92,5 +89,16 @@ public class UI_Controller : MonoBehaviour
     public void ReturnToMainMenu()
     {
         SceneManager.LoadScene(mainMenuID);
+    }
+
+    public void LoadData(GameData data)
+    {
+        itemCount = data.upgradeCount;
+        itemCounter.text = $"Знайдено покращень {itemCount}/12";
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        data.upgradeCount = itemCount;
     }
 }

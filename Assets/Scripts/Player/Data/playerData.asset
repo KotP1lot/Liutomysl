@@ -37,7 +37,7 @@ MonoBehaviour:
   maxHP: 100
   HP: 120
   maxSP: 40
-  SP: 40
+  SP: 30
   spRegenDelayMin: 3
   spRegenDelayMax: 5
   spRegenAmount: 1

@@ -33,6 +33,9 @@ public class ProgressBar : MonoBehaviour
 
     public void SetValue(int curVal, int maxVal)
     {
+        slider = GetComponent<Slider>();
+        rect = GetComponent<RectTransform>();
+
         if (maxVal > defaultValue)
         {
             int add = (maxVal - defaultValue) / upgradeStep;

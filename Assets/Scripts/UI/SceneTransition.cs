@@ -31,6 +31,12 @@ public class SceneTransition : MonoBehaviour
         nextSceneID = index;
     }
 
+    public void SleepTransition(int index)
+    {
+        animator.SetTrigger("Sleep");
+        nextSceneID = index;
+    }
+
     public void ChangeScene()
     {
         SceneManager.LoadScene(nextSceneID);

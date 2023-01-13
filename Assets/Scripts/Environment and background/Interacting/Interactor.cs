@@ -37,7 +37,7 @@ public class Interactor : MonoBehaviour
                 {
                     player.InputHandler.InteractInput = false;
                     interactable.Interact(this);
-                    player.UI.showMessage(interactable.InteractedMessage, interactable.MessageAlignment);
+                    if(interactable.InteractedMessage!="") player.UI.showMessage(interactable.InteractedMessage, interactable.MessageAlignment);
                     player.UI.hideInteractPrompt();
                 }
 

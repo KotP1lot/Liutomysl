@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro; 
 
-public class Chest : MonoBehaviour, IInteractable
+public class Chest : MonoBehaviour, IInteractable, IDataPersistence
 {
     enum Upgrade { None, HP, SP, Damage, AtkSpd }
 
@@ -16,6 +16,15 @@ public class Chest : MonoBehaviour, IInteractable
     public TextAlignmentOptions MessageAlignment => TextAlignmentOptions.Center;
     public string InteractionPrompt => _prompt;
 
+    [SerializeField] private string id;
+    private bool opened;
+
+    [ContextMenu("Generate guid for id")]
+
+    private void GenerateGuid()
+    {
+        id = System.Guid.NewGuid().ToString();
+    }
     public bool Interact(Interactor interactor)
     {
         var player = interactor.GetComponent<Player>();
@@ -54,6 +63,28 @@ public class Chest : MonoBehaviour, IInteractable
         _animator.SetTrigger("open_chest");
         _chestCollider.enabled = false;
 
+        opened = true;
+        DataPersistenceManager.instance.SaveGame();
+
         return true;
+    }
+
+    public void LoadData(GameData data)
+    {
+        data.objectsInteracted.TryGetValue(id, out opened);
+        if (opened)
+        {
+            _animator.SetTrigger("open_chest");
+            _chestCollider.enabled = false;
+        }
+    }
+
+    public void SaveData(ref GameData data)
+    {
+        if (data.objectsInteracted.ContainsKey(id))
+        {
+            data.objectsInteracted.Remove(id);
+        }
+        data.objectsInteracted.Add(id, opened);
     }
 }
