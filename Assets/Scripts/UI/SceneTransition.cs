@@ -5,11 +5,12 @@ using UnityEngine.SceneManagement;
 
 public class SceneTransition : MonoBehaviour
 {
-    public Animator animator;
+    private Animator animator;
+    private int nextSceneID;
     // Start is called before the first frame update
     void Start()
     {
-        
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -20,15 +21,27 @@ public class SceneTransition : MonoBehaviour
 
     public void LoadNextLevel(int index)
     {
-        StartCoroutine(LoadLevel(index));
+        animator.SetTrigger("Start");
+        nextSceneID = index;
     }
 
-    IEnumerator LoadLevel(int index)
+    public void DeathTransition(int index)
     {
-        animator.SetTrigger("Start");
+        animator.SetTrigger("Death");
+        nextSceneID = index;
+    }
 
-        yield return new WaitForSeconds(1);
-
-        SceneManager.LoadScene(index);
+    public void ChangeScene()
+    {
+        SceneManager.LoadScene(nextSceneID);
+    }
+    
+    public void ToggleFullScreen()
+    {
+        Screen.fullScreen = !Screen.fullScreen;
+    }
+    public void ExitTheGame()
+    {
+        Application.Quit();
     }
 }

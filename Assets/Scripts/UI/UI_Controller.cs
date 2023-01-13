@@ -73,11 +73,6 @@ public class UI_Controller : MonoBehaviour
         messageActive = false;
     }
 
-    public void ToggleFullScreen()
-    {
-        Screen.fullScreen = !Screen.fullScreen;
-    }
-
     public void ShowPauseMenu()
     {
         pauseMenu.SetActive(true);
