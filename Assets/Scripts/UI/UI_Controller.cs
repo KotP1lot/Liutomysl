@@ -16,7 +16,7 @@ public class UI_Controller : MonoBehaviour, IDataPersistence
     public TextMeshProUGUI itemCounter;
     private int itemCount=0;
 
-    private int mainMenuID =1;
+    private int mainMenuID =0;
     public bool messageActive { get; private set; }
 
     private TextMeshProUGUI messageBoxText;

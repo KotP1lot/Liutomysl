@@ -25,7 +25,7 @@ public class PlayerDeathState : PlayerGroundedState
 
     public override void AnimationFinishTrigger()
     {
-        player.sceneTransition.DeathTransition(1);
+        player.sceneTransition.DeathTransition(0);
     }
 
     public override void Exit()

@@ -45,7 +45,7 @@ public class MainMenuController : MonoBehaviour
             var path = Path.Combine(Application.persistentDataPath, saveFileToCheck);
             File.Delete(path);
 
-            sceneTransition.LoadNextLevel(0);
+            sceneTransition.LoadNextLevel(1);
         }
     }
 }
