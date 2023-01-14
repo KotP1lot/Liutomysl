@@ -282,8 +282,6 @@ public class Player : MonoBehaviour, IDataPersistence
         UI.StaminaBar.SetValue(playerData.SP, playerData.maxSP);
         UI.DamageBar.SetValueFromPlayerData(playerData.damage, playerData.damageUpgrade);
         UI.AtkSpdBar.SetValueFromPlayerData(playerData.atkSpd, playerData.atkSpdUpgrade);
-
-        Debug.Log((int)1.1f);
     }
 
     public void SaveData(ref GameData data)

@@ -43,16 +43,18 @@ public class PlayerInAirState : PlayerState
 
         CheckJumpMultiplier();
 
+        
+
         if (isGrounded /*&& player.CurrentVelocity.y < 0.01f*/)
         {
+            stateMachine.ChangeState(player.LandState);
+
             if (lastYvelocity < -30f)
             {
                 int damage = ((int)lastYvelocity*-1 - 30) * playerData.fallDamageModifier;
                 player.GetDamaged(damage);
-            }
-            else
-            {
-                stateMachine.ChangeState(player.LandState);
+
+                lastYvelocity = player.CurrentVelocity.y;
             }
         }
         else if(isTouchingLadder && yinput != 0) 
@@ -71,7 +73,6 @@ public class PlayerInAirState : PlayerState
     }
     private void CheckJumpMultiplier()
     {
-
         if (isJumping)
         {
             if (JumpInputStop)
