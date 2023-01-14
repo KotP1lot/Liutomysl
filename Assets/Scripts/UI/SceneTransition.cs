@@ -44,7 +44,9 @@ public class SceneTransition : MonoBehaviour
     
     public void ToggleFullScreen()
     {
-        Screen.fullScreen = !Screen.fullScreen;
+        //Screen.fullScreen = !Screen.fullScreen;
+
+        Screen.SetResolution(Screen.currentResolution.width, Screen.currentResolution.height, !Screen.fullScreen);
     }
     public void ExitTheGame()
     {
