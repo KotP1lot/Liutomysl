@@ -22,7 +22,7 @@ public class SavePoint : MonoBehaviour, IInteractable
 
         DataPersistenceManager.instance.SaveGame();
 
-        sceneTransition.SleepTransition(0);
+        sceneTransition.SleepTransition(1);
 
         return true;
     }
