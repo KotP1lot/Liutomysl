@@ -59,6 +59,8 @@ public class EnemyChaseState : EnemyOnGroundState
         base.Exit();
 
         returnTimerStarted = false;
+
+        enemy.walkParticle.Stop();
     }
 
     public override void LogicUpdate()
@@ -67,6 +69,8 @@ public class EnemyChaseState : EnemyOnGroundState
 
         if (Time.time >= timerStart)
         {
+            if(!enemy.walkParticle.isPlaying) enemy.walkParticle.Play();
+
             if (!returnTimerStarted) playerDirection = enemy.transform.position.x > playerObject.transform.position.x ? -1 : 1;
 
             enemy.SetVelocityX(enemyData.movementVelocity * playerDirection);

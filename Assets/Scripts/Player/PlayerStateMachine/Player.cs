@@ -55,6 +55,7 @@ public class Player : MonoBehaviour, IDataPersistence
     public UI_Controller UI;
     public SceneTransition sceneTransition;
 
+    [Header("Particles")]
     public ParticleSystem walkParticles;
     public ParticleSystem jumpParticles;
     public ParticleSystem landParticles;

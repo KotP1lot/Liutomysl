@@ -46,6 +46,11 @@ public class Enemy : MonoBehaviour
     public float patrolRange=8;
     public float shootRange=16;
 
+    [Header("Particles")]
+    public ParticleSystem hitParticle;
+    public ParticleSystem blockParticle;
+    public ParticleSystem walkParticle;
+
     #endregion
 
     #region Unity Callback Functions
@@ -105,6 +110,9 @@ public class Enemy : MonoBehaviour
         transform.Rotate(0.0f, 180.0f, 0, 0f);
 
         alerts.Flip(FacingDirection);
+
+        hitParticle.transform.localPosition = new Vector3(0,0,-1*FacingDirection);
+        blockParticle.transform.localPosition = new Vector3(0, 0, -1 * FacingDirection);
     }
     public void SetVelocityX(float velocity)
     {
@@ -179,8 +187,12 @@ public class Enemy : MonoBehaviour
 
     public void GetDamaged(int amount, Collider2D sender)
     {
+        
+
         if (StateMachine.CurrentState == BlockState)
         {
+            blockParticle.Play();
+
             if(CheckIfGrounded()) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, enemyData.knockbackForce/3);
             StateMachine.CurrentState.StateFunction();
 
@@ -189,6 +201,8 @@ public class Enemy : MonoBehaviour
         }
         else if (StateMachine.CurrentState != DeathState)
         {
+            hitParticle.Play();
+
             if (CheckIfGrounded()) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, enemyData.knockbackForce);
             enemyData.continueChasing = true;
 
