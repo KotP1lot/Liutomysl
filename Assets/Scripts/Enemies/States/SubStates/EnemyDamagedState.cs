@@ -10,6 +10,11 @@ public class EnemyDamagedState : EnemyOnGroundState
         
     }
 
+    public override void AnimationFinishTrigger()
+    {
+        base.AnimationFinishTrigger();
+    }
+
     public override void DoChecks()
     {
         base.DoChecks();
@@ -18,7 +23,7 @@ public class EnemyDamagedState : EnemyOnGroundState
     public override void Enter()
     {
         base.Enter();
-
+        isAnimationFinished = false;
         Debug.Log("got damaged");
     }
 
@@ -31,7 +36,7 @@ public class EnemyDamagedState : EnemyOnGroundState
     {
         base.LogicUpdate();
 
-        if(enemy.CurrentVelocity.x==0) // «–Œ¡»“‹ œŒ «¿ ≤Õ◊≈ÕÕﬁ ¿Õ≤Ã¿÷≤Ø
+        if(isAnimationFinished) 
         {
             Debug.Log("left stagger");
             stateMachine.ChangeState(enemy.ChaseState);

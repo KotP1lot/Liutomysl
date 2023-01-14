@@ -49,12 +49,12 @@ public class Enemy : MonoBehaviour
         StateMachine = new EnemyStateMachine();
 
         IdleState = new EnemyIdleState(this, StateMachine, enemyData, "idle");
-        WanderState = new EnemyWanderState(this, StateMachine, enemyData, "wander");
+        WanderState = new EnemyWanderState(this, StateMachine, enemyData, "chase");
         ChaseState = new EnemyChaseState(this, StateMachine, enemyData, "chase");
-        ReturnState = new EnemyReturnState(this, StateMachine, enemyData, "return");
+        ReturnState = new EnemyReturnState(this, StateMachine, enemyData, "chase");
         JumpState = new EnemyJumpState(this, StateMachine, enemyData, "jump");
         AttackState = new EnemyAttackState(this, StateMachine, enemyData, "attack");
-        PatrolState = new EnemyPatrolState(this, StateMachine, enemyData, "patrol");
+        PatrolState = new EnemyPatrolState(this, StateMachine, enemyData, "chase");
         ShootState = new EnemyShootState(this, StateMachine, enemyData, "shoot");
         DamagedState = new EnemyDamagedState(this, StateMachine, enemyData, "damaged");
         BlockState = new EnemyBlockState(this, StateMachine, enemyData, "block");

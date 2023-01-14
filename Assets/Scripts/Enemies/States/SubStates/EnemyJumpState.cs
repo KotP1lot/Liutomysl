@@ -38,7 +38,7 @@ public class EnemyJumpState : EnemyOnGroundState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
+        enemy.Animator.SetFloat("velocityY", enemy.CurrentVelocity.y);
         if (Time.time >= timerStart)
         {
             enemy.SetVelocityY(0f);

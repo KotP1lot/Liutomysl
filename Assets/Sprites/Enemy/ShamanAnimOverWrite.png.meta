@@ -1,0 +1,586 @@
+fileFormatVersion: 2
+guid: e36f4ba9b059c0a4083c8b0471807b43
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_0
+      rect:
+        serializedVersion: 2
+        x: 28
+        y: 1899
+        width: 170
+        height: 210
+      alignment: 9
+      pivot: {x: 0.4128007, y: 0.6683291}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 447ed6608db4806419f755140ec83fff
+      internalID: -235445463
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_1
+      rect:
+        serializedVersion: 2
+        x: 215
+        y: 1898
+        width: 168
+        height: 211
+      alignment: 9
+      pivot: {x: 0.41376513, y: 0.6510548}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11afd9b2e7ce92845bd902ab02eca244
+      internalID: -427489174
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_2
+      rect:
+        serializedVersion: 2
+        x: 414
+        y: 1897
+        width: 164
+        height: 213
+      alignment: 9
+      pivot: {x: 0.41166204, y: 0.6333122}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d69ee2af6e94c846b348155e57174c6
+      internalID: 1774505742
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_3
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1675
+        width: 171
+        height: 210
+      alignment: 9
+      pivot: {x: 0.3973605, y: 0.65322614}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab3b022bdbd702e47990d6e201f1dae2
+      internalID: -1138034540
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_4
+      rect:
+        serializedVersion: 2
+        x: 222
+        y: 1675
+        width: 168
+        height: 210
+      alignment: 9
+      pivot: {x: 0.3955276, y: 0.65322614}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 377e3281f70b63a4ba7ce38dd8d7de55
+      internalID: -272395958
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_5
+      rect:
+        serializedVersion: 2
+        x: 422
+        y: 1677
+        width: 163
+        height: 212
+      alignment: 9
+      pivot: {x: 0.40428713, y: 0.6471811}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d6702e30402a0b34a962ae15521f7997
+      internalID: 881924274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_6
+      rect:
+        serializedVersion: 2
+        x: 30
+        y: 1454
+        width: 174
+        height: 210
+      alignment: 9
+      pivot: {x: 0.42564347, y: 0.6716262}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80e6be11f29b28a44bd170fabaa0954f
+      internalID: 1542067656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_7
+      rect:
+        serializedVersion: 2
+        x: 223
+        y: 1453
+        width: 164
+        height: 207
+      alignment: 9
+      pivot: {x: 0.43538815, y: 0.6663671}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6f13106ddb149604a90e773b9d24485d
+      internalID: 2041099136
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_8
+      rect:
+        serializedVersion: 2
+        x: 22
+        y: 1193
+        width: 207
+        height: 225
+      alignment: 9
+      pivot: {x: 0.37323323, y: 0.6727778}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c055dfd2d355194a989ff6f7edc9c47
+      internalID: -836369577
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_9
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 1189
+        width: 251
+        height: 215
+      alignment: 9
+      pivot: {x: 0.22895831, y: 0.6853345}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f7eec930e736a41aa53e47f7ae3257
+      internalID: -1464400288
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_10
+      rect:
+        serializedVersion: 2
+        x: 554
+        y: 1166
+        width: 318
+        height: 125
+      alignment: 9
+      pivot: {x: 0.18348242, y: 1.4091816}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 00ceab7a07cc8d345a5dd919b65f7448
+      internalID: -1569538566
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_12
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 961
+        width: 172
+        height: 210
+      alignment: 9
+      pivot: {x: 0.42252505, y: 0.6665719}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1e8aae6d3c6931041a6d3c62c0e47802
+      internalID: -1953278969
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_13
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 960
+        width: 174
+        height: 211
+      alignment: 9
+      pivot: {x: 0.4425619, y: 0.67762446}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fba312b7b51fd0847ae38d1b5eabe799
+      internalID: 2117628486
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_14
+      rect:
+        serializedVersion: 2
+        x: 417
+        y: 962
+        width: 168
+        height: 208
+      alignment: 9
+      pivot: {x: 0.42068082, y: 0.66016567}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8682de2d46519d4ebf7dfa9007e513e
+      internalID: 27202957
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_15
+      rect:
+        serializedVersion: 2
+        x: 29
+        y: 738
+        width: 166
+        height: 209
+      alignment: 9
+      pivot: {x: 0.44481075, y: 0.6633841}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bea18f68575649247a353dd5e9903860
+      internalID: -848103825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_16
+      rect:
+        serializedVersion: 2
+        x: 221
+        y: 738
+        width: 161
+        height: 209
+      alignment: 9
+      pivot: {x: 0.45344287, y: 0.6673689}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9679966edb0588b46b1824c60fefaa20
+      internalID: -1268771306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_17
+      rect:
+        serializedVersion: 2
+        x: 17
+        y: 506
+        width: 184
+        height: 212
+      alignment: 9
+      pivot: {x: 0.4578155, y: 0.66214246}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e80c016847622f740b893b9edeab20be
+      internalID: -1528754161
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_18
+      rect:
+        serializedVersion: 2
+        x: 211
+        y: 508
+        width: 202
+        height: 213
+      alignment: 9
+      pivot: {x: 0.50548923, y: 0.666587}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 37354bad151b2f948806d0192f012c4e
+      internalID: -1642024708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_19
+      rect:
+        serializedVersion: 2
+        x: 442
+        y: 509
+        width: 211
+        height: 210
+      alignment: 9
+      pivot: {x: 0.54017156, y: 0.67154104}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f66d9502a6d1644db2ecc4f4b19f3ca
+      internalID: 33222204
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_20
+      rect:
+        serializedVersion: 2
+        x: 1
+        y: 282
+        width: 219
+        height: 210
+      alignment: 9
+      pivot: {x: 0.53870374, y: 0.6715406}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b615a9bceb445e4e9b6d72ff23daf02
+      internalID: 913479519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ShamanAnimOverWrite_21
+      rect:
+        serializedVersion: 2
+        x: 218
+        y: 281
+        width: 240
+        height: 216
+      alignment: 9
+      pivot: {x: 0.5794637, y: 0.64224994}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 58295bd3991071141a65ea312a44c62d
+      internalID: 399896487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      ShamanAnimOverWrite_8: -836369577
+      ShamanAnimOverWrite_21: 399896487
+      ShamanAnimOverWrite_11: -2075167540
+      ShamanAnimOverWrite_5: 881924274
+      ShamanAnimOverWrite_3: -1138034540
+      ShamanAnimOverWrite_10: -1569538566
+      ShamanAnimOverWrite_18: -1642024708
+      ShamanAnimOverWrite_4: -272395958
+      ShamanAnimOverWrite_1: -427489174
+      ShamanAnimOverWrite_14: 27202957
+      ShamanAnimOverWrite_6: 1542067656
+      ShamanAnimOverWrite_2: 1774505742
+      ShamanAnimOverWrite_16: -1268771306
+      ShamanAnimOverWrite_20: 913479519
+      ShamanAnimOverWrite_17: -1528754161
+      ShamanAnimOverWrite_19: 33222204
+      ShamanAnimOverWrite_7: 2041099136
+      ShamanAnimOverWrite_12: -1953278969
+      ShamanAnimOverWrite_0: -235445463
+      ShamanAnimOverWrite_9: -1464400288
+      ShamanAnimOverWrite_13: 2117628486
+      ShamanAnimOverWrite_15: -848103825
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
