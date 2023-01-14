@@ -24,15 +24,8 @@ public class EnemyShootState : EnemyOnGroundState
         base.Enter();
 
         enemy.SetVelocityX(0f);
-
-        startTimer();
     }
 
-    private float timerStart = 0f;
-    private void startTimer()
-    {
-        timerStart = Time.time + enemyData.waitBeforeShoot;
-    }
 
     public override void Exit()
     {
@@ -42,12 +35,6 @@ public class EnemyShootState : EnemyOnGroundState
     public override void LogicUpdate()
     {
         base.LogicUpdate();
-
-        if (Time.time >= timerStart)
-        {
-            Shoot();
-            startTimer();
-        }
     }
 
     private void Shoot()
@@ -62,5 +49,11 @@ public class EnemyShootState : EnemyOnGroundState
     public override void PhysicsUpdate()
     {
         base.PhysicsUpdate();
+    }
+
+    public override void AnimationTrigger()
+    {
+        base.AnimationTrigger();
+        Shoot();
     }
 }

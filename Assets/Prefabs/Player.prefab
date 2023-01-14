@@ -298,8 +298,8 @@ CapsuleCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
-  m_Size: {x: 1, y: 2}
+  m_Offset: {x: -0.18, y: -0.03}
+  m_Size: {x: 1, y: 2.27}
   m_Direction: 0
 --- !u!50 &7602817957490940785
 Rigidbody2D:
@@ -443,6 +443,18 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: be4e2516-f55c-4c9a-94f8-b654006bed62
     m_ActionName: Gameplay/Interact[/Keyboard/e]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 136b62eb-7179-4560-ab9a-743087e1f8d5
+    m_ActionName: Gameplay/Pause[/Keyboard/escape]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 399cfddc-8406-4b46-aa1e-33df8e305817
+    m_ActionName: Gameplay/Click[/Mouse/leftButton]
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: f56769d2-92a4-4c6f-ac9d-21d4e0d85a76
+    m_ActionName: Gameplay/Point[/Mouse/position]
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: Keyboard
   m_DefaultActionMap: Gameplay
@@ -475,11 +487,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playerData: {fileID: 11400000, guid: 4bed707c16007f94fba4daabe7c9ad87, type: 2}
-  weapon: {fileID: 7602817957312984064}
+  weapon: {fileID: 0}
   groundCheck: {fileID: 7602817958045706793}
   ladderCheck: {fileID: 7602817957940623715}
   isDamaged: 0
   UI: {fileID: 0}
+  sceneTransition: {fileID: 0}
 --- !u!114 &1546905921
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -585,7 +598,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7602817958045706792}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.87, z: 0}
+  m_LocalPosition: {x: -0.172, y: -0.994, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []

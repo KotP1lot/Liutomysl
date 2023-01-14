@@ -4,10 +4,10 @@ using UnityEngine;
 
 public class EnemyBullet : MonoBehaviour
 {
-    public Vector3 target;
-    public float speed;
-    public int damage;
-    public Vector3 movementVector;
+    private Vector3 target;
+    private float speed;
+    private int damage;
+    private Vector3 movementVector;
 
     public void Init(Vector3 target, float speed, int damage)
     {

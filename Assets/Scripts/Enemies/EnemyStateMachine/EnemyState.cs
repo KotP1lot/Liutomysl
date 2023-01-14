@@ -41,7 +41,7 @@ public class EnemyState
 
     public virtual void LogicUpdate()
     {
-
+        enemy.Animator.SetFloat("velocityX", Mathf.Abs(enemy.CurrentVelocity.x));
     }
 
     public virtual void PhysicsUpdate()

@@ -23,7 +23,6 @@ public class EnemyDamagedState : EnemyOnGroundState
     public override void Enter()
     {
         base.Enter();
-        isAnimationFinished = false;
         Debug.Log("got damaged");
     }
 

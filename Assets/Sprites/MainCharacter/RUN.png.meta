@@ -113,7 +113,7 @@ TextureImporter:
         width: 160
         height: 225
       alignment: 9
-      pivot: {x: 0.2501115, y: 0.4873072}
+      pivot: {x: 0.25011143, y: 0.5457478}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -134,7 +134,7 @@ TextureImporter:
         width: 155
         height: 224
       alignment: 9
-      pivot: {x: 0.24205056, y: 0.49362516}
+      pivot: {x: 0.24205056, y: 0.54645675}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -155,7 +155,7 @@ TextureImporter:
         width: 169
         height: 227
       alignment: 9
-      pivot: {x: 0.22962184, y: 0.49999994}
+      pivot: {x: 0.22962184, y: 0.54634064}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -176,7 +176,7 @@ TextureImporter:
         width: 178
         height: 224
       alignment: 9
-      pivot: {x: 0.21922629, y: 0.49999985}
+      pivot: {x: 0.20919183, y: 0.5478443}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -197,7 +197,7 @@ TextureImporter:
         width: 166
         height: 218
       alignment: 9
-      pivot: {x: 0.22473548, y: 0.48034948}
+      pivot: {x: 0.2200299, y: 0.53051364}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
@@ -213,12 +213,12 @@ TextureImporter:
       name: RUN_5
       rect:
         serializedVersion: 2
-        x: 982
+        x: 981
         y: 121
         width: 168
         height: 226
       alignment: 9
-      pivot: {x: 0.22801244, y: 0.48736343}
+      pivot: {x: 0.22801244, y: 0.5325721}
       border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
