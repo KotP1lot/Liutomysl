@@ -55,6 +55,10 @@ public class Player : MonoBehaviour, IDataPersistence
     public UI_Controller UI;
     public SceneTransition sceneTransition;
 
+    public ParticleSystem walkParticles;
+    public ParticleSystem jumpParticles;
+    public ParticleSystem landParticles;
+
     private Vector3 lastSavePosition;
     #endregion
 
@@ -112,8 +116,15 @@ public class Player : MonoBehaviour, IDataPersistence
     }
     public void SetVelocityX(float velocity)
     {
-        if (velocity == 0) RB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
-        else { CheckIfShouldFlip(velocity < 0 ? -1 : 1); RB.constraints = RigidbodyConstraints2D.FreezeRotation; }
+        if (velocity == 0)
+        {
+            RB.constraints = RigidbodyConstraints2D.FreezePositionX | RigidbodyConstraints2D.FreezeRotation;
+        }
+        else 
+        { 
+            CheckIfShouldFlip(velocity < 0 ? -1 : 1); 
+            RB.constraints = RigidbodyConstraints2D.FreezeRotation;
+        }
 
         if (playerData.SP == 0)
         {
