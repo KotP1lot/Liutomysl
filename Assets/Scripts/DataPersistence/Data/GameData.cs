@@ -18,7 +18,7 @@ public class GameData
 
     public GameData()
     {
-        lastSavePosition = new Vector3(0,-1.2f,0);
+        lastSavePosition = new Vector3(430, 3, 0); //new Vector3(0,-1.2f,0);
         objectsInteracted = new SerializableDictionary<string, bool>();
         upgradeCount = 0;
         playerDamage = 0;

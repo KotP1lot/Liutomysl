@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    public SpriteRenderer spriteRenderer1;// убрать/переробить
-    public SpriteRenderer spriteRenderer2; // убрать/переробить
-
     #region State Variables
     public EnemyStateMachine StateMachine { get; private set; }
     public EnemyIdleState IdleState { get; private set; }
@@ -20,6 +17,9 @@ public class Enemy : MonoBehaviour
     public EnemyDamagedState DamagedState { get; private set; }
     public EnemyBlockState BlockState { get; private set; }
     public EnemyActState ActState { get; private set; }
+    public EnemyDeathState DeathState { get; private set; }
+
+    public string currentState;
 
     [SerializeField]
     private EnemyData enemyData;
@@ -39,7 +39,12 @@ public class Enemy : MonoBehaviour
 
     public Animator Animator;
 
-    public SpriteRenderer spriteRenderer;
+    public EnemyAlerts alerts;
+
+    [Header("Ranges")]
+    public float wanderRange=8;
+    public float patrolRange=8;
+    public float shootRange=16;
 
     #endregion
 
@@ -59,6 +64,7 @@ public class Enemy : MonoBehaviour
         DamagedState = new EnemyDamagedState(this, StateMachine, enemyData, "damaged");
         BlockState = new EnemyBlockState(this, StateMachine, enemyData, "block");
         ActState = new EnemyActState(this, StateMachine, enemyData, "act");
+        DeathState = new EnemyDeathState(this, StateMachine, enemyData, "death");
 
         enemyData.continueChasing = false;
         enemyData.startingPosition = transform.position;
@@ -70,12 +76,15 @@ public class Enemy : MonoBehaviour
         StateMachine.Initialize(IdleState);
         FacingDirection = 1;
         attackCollider.enabled = false;
+        enemyData.HP = enemyData.maxHP;
     }
 
     private void Update()
     {
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
+
+        currentState = StateMachine.CurrentState.GetType().Name;
     }
     private void FixedUpdate()
     {
@@ -94,6 +103,8 @@ public class Enemy : MonoBehaviour
         FacingDirection *= -1;
 
         transform.Rotate(0.0f, 180.0f, 0, 0f);
+
+        alerts.Flip(FacingDirection);
     }
     public void SetVelocityX(float velocity)
     {
@@ -144,7 +155,7 @@ public class Enemy : MonoBehaviour
     {
         if (CheckIfGrounded() && enemyData.useShootAsActRange && enemyData.canShoot)
         {
-            return Physics2D.OverlapCircle(transform.position, enemyData.shootRange, enemyData.playerMask);
+            return Physics2D.OverlapCircle(transform.position, shootRange, enemyData.playerMask);
         }
         if (CheckIfGrounded())
         {
@@ -157,7 +168,7 @@ public class Enemy : MonoBehaviour
     {
         if (CheckIfGrounded() && enemyData.canShoot)
         {
-            return Physics2D.OverlapCircle(transform.position, enemyData.shootRange, enemyData.playerMask);
+            return Physics2D.OverlapCircle(transform.position, shootRange, enemyData.playerMask);
         }
         return false;
     }
@@ -176,10 +187,20 @@ public class Enemy : MonoBehaviour
             var player = sender.GetComponent<Player>();
             player.GetStunned(enemyCollider);
         }
-        else
+        else if (StateMachine.CurrentState != DeathState)
         {
             if (CheckIfGrounded()) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, enemyData.knockbackForce);
             enemyData.continueChasing = true;
+
+            enemyData.HP -= amount;
+            if (enemyData.HP <= 0)
+            {
+                enemyData.HP = 0;
+
+                StateMachine.ChangeState(DeathState);
+                return;
+            }
+
             StateMachine.ChangeState(DamagedState);
         }
     }
@@ -191,6 +212,11 @@ public class Enemy : MonoBehaviour
         RB.AddForce(new Vector2(force * direction, 0), ForceMode2D.Impulse);
     }
 
+    public void Die()
+    {
+        Destroy(gameObject);
+    }
+
     private void OnDrawGizmos()
     {
         if (enemyData.showGizmos)
@@ -198,7 +224,7 @@ public class Enemy : MonoBehaviour
             if (enemyData.canWander)
             {
                 Gizmos.color = Color.yellow;
-                Gizmos.DrawWireSphere(enemyData.startingPosition, enemyData.wanderRange);
+                Gizmos.DrawWireSphere(enemyData.startingPosition, wanderRange);
             }
             if (enemyData.detectGizmos)
             {
@@ -221,15 +247,15 @@ public class Enemy : MonoBehaviour
             if (enemyData.canPatrol)
             {
                 Gizmos.color = Color.green;
-                Gizmos.DrawLine(new Vector2(enemyData.startingPosition.x - enemyData.patrolRange, enemyData.startingPosition.y - 0.5f),
-                    new Vector2(enemyData.startingPosition.x + enemyData.patrolRange, enemyData.startingPosition.y - 0.5f));
+                Gizmos.DrawLine(new Vector2(enemyData.startingPosition.x - patrolRange, enemyData.startingPosition.y - 0.5f),
+                    new Vector2(enemyData.startingPosition.x + patrolRange, enemyData.startingPosition.y - 0.5f));
             }
             if (enemyData.canShoot)
             {
                 Gizmos.color = Color.cyan;
                 var actualShootPoint = new Vector3(enemyData.shootPoint.x * FacingDirection, enemyData.shootPoint.y, 0);
                 Gizmos.DrawWireSphere(transform.position + actualShootPoint, 0.2f);
-                Gizmos.DrawWireSphere(transform.position, enemyData.shootRange);
+                Gizmos.DrawWireSphere(transform.position, shootRange);
             }
         }
     }

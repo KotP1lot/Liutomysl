@@ -5,13 +5,34 @@ using UnityEngine;
 public class Statue : MonoBehaviour
 {
     public ParticleSystem particle;
-    public SpriteRenderer spriteRenderer;
-    public BoxCollider2D boxCollider;
+    private SpriteRenderer spriteRenderer;
+    private BoxCollider2D boxCollider;
+    private Rigidbody2D rigidbody2d;
     public float delay = 0;
+
+    private void Start()
+    {
+        spriteRenderer = GetComponent<SpriteRenderer>();
+        boxCollider = GetComponent<BoxCollider2D>();
+        rigidbody2d = GetComponent<Rigidbody2D>();
+    }
+
+    private void Update()
+    {
+        
+    }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.layer == 3)
+        {
+            StartCoroutine(Destruct());
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.layer == 6)
         {
             StartCoroutine(Destruct());
         }

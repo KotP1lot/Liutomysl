@@ -186,7 +186,7 @@ public class Player : MonoBehaviour, IDataPersistence
             UI.HpBar.SetValue(playerData.HP, playerData.maxHP);
 
             isDamaged = true;
-            if (CheckIfGrounded() && sender != null) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1);
+            if (CheckIfGrounded() && sender != null) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, playerData.knockbackForceDamaged);
             StateMachine.ChangeState(DamagedState);
         }
     }
@@ -194,15 +194,15 @@ public class Player : MonoBehaviour, IDataPersistence
     {
         if (StateMachine.CurrentState == DamagedState) return;
         isDamaged = true;
-        if (CheckIfGrounded()) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1);
+        if (CheckIfGrounded()) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, playerData.knockbackForceStunned);
 
         StateMachine.ChangeState(StunnedState);
     }
-    public void GetKnockedBack(int direction)
+    public void GetKnockedBack(int direction, float force)
     {
         SetVelocityX(0);
         RB.constraints = RigidbodyConstraints2D.FreezeRotation;
-        RB.AddForce(new Vector2(playerData.knockbackForce * direction, 0), ForceMode2D.Impulse);
+        RB.AddForce(new Vector2(force * direction, 0), ForceMode2D.Impulse);
     }
     public void SpendStamina(int amount)
     {

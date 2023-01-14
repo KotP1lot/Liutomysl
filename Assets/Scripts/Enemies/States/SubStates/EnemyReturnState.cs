@@ -25,8 +25,7 @@ public class EnemyReturnState : EnemyOnGroundState
 
         enemyData.continueChasing = false;
 
-        enemy.spriteRenderer1.enabled = false; //temp
-        enemy.spriteRenderer2.enabled = true; //temp
+        enemy.alerts.LostAlert();
 
         enemy.SetVelocityX(0f);
 
@@ -38,8 +37,6 @@ public class EnemyReturnState : EnemyOnGroundState
     public override void Exit()
     {
         base.Exit();
-
-        enemy.spriteRenderer2.enabled = false; //temp
     }
 
     private void startTimer()
@@ -53,7 +50,6 @@ public class EnemyReturnState : EnemyOnGroundState
 
         if (Time.time >= timerStart)
         {
-            enemy.spriteRenderer2.enabled = false; //temp
 
             if (returnDirection == 1 && enemy.transform.position.x >= enemyData.startingPosition.x
             || returnDirection == -1 && enemy.transform.position.x <= enemyData.startingPosition.x)

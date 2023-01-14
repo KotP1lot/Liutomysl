@@ -23,7 +23,6 @@ public class EnemyDamagedState : EnemyOnGroundState
     public override void Enter()
     {
         base.Enter();
-        Debug.Log("got damaged");
     }
 
     public override void Exit()
@@ -37,7 +36,6 @@ public class EnemyDamagedState : EnemyOnGroundState
 
         if(isAnimationFinished) 
         {
-            Debug.Log("left stagger");
             stateMachine.ChangeState(enemy.ChaseState);
         }
     }

@@ -19,7 +19,7 @@ public class PlayerStunnedState : PlayerAbilityState
     {
         base.Enter();
 
-        weaponAnimator.Play("Idle");
+        if (player.weapon.activeSelf) weaponAnimator.Play("Idle");
     }
 
     public override void Exit()
@@ -29,13 +29,7 @@ public class PlayerStunnedState : PlayerAbilityState
 
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
-
-        if(player.CurrentVelocity.x==0) // «–Œ¡»“‹ œŒ «¿ ≤Õ◊≈ÕÕﬁ ¿Õ≤Ã¿÷≤Ø
-        {
-            player.isDamaged = false;
-            isAbilityDone = true;
-        }
+        base.LogicUpdate(); 
     }
     public override void PhysicsUpdate()
     {
@@ -44,4 +38,9 @@ public class PlayerStunnedState : PlayerAbilityState
       
     }
 
+    public override void AnimationFinishTrigger()
+    {
+        player.isDamaged = false;
+        isAbilityDone = true;
+    }
 }

@@ -12,7 +12,7 @@ public class EnemyState
 
     protected string animBoolName;
 
-    protected bool autoAnimStart;
+    protected string name;
 
     public EnemyState(Enemy enemy, EnemyStateMachine stateMachine, EnemyData enemyData, string animBoolName)
     {
@@ -20,14 +20,13 @@ public class EnemyState
         this.stateMachine = stateMachine;
         this.enemyData = enemyData;
         this.animBoolName = animBoolName;
-        autoAnimStart = true;
     }
 
     public virtual void Enter()
     {
         DoChecks();
 
-        if (autoAnimStart) enemy.Animator.SetBool(animBoolName, true);
+        enemy.Animator.SetBool(animBoolName, true);
 
         startTime = Time.time;
         isAnimationFinished = false;

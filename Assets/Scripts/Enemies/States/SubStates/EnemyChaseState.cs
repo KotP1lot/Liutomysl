@@ -44,7 +44,7 @@ public class EnemyChaseState : EnemyOnGroundState
 
     private void startTimer()
     {
-        enemy.spriteRenderer1.enabled = true; //temp
+        enemy.alerts.DetectedAlert();
         timerStart = Time.time + enemyData.waitBeforeChase;
     }
 
@@ -59,7 +59,6 @@ public class EnemyChaseState : EnemyOnGroundState
         base.Exit();
 
         returnTimerStarted = false;
-        enemy.spriteRenderer1.enabled = false; //temp
     }
 
     public override void LogicUpdate()
@@ -68,8 +67,6 @@ public class EnemyChaseState : EnemyOnGroundState
 
         if (Time.time >= timerStart)
         {
-            enemy.spriteRenderer1.enabled = false; //temp
-
             if (!returnTimerStarted) playerDirection = enemy.transform.position.x > playerObject.transform.position.x ? -1 : 1;
 
             enemy.SetVelocityX(enemyData.movementVelocity * playerDirection);

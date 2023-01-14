@@ -23,7 +23,8 @@ public class EnemyData : ScriptableObject
 
     
     [Header("\nCombat info")]
-    public int health;
+    public int maxHP;
+    [HideInInspector] public int HP;
     public Vector2 detectSize;
     public Vector3 detectOffset;
     [HideInInspector] public Collider2D playerCollider;
@@ -42,27 +43,26 @@ public class EnemyData : ScriptableObject
 
     [Header("\nWander State")]
     public bool canWander;
-    [ConditionalField("canWander")] public float wanderRange;
+    //[ConditionalField("canWander")] public float wanderRange;
     [ConditionalField("canWander")] public float wanderDistanceMin;
     [ConditionalField("canWander")] public float wanderDistanceMax;
 
     [Header("\nPatrol State")]
     public bool canPatrol;
-    [ConditionalField("canPatrol")] public float patrolRange;
+    //[ConditionalField("canPatrol")] public float patrolRange;
 
     [Header("\nAct State")]
     public float actRange;
 
     [Header("\nAttack State")]
     public bool canAttack;
-    [ConditionalField("canAttack")] public bool hasTwoAttacks;
     [ConditionalField("canAttack")] public int damage;
     [ConditionalField("canAttack")] public float waitAfterAttack;
 
     [Header("\nShoot State")]
     public bool canShoot;
     [ConditionalField("canShoot")] public GameObject bulletPrefab;
-    [ConditionalField("canShoot")] public float shootRange;
+    //[ConditionalField("canShoot")] public float shootRange;
     [ConditionalField("canShoot")] public bool useShootAsActRange;
     [ConditionalField("canShoot")] public Vector3 shootPoint;
     [ConditionalField("canShoot")] public float bulletVelocity;

@@ -10,7 +10,8 @@ public class PlayerData : ScriptableObject
     public float dashVelocity = 20f;
     public int dashStaminaCost;
     public float stepForce;
-    public float knockbackForce;
+    public float knockbackForceDamaged;
+    public float knockbackForceStunned;
 
     [Header("Jump State")]
     public float jumpVelocity = 10f;

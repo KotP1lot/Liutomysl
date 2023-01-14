@@ -26,7 +26,6 @@ public class EnemyActState : EnemyOnGroundState
         enemy.SetVelocityX(0f);
 
         var rand = Random.Range(0,possibleActs.Count);
-        Debug.Log(rand);
 
         stateMachine.ChangeState(possibleActs[rand]);
     }

@@ -17,7 +17,8 @@ MonoBehaviour:
   dashVelocity: 20
   dashStaminaCost: 10
   stepForce: 5
-  knockbackForce: 8
+  knockbackForceDamaged: 8
+  knockbackForceStunned: 4
   jumpVelocity: 16
   variableJumpHeightMultiplier: 0.5
   fallDamageModifier: 10
