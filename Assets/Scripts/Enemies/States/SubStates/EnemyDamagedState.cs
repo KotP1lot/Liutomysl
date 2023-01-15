@@ -23,6 +23,7 @@ public class EnemyDamagedState : EnemyOnGroundState
     public override void Enter()
     {
         base.Enter();
+        enemy.soundEnControler.SoundEffect(SoundForEnState.DamagedIron, true);
     }
 
     public override void Exit()

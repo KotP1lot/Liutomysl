@@ -9,6 +9,8 @@ public class Spikes : MonoBehaviour
     public ParticleSystem particle;
     public SpriteRenderer spriteRenderer;
     public BoxCollider2D box_collider;
+    [SerializeField] private AudioClip _clipClose;
+    [SerializeField] private AudioSource _audioSource;
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -28,7 +30,7 @@ public class Spikes : MonoBehaviour
         particle.Play();
         spriteRenderer.enabled = false;
         box_collider.enabled = false;
-
+        _audioSource.PlayOneShot(_clipClose);
         yield return new WaitForSeconds(particle.main.startLifetime.constantMax);
 
         Destroy(gameObject);

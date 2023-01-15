@@ -21,6 +21,7 @@ public class PlayerDeathState : PlayerGroundedState
         player.SetVelocityX(0f);
 
         if (player.weapon.activeSelf) weaponAnimator.Play("Death");
+        player.soundController.SoundEffect(SoundForState.Damaged, true);
     }
 
     public override void AnimationFinishTrigger()

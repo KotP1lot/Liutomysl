@@ -55,6 +55,7 @@ public class PlayerAttackState : PlayerAbilityState
     {
         player.walkParticles.Play();
 
+        player.soundController.SoundEffect(SoundForState.Attack, true);
         player.RB.constraints = RigidbodyConstraints2D.FreezeRotation;
         player.RB.AddForce(new Vector2(playerData.stepForce * player.FacingDirection, 0), ForceMode2D.Impulse);
     }

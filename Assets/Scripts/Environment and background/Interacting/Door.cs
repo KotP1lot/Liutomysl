@@ -13,6 +13,9 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
     [SerializeField] OpenFrom opensFrom = OpenFrom.Both;
     [SerializeField] Keys needsKey = Keys.None;
     [SerializeField] private string _prompt;
+    [SerializeField] private AudioClip _clipClose;
+    [SerializeField] private AudioClip _clipOpen;
+    [SerializeField] private AudioSource _audioSource;
 
     private string message;
     public string InteractedMessage => message;
@@ -31,17 +34,20 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
 
     public bool Interact(Interactor interactor)
     {
+        _audioSource.volume = 0.2f;
         var inventory = interactor.GetComponent<KeyInventory>();
         if (inventory == null) return false;
 
         if (opensFrom == OpenFrom.Left && !(interactor.transform.position.x < transform.position.x))
         {
+            _audioSource.PlayOneShot(_clipClose);
             animator.SetTrigger("door_budge");
             message = "Не відкривається з цієї сторони.";
             return false;
         }
         if (opensFrom == OpenFrom.Right && !(interactor.transform.position.x > transform.position.x))
         {
+            _audioSource.PlayOneShot(_clipClose);
             animator.SetTrigger("door_budge");
             message = "Не відкривається з цієї сторони.";
             return false;
@@ -49,6 +55,7 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
 
         if (inventory.hasKey(needsKey.ToString()))
         {
+            _audioSource.PlayOneShot(_clipOpen);
             if (needsKey == Keys.None) message = "Двері відкрито";
             else message = "Використано " + inventory.getFullKeyName(needsKey.ToString());
 
@@ -59,7 +66,7 @@ public class Door : MonoBehaviour, IInteractable, IDataPersistence
             DataPersistenceManager.instance.SaveGame();
             return true;
         }
-
+        _audioSource.PlayOneShot(_clipClose);
         animator.SetTrigger("door_budge");
         message = "Потрібен "+ inventory.getFullKeyName(needsKey.ToString());
         return false;

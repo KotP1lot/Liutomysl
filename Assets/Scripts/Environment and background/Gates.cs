@@ -6,6 +6,9 @@ public class Gates : MonoBehaviour
 {
     public ParticleSystem dust;
     public Animator animator;
+    [SerializeField] private AudioClip _clipClose;
+    [SerializeField] private AudioSource _audioSource;
+    private bool _isPlayed = false;
     public void playParticles()
     {
         dust.Play();
@@ -13,6 +16,11 @@ public class Gates : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        animator.SetBool("Close", true);
+        if (!_isPlayed)
+        {
+            _audioSource.PlayOneShot(_clipClose);
+            _isPlayed = true;
+            animator.SetBool("Close", true);
+        }
     }
 }

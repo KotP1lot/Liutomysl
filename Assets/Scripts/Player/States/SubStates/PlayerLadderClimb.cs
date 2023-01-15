@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class PlayerLadderClimbState : PlayerOnLadderState
 {
+    private float timeStep;
+    private float timetoNextStep = 0.3f;
     public PlayerLadderClimbState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string aminBoolName) : base(player, stateMachine, playerData, aminBoolName)
     {
     }
@@ -26,6 +28,8 @@ public class PlayerLadderClimbState : PlayerOnLadderState
     public override void Enter()
     {
         base.Enter();
+        timeStep = Time.time;
+        player.soundController.SoundEffect(SoundForState.Ladder, true);
     }
 
     public override void Exit()
@@ -44,6 +48,11 @@ public class PlayerLadderClimbState : PlayerOnLadderState
         {
    
             stateMachine.ChangeState(player.LadderGrabState);
+        }
+        if (Time.time - timeStep > timetoNextStep)
+        {
+            timeStep = Time.time;
+            player.soundController.SoundEffect(SoundForState.Ladder, true);
         }
     }
 

@@ -9,6 +9,8 @@ public class Chest : MonoBehaviour, IInteractable, IDataPersistence
 
     [SerializeField] private string _prompt;
     [SerializeField] private Animator _animator;
+    [SerializeField] private AudioClip _clip;
+    [SerializeField] private AudioSource _audioSource;
     [SerializeField] private Collider2D _chestCollider;
     [SerializeField] private Upgrade _givesUpgrade = 0;
     private string message;
@@ -59,7 +61,7 @@ public class Chest : MonoBehaviour, IInteractable, IDataPersistence
                 }
         }
         player.UI.ItemFound();
-
+        _audioSource.PlayOneShot(_clip);
         _animator.SetTrigger("open_chest");
         _chestCollider.enabled = false;
 

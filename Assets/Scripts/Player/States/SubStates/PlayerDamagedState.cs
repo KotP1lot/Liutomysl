@@ -18,7 +18,7 @@ public class PlayerDamagedState : PlayerAbilityState
     public override void Enter()
     {
         base.Enter();
-
+        player.soundController.SoundEffect(SoundForState.Damaged, true);
         if(player.weapon.activeSelf) weaponAnimator.Play("Idle");
 
         player.walkParticles.Play();
