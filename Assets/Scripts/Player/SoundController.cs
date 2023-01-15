@@ -25,11 +25,11 @@ public class SoundController : MonoBehaviour
     public void SoundEffect(SoundForState sound, bool pitchChange) {
         if (pitchChange)
         {
-            random = Random.Range(.85f, 1.1f);
+            random = Random.Range(0.85f, 1.1f);
             _audioSource.pitch = random;
         }
         else {
-            _audioSource.pitch = 1f;
+            _audioSource.pitch = 1.0f;
         }
        
         _audioSource.clip = _clips[(int)sound];

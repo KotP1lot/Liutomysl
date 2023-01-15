@@ -86,7 +86,6 @@ public class Player : MonoBehaviour, IDataPersistence
     }
     private void Start()
     {
-        Item.getKey += playKeySound;
         RB = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
@@ -98,6 +97,7 @@ public class Player : MonoBehaviour, IDataPersistence
 
     private void Update()
     {
+      
         CurrentVelocity = RB.velocity;
         StateMachine.CurrentState.LogicUpdate();
         SetLayerMask();
@@ -289,7 +289,7 @@ public class Player : MonoBehaviour, IDataPersistence
 
         UI.AtkSpdBar.Upgrade();
     }
-    private void playKeySound() {
+    public void playKeySound() {
         soundController.SoundEffect(SoundForState.Key, false);
     }
     public void SetSavePosition(Vector3 position)
