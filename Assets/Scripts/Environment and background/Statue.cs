@@ -9,6 +9,8 @@ public class Statue : MonoBehaviour
     private BoxCollider2D boxCollider;
     private Rigidbody2D rigidbody2d;
     public float delay = 0;
+    [SerializeField] private AudioClip _clipClose;
+    [SerializeField] private AudioSource _audioSource;
 
     private void Start()
     {
@@ -44,8 +46,8 @@ public class Statue : MonoBehaviour
         particle.Play();
         spriteRenderer.enabled = false;
         boxCollider.enabled = false;
-
-        yield return new WaitForSeconds(particle.main.startLifetime.constantMax);
+        _audioSource.PlayOneShot(_clipClose);
+        yield return new WaitForSeconds(particle.main.startLifetime.constantMax + 0.5f);
 
         Destroy(gameObject);
     }

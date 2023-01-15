@@ -28,7 +28,7 @@ public class PlayerDashState : PlayerAbilityState
     public override void Enter()
     {
         base.Enter();
-
+        player.soundController.SoundEffect(SoundForState.Dash, false);
         player.SpendStamina(playerData.dashStaminaCost);
     }
 

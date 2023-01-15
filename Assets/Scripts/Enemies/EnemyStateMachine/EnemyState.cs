@@ -30,7 +30,7 @@ public class EnemyState
 
         startTime = Time.time;
         isAnimationFinished = false;
-        Debug.Log("enemy - " + animBoolName);
+       // Debug.Log("enemy - " + animBoolName);
     }
 
     public virtual void Exit()

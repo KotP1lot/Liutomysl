@@ -17,6 +17,7 @@ public class PlayerDeathState : PlayerGroundedState
     {
         base.Enter();
         player.SetVelocityX(0f);
+        player.soundController.SoundEffect(SoundForState.Damaged, true);
     }
 
     public override void AnimationFinishTrigger()

@@ -10,7 +10,8 @@ public class Falling_Platform : MonoBehaviour
     private SpriteRenderer spriteRenderer;
     private Animator animator;
     public BoxCollider2D boxCollider;
-
+    [SerializeField] private AudioClip _clipClose;
+    [SerializeField] private AudioSource _audioSource;
     private void Start()
     {
         spriteRenderer = spriteObject.GetComponent<SpriteRenderer>();
@@ -29,7 +30,10 @@ public class Falling_Platform : MonoBehaviour
     {
         particleBreaking.Play();
         animator.SetBool("Breaking", true);
-
+        _audioSource.clip = _clipClose;
+        _audioSource.volume = 0.3f;
+        _audioSource.loop = true;
+        _audioSource.Play();
         yield return new WaitForSeconds(1);
 
         particleBreaking.Stop();

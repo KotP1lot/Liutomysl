@@ -30,7 +30,8 @@ public class Enemy : MonoBehaviour
     public Collider2D enemyCollider { get; private set; }
     public Vector2 CurrentVelocity { get; private set; }
     public int FacingDirection { get; private set; }
-
+    public SoundEnControler soundEnControler { get; private set; }
+ 
     public Ray2D jumpRay = new Ray2D();
 
     private Vector2 workspace;
@@ -77,6 +78,7 @@ public class Enemy : MonoBehaviour
         FacingDirection = 1;
         attackCollider.enabled = false;
         enemyData.HP = enemyData.maxHP;
+        soundEnControler = GetComponent<SoundEnControler>();
     }
 
     private void Update()

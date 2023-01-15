@@ -8,6 +8,7 @@ public class PlayerLandState : PlayerGroundedState
     {
     }
 
+
     public override void LogicUpdate()
     {
         base.LogicUpdate();
@@ -18,6 +19,7 @@ public class PlayerLandState : PlayerGroundedState
         }
         else if ((isAnimationFinished || xinput == 0) && player.CheckIfOnlyOnGround())//«Ã≤Õ»“» œ–» ¿Õ≤Ã¿÷≤ø
         {
+            player.soundController.SoundEffect(SoundForState.Land, true);
             stateMachine.ChangeState(player.IdelState);
         }
     }
