@@ -21,6 +21,7 @@ public class PlayerDeathState : PlayerGroundedState
 
     public override void AnimationFinishTrigger()
     {
+        MixeControler.mixer.ChangeSnap(Snap.DeathSnap, 2f);
         player.sceneTransition.DeathTransition(1);
     }
 

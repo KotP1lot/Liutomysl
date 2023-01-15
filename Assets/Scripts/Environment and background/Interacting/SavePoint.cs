@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
+using UnityEditor.U2D.Path.GUIFramework;
 
 public class SavePoint : MonoBehaviour, IInteractable
 {
@@ -21,7 +22,7 @@ public class SavePoint : MonoBehaviour, IInteractable
         player.SetSavePosition(transform.position);
 
         DataPersistenceManager.instance.SaveGame();
-
+        MixeControler.mixer.ToMainMenu();
         sceneTransition.SleepTransition(0);
 
         return true;

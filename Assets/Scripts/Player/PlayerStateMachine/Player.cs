@@ -94,9 +94,14 @@ public class Player : MonoBehaviour, IDataPersistence
 
         if (InputHandler.pauseActive && !UI.pauseMenu.activeSelf)
         {
+            MixeControler.mixer.ToPauseMenu();
             UI.ShowPauseMenu();
         }
-        else if(!InputHandler.pauseActive && UI.pauseMenu.activeSelf) UI.HidePauseMenu();
+        else if (!InputHandler.pauseActive && UI.pauseMenu.activeSelf)
+        {
+            MixeControler.mixer.ToNormalSnap();
+            UI.HidePauseMenu();
+        }
     }
     private void FixedUpdate()
     {
