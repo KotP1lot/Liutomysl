@@ -26,7 +26,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 43462673}
   m_LocalRotation: {x: -0.07210049, y: -0, z: -0, w: 0.99739736}
-  m_LocalPosition: {x: 27.133057, y: 0.41815507, z: 3.204866}
+  m_LocalPosition: {x: -0.103, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -668,7 +668,7 @@ ParticleSystem:
     radiusThickness: 1
     donutRadius: 0.2
     m_Position: {x: 0, y: 0, z: 0}
-    m_Rotation: {x: 0, y: 0, z: -9.07}
+    m_Rotation: {x: -70.77, y: 0, z: -9.07}
     m_Scale: {x: -1, y: 1, z: 1}
     placementMode: 0
     m_MeshMaterialIndex: 0
@@ -4896,7 +4896,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 538173689}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 27.123077, y: 0.618155, z: 3.204866}
+  m_LocalPosition: {x: 0, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -9739,7 +9739,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1747181431}
   m_LocalRotation: {x: -0.07210049, y: -0, z: -0, w: 0.99739736}
-  m_LocalPosition: {x: 27.133057, y: 0.20815504, z: 3.204866}
+  m_LocalPosition: {x: -0.13, y: -1.2, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -15229,7 +15229,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8389249866372969944}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -27.273071, y: -1.8081551, z: -3.204866}
+  m_LocalPosition: {x: 0, y: 0, z: -1}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:

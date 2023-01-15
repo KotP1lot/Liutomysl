@@ -25,6 +25,7 @@ public class EnemyData : ScriptableObject
     [Header("\nCombat info")]
     public int maxHP;
     [HideInInspector] public int HP;
+    public int damage;
     public Vector2 detectSize;
     public Vector3 detectOffset;
     [HideInInspector] public Collider2D playerCollider;
@@ -56,8 +57,6 @@ public class EnemyData : ScriptableObject
 
     [Header("\nAttack State")]
     public bool canAttack;
-    [ConditionalField("canAttack")] public int damage;
-    [ConditionalField("canAttack")] public float waitAfterAttack;
 
     [Header("\nShoot State")]
     public bool canShoot;
@@ -66,7 +65,6 @@ public class EnemyData : ScriptableObject
     [ConditionalField("canShoot")] public bool useShootAsActRange;
     [ConditionalField("canShoot")] public Vector3 shootPoint;
     [ConditionalField("canShoot")] public float bulletVelocity;
-    [ConditionalField("canShoot")] public float waitBeforeShoot;
 
     [Header("\nBlock State")]
     public bool canBlock;

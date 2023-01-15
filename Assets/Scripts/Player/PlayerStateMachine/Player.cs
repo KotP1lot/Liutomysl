@@ -184,6 +184,8 @@ public class Player : MonoBehaviour, IDataPersistence
     {
         FacingDirection *= -1;
         transform.Rotate(0.0f, 180.0f, 0, 0f);
+
+        walkParticles.transform.parent.transform.localPosition = new Vector3(0, 0, -1 * FacingDirection);
     }
 
     public void GetDamaged(int amount, Collider2D sender=null)

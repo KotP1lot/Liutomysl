@@ -36,9 +36,9 @@ MonoBehaviour:
   damage: 0
   atkSpd: 1
   maxHP: 100
-  HP: 120
+  HP: 0
   maxSP: 40
-  SP: 30
+  SP: 40
   spRegenDelayMin: 3
   spRegenDelayMax: 5
   spRegenAmount: 1
@@ -55,7 +55,7 @@ MonoBehaviour:
   StrongCost2: 17
   StrongDamage3: 30
   StrongCost3: 17
-  damageUpgrade: 5
+  damageUpgrade: 3
   atkSpdUpgrade: 0.05
-  hpUpgrade: 20
+  hpUpgrade: 10
   spUpgrade: 10

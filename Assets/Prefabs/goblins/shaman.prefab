@@ -14751,7 +14751,7 @@ MonoBehaviour:
   alerts: {fileID: 5734998982412470511}
   wanderRange: 7
   patrolRange: 7
-  shootRange: 7
+  shootRange: 8
   hitParticle: {fileID: 633600013}
   blockParticle: {fileID: 888600629}
   walkParticle: {fileID: 1104649575}

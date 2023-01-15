@@ -23,7 +23,7 @@ public class SavePoint : MonoBehaviour, IInteractable
 
         DataPersistenceManager.instance.SaveGame();
         MixeControler.mixer.ToMainMenu();
-        sceneTransition.SleepTransition(0);
+        sceneTransition.SleepTransition(1);
 
         return true;
     }
