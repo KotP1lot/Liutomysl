@@ -32,15 +32,11 @@ public class EnemyPatrolState : EnemyOnGroundState
 
         nextDirection *= -1;
         targetX = enemy.transform.position.x + distance * patrolDirection;
-
-        enemy.walkParticle.Play();
     }
 
     public override void Exit()
     {
         base.Exit();
-
-        enemy.walkParticle.Stop();
     }
 
     public override void LogicUpdate()

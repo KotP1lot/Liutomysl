@@ -16,15 +16,11 @@ public class PlayerMoveState : PlayerGroundedState
     public override void Enter()
     {
         base.Enter();
-
-        player.walkParticles.Play();
     }
 
     public override void Exit()
     {
         base.Exit();
-
-        player.walkParticles.Stop();
     }
 
     public override void LogicUpdate()

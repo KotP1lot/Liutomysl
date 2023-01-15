@@ -15,8 +15,6 @@ public class PlayerJumpState : PlayerAbilityState
         player.SetVelocityY(playerData.jumpVelocity);
         isAbilityDone = true;
         player.inAirState.SetIsJumping();
-
-        player.jumpParticles.Play();
     }
 }
 

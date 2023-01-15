@@ -37,8 +37,6 @@ public class EnemyReturnState : EnemyOnGroundState
     public override void Exit()
     {
         base.Exit();
-
-        enemy.walkParticle.Stop();
     }
 
     private void startTimer()
@@ -52,7 +50,6 @@ public class EnemyReturnState : EnemyOnGroundState
 
         if (Time.time >= timerStart)
         {
-            if (!enemy.walkParticle.isPlaying) enemy.walkParticle.Play();
 
             if (returnDirection == 1 && enemy.transform.position.x >= enemyData.startingPosition.x
             || returnDirection == -1 && enemy.transform.position.x <= enemyData.startingPosition.x)

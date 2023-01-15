@@ -30,15 +30,11 @@ public class PlayerDashState : PlayerAbilityState
         base.Enter();
 
         player.SpendStamina(playerData.dashStaminaCost);
-
-        player.walkParticles.Play();
     }
 
     public override void Exit()
     {
         base.Exit();
-
-        player.walkParticles.Stop();
     }
 
     public override void LogicUpdate()

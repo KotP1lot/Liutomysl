@@ -24,8 +24,6 @@ public class EnemyWanderState : EnemyOnGroundState
     {
         base.Enter();
 
-        enemy.walkParticle.Play();
-
         wanderDirection = nextDirection;  
 
         enemy.CheckIfShouldFlip(wanderDirection);
@@ -51,8 +49,6 @@ public class EnemyWanderState : EnemyOnGroundState
     public override void Exit()
     {
         base.Exit();
-
-        enemy.walkParticle.Stop();
     }
 
     

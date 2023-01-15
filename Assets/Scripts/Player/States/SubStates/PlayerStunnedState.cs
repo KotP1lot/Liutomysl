@@ -20,8 +20,6 @@ public class PlayerStunnedState : PlayerAbilityState
         base.Enter();
 
         if (player.weapon.activeSelf) weaponAnimator.Play("Idle");
-
-        player.walkParticles.Play();
     }
 
     public override void Exit()
@@ -31,9 +29,7 @@ public class PlayerStunnedState : PlayerAbilityState
 
     public override void LogicUpdate()
     {
-        base.LogicUpdate();
-
-        if (player.CurrentVelocity.x == 0) { player.walkParticles.Stop(); }
+        base.LogicUpdate(); 
     }
     public override void PhysicsUpdate()
     {

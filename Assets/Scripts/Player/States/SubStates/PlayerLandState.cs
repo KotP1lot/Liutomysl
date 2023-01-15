@@ -8,11 +8,6 @@ public class PlayerLandState : PlayerGroundedState
     {
     }
 
-    public override void Enter()
-    {
-        player.landParticles.Play();
-    }
-
     public override void LogicUpdate()
     {
         base.LogicUpdate();
