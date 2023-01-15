@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.SceneManagement;
-using UnityEditor.U2D.Path.GUIFramework;
 
 public class SavePoint : MonoBehaviour, IInteractable
 {
