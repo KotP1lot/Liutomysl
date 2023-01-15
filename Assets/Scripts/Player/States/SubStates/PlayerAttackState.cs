@@ -35,6 +35,8 @@ public class PlayerAttackState : PlayerAbilityState
     {
         base.LogicUpdate();
 
+        if (player.CurrentVelocity.x == 0) { player.walkParticles.Stop(); }
+
         var animatorInfo = weaponAnimator.GetCurrentAnimatorClipInfo(0);
         if (animatorInfo[0].clip.name=="Idle")
         {
@@ -51,6 +53,8 @@ public class PlayerAttackState : PlayerAbilityState
 
     public void StepForward()
     {
+        player.walkParticles.Play();
+
         player.RB.constraints = RigidbodyConstraints2D.FreezeRotation;
         player.RB.AddForce(new Vector2(playerData.stepForce * player.FacingDirection, 0), ForceMode2D.Impulse);
     }
