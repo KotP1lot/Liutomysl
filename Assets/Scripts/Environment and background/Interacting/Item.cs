@@ -2,11 +2,14 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using System;
 
 public class Item : MonoBehaviour, IInteractable, IDataPersistence
 {
     enum Keys { None, Prison, Lift, Mason, Boss }
     enum Upgrade { None, HP, SP, Damage, AtkSpd }
+
+    public static Action getKey;
 
     [SerializeField] private string _prompt;
     [SerializeField] private Keys _givesKey=Keys.None;
@@ -69,7 +72,7 @@ public class Item : MonoBehaviour, IInteractable, IDataPersistence
         {
             var keys = interactor.GetComponent<KeyInventory>();
             if (keys == null) return false;
-
+            getKey.Invoke();
             keys.acquireKey(_givesKey.ToString());
             message = "Отримано " + keys.getFullKeyName(_givesKey.ToString());
 

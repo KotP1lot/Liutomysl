@@ -6,6 +6,7 @@ using UnityEngine.InputSystem.XInput;
 
 public class Player : MonoBehaviour, IDataPersistence
 {
+    
     #region State Variables
     public PlayerStateMachine StateMachine { get; private set; }
     public PlayerIdelState IdelState { get; private set; }
@@ -32,6 +33,8 @@ public class Player : MonoBehaviour, IDataPersistence
     public PlayerInputHandler InputHandler { get; private set; }
     public Rigidbody2D RB { get; private set; }
     public Collider2D PlayerCollider { get; private set; }
+
+    public SoundController soundController { get; private set; }
 
     #endregion
 
@@ -83,12 +86,14 @@ public class Player : MonoBehaviour, IDataPersistence
     }
     private void Start()
     {
+        Item.getKey += playKeySound;
         RB = GetComponent<Rigidbody2D>();
         Animator = GetComponent<Animator>();
         InputHandler = GetComponent<PlayerInputHandler>();
         PlayerCollider = GetComponent<Collider2D>();
         StateMachine.Initialize(IdelState);
         FacingDirection = 1;
+        soundController = GetComponent<SoundController>();
     }
 
     private void Update()
@@ -260,27 +265,33 @@ public class Player : MonoBehaviour, IDataPersistence
 
     public void UpgradeHP()
     {
+        soundController.SoundEffect(SoundForState.Pick, false);
         playerData.maxHP += playerData.hpUpgrade;
         UI.HpBar.SetValue(playerData.HP, playerData.maxHP);
     }
     public void UpgradeSP()
     {
+        soundController.SoundEffect(SoundForState.Pick, false);
         playerData.maxSP += playerData.spUpgrade;
         playerData.SP = playerData.maxSP;  
         UI.StaminaBar.SetValue(playerData.SP, playerData.maxSP);
     }
     public void UpgradeDamage()
     {
+        soundController.SoundEffect(SoundForState.Pick, false);
         playerData.damage += playerData.damageUpgrade;
         UI.DamageBar.Upgrade();
     }
     public void UpgradeAtkSpd()
     {
+        soundController.SoundEffect(SoundForState.Pick, false);
         playerData.atkSpd += playerData.atkSpdUpgrade;
 
         UI.AtkSpdBar.Upgrade();
     }
-
+    private void playKeySound() {
+        soundController.SoundEffect(SoundForState.Key, false);
+    }
     public void SetSavePosition(Vector3 position)
     {
         lastSavePosition = position;

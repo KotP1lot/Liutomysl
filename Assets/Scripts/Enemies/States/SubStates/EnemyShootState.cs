@@ -49,6 +49,8 @@ public class EnemyShootState : EnemyOnGroundState
 
         var bullet = bulletObject.GetComponent<EnemyBullet>();
         bullet.Init(enemy.playerCollider.transform.position, enemyData.bulletVelocity, enemyData.damage);
+
+        enemy.soundEnControler.SoundEffect(SoundForEnState.Fireball, true);
     }
 
     public override void PhysicsUpdate()

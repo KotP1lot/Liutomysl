@@ -18,7 +18,7 @@ public class EnemyDeathState : EnemyOnGroundState
     public override void Enter()
     {
         base.Enter();
-
+        enemy.soundEnControler.SoundEffect(SoundForEnState.DamagedIron, true);
         enemy.SetVelocityX(0);
     }
 

@@ -18,7 +18,7 @@ public class PlayerStunnedState : PlayerAbilityState
     public override void Enter()
     {
         base.Enter();
-
+        player.soundController.SoundEffect(SoundForState.Stunned, true);
         if (player.weapon.activeSelf) weaponAnimator.Play("Idle");
 
         player.walkParticles.Play();

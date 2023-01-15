@@ -21,8 +21,9 @@ public class PlayerLandState : PlayerGroundedState
         {
             stateMachine.ChangeState(player.MoveState);
         }
-        else if ((isAnimationFinished || xinput == 0) && player.CheckIfOnlyOnGround())//ÇÌ²ÍÈÒÈ ÏÐÈ ÀÍ²ÌÀÖ²¿
+        else if ((isAnimationFinished || xinput == 0) && player.CheckIfOnlyOnGround())//ï¿½Ì²ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ ï¿½Í²ï¿½ï¿½Ö²ï¿½
         {
+            player.soundController.SoundEffect(SoundForState.Land, true);
             stateMachine.ChangeState(player.IdelState);
         }
     }
