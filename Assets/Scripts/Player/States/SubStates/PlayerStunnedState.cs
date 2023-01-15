@@ -27,6 +27,8 @@ public class PlayerStunnedState : PlayerAbilityState
     public override void Exit()
     {
         base.Exit();
+
+        player.isDamaged = false;
     }
 
     public override void LogicUpdate()
@@ -44,7 +46,6 @@ public class PlayerStunnedState : PlayerAbilityState
 
     public override void AnimationFinishTrigger()
     {
-        player.isDamaged = false;
         isAbilityDone = true;
     }
 }

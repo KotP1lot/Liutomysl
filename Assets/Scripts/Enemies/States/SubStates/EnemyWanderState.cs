@@ -30,7 +30,7 @@ public class EnemyWanderState : EnemyOnGroundState
 
         enemy.CheckIfShouldFlip(wanderDirection);
         
-        var maxAllowedDistance = (enemyData.startingPosition.x + enemy.wanderRange * wanderDirection - enemy.transform.position.x) * wanderDirection;
+        var maxAllowedDistance = (enemy.startingPosition.x + enemy.wanderRange * wanderDirection - enemy.transform.position.x) * wanderDirection;
 
         float distance;
         if (enemyData.wanderDistanceMax >= maxAllowedDistance)

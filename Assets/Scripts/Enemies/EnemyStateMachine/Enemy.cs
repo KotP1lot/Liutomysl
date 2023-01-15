@@ -51,6 +51,10 @@ public class Enemy : MonoBehaviour
     public ParticleSystem blockParticle;
     public ParticleSystem walkParticle;
 
+    public int HP { get; private set; }
+    public Collider2D playerCollider { get; private set; }
+    public Vector3 startingPosition { get; private set; }
+
     #endregion
 
     #region Unity Callback Functions
@@ -72,7 +76,7 @@ public class Enemy : MonoBehaviour
         DeathState = new EnemyDeathState(this, StateMachine, enemyData, "death");
 
         enemyData.continueChasing = false;
-        enemyData.startingPosition = transform.position;
+        startingPosition = transform.position;
     }
     private void Start()
     {
@@ -81,7 +85,7 @@ public class Enemy : MonoBehaviour
         StateMachine.Initialize(IdleState);
         FacingDirection = 1;
         attackCollider.enabled = false;
-        enemyData.HP = enemyData.maxHP;
+        HP = enemyData.maxHP;
     }
 
     private void Update()
@@ -137,10 +141,10 @@ public class Enemy : MonoBehaviour
 
         if (collider != null)
         {
-            enemyData.playerCollider = collider;
+            playerCollider = collider;
             return true;
         }
-        enemyData.playerCollider = null;
+        playerCollider = null;
         return false;
     }
     public bool CheckIfGrounded()
@@ -206,10 +210,10 @@ public class Enemy : MonoBehaviour
             if (CheckIfGrounded()) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, enemyData.knockbackForce);
             enemyData.continueChasing = true;
 
-            enemyData.HP -= amount;
-            if (enemyData.HP <= 0)
+            HP -= amount;
+            if (HP <= 0)
             {
-                enemyData.HP = 0;
+                HP = 0;
 
                 StateMachine.ChangeState(DeathState);
                 return;
@@ -238,7 +242,7 @@ public class Enemy : MonoBehaviour
             if (enemyData.canWander)
             {
                 Gizmos.color = Color.yellow;
-                Gizmos.DrawWireSphere(enemyData.startingPosition, wanderRange);
+                Gizmos.DrawWireSphere(startingPosition, wanderRange);
             }
             if (enemyData.detectGizmos)
             {
@@ -261,8 +265,8 @@ public class Enemy : MonoBehaviour
             if (enemyData.canPatrol)
             {
                 Gizmos.color = Color.green;
-                Gizmos.DrawLine(new Vector2(enemyData.startingPosition.x - patrolRange, enemyData.startingPosition.y - 0.5f),
-                    new Vector2(enemyData.startingPosition.x + patrolRange, enemyData.startingPosition.y - 0.5f));
+                Gizmos.DrawLine(new Vector2(startingPosition.x - patrolRange, startingPosition.y - 0.5f),
+                    new Vector2(startingPosition.x + patrolRange, startingPosition.y - 0.5f));
             }
             if (enemyData.canShoot)
             {

@@ -28,7 +28,7 @@ public class EnemyPatrolState : EnemyOnGroundState
 
         enemy.CheckIfShouldFlip(patrolDirection);
 
-        var distance = (enemyData.startingPosition.x + enemy.patrolRange * patrolDirection - enemy.transform.position.x) * patrolDirection;
+        var distance = (enemy.startingPosition.x + enemy.patrolRange * patrolDirection - enemy.transform.position.x) * patrolDirection;
 
         nextDirection *= -1;
         targetX = enemy.transform.position.x + distance * patrolDirection;

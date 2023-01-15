@@ -211,8 +211,10 @@ public class Player : MonoBehaviour, IDataPersistence
     }
     public void GetStunned(Collider2D sender)
     {
-        if (StateMachine.CurrentState == DamagedState) return;
         isDamaged = true;
+
+        if (StateMachine.CurrentState == DamagedState) return;
+        
         if (CheckIfGrounded()) GetKnockedBack(sender.transform.position.x > transform.position.x ? -1 : 1, playerData.knockbackForceStunned);
 
         StateMachine.ChangeState(StunnedState);

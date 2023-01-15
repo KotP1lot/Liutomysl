@@ -12,11 +12,16 @@ public class EnemyShootState : EnemyOnGroundState
     {
         base.DoChecks();
 
-        if (!enemy.CanShoot() || !enemy.CheckDetection()) stateMachine.ChangeState(enemy.ChaseState);
+        if (!enemy.CanAct() || !enemy.CheckDetection()) stateMachine.ChangeState(enemy.ChaseState);
 
-        var playerObject = enemyData.playerCollider.gameObject;
-        var playerDirection = enemy.transform.position.x > playerObject.transform.position.x ? -1 : 1;
-        enemy.CheckIfShouldFlip(playerDirection);
+        
+
+        if(enemy.playerCollider != null)
+        {
+            var playerObject = enemy.playerCollider.gameObject;
+            var playerDirection = enemy.transform.position.x > playerObject.transform.position.x ? -1 : 1;
+            enemy.CheckIfShouldFlip(playerDirection);
+        }
     }
 
     public override void Enter()
@@ -43,7 +48,7 @@ public class EnemyShootState : EnemyOnGroundState
         var bulletObject = GameObject.Instantiate(enemyData.bulletPrefab, actualShootPoint, Quaternion.identity);
 
         var bullet = bulletObject.GetComponent<EnemyBullet>();
-        bullet.Init(enemyData.playerCollider.transform.position, enemyData.bulletVelocity, enemyData.damage);
+        bullet.Init(enemy.playerCollider.transform.position, enemyData.bulletVelocity, enemyData.damage);
     }
 
     public override void PhysicsUpdate()

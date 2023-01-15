@@ -40,8 +40,8 @@ public class Weapon : MonoBehaviour
 
         if (player.CheckIfGrounded())
         {
-            if (player.InputHandler.LightAttackInput && player.playerData.SP > 0) animator.SetTrigger("lightAttack");
-            else if (player.InputHandler.StrongAttackInput && player.playerData.SP > 0) animator.SetTrigger("strongAttack");
+            if (!player.isDamaged && player.InputHandler.LightAttackInput && player.playerData.SP > 0) animator.SetTrigger("lightAttack");
+            else if (!player.isDamaged && player.InputHandler.StrongAttackInput && player.playerData.SP > 0) animator.SetTrigger("strongAttack");
         }
         
     }

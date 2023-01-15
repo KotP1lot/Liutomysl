@@ -44,7 +44,7 @@ public class EnemyBlockState : EnemyOnGroundState
     {
         base.LogicUpdate();
 
-        var playerObject = enemyData.playerCollider.gameObject;
+        var playerObject = enemy.playerCollider.gameObject;
 
         var playerDirection = enemy.transform.position.x > playerObject.transform.position.x ? -1 : 1;
         enemy.CheckIfShouldFlip(playerDirection);

@@ -9,7 +9,7 @@ public class EnemyData : ScriptableObject
     [Header("Movement info")]
     public float movementVelocity;
     public float jumpVelocity;
-    [HideInInspector] public Vector3 startingPosition;
+    //[HideInInspector] public Vector3 startingPosition;
     public float jumpRayLength;
     public float fallDelay;
     public Vector3 groundCheckPosition;
@@ -24,11 +24,11 @@ public class EnemyData : ScriptableObject
     
     [Header("\nCombat info")]
     public int maxHP;
-    [HideInInspector] public int HP;
+    //[HideInInspector] public int HP;
     public int damage;
     public Vector2 detectSize;
     public Vector3 detectOffset;
-    [HideInInspector] public Collider2D playerCollider;
+    //[HideInInspector] public Collider2D playerCollider;
 
     [Header("\nChase State")]
     public float waitBeforeChase;

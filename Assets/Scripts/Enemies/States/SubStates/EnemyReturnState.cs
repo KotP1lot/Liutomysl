@@ -29,7 +29,7 @@ public class EnemyReturnState : EnemyOnGroundState
 
         enemy.SetVelocityX(0f);
 
-        returnDirection = enemy.transform.position.x > enemyData.startingPosition.x ? -1 : 1;
+        returnDirection = enemy.transform.position.x > enemy.startingPosition.x ? -1 : 1;
 
         startTimer();
     }
@@ -54,8 +54,8 @@ public class EnemyReturnState : EnemyOnGroundState
         {
             if (!enemy.walkParticle.isPlaying) enemy.walkParticle.Play();
 
-            if (returnDirection == 1 && enemy.transform.position.x >= enemyData.startingPosition.x
-            || returnDirection == -1 && enemy.transform.position.x <= enemyData.startingPosition.x)
+            if (returnDirection == 1 && enemy.transform.position.x >= enemy.startingPosition.x
+            || returnDirection == -1 && enemy.transform.position.x <= enemy.startingPosition.x)
             {
                 stateMachine.ChangeState(enemy.IdleState);
             }

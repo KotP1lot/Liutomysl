@@ -24,15 +24,15 @@ public class EnemyChaseState : EnemyOnGroundState
 
         if (enemy.CheckIfNeedsToJump()) { stateMachine.ChangeState(enemy.JumpState); enemyData.continueChasing = true; }
 
-        if (enemy.CanAct()) { stateMachine.ChangeState(enemy.ActState); enemyData.continueChasing = true; }
+        if (enemy.CheckDetection() && enemy.CanAct()) { stateMachine.ChangeState(enemy.ActState); enemyData.continueChasing = true; }
     }
 
     public override void Enter()
     {
         base.Enter();
 
-        if (enemyData.playerCollider == null) { stateMachine.ChangeState(enemy.ReturnState); return; }
-        playerObject = enemyData.playerCollider.gameObject;
+        if (enemy.playerCollider == null) { stateMachine.ChangeState(enemy.ReturnState); return; }
+        playerObject = enemy.playerCollider.gameObject;
 
         enemy.SetVelocityX(0f);
 
