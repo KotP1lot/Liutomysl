@@ -4,7 +4,7 @@ using UnityEngine;
 [CreateAssetMenu(fileName ="newPlayerData", menuName ="Data/Player Data/Base Data")]
 public class PlayerData : ScriptableObject
 {
-    [Header("Move State")]
+    [Header("Movement")]
     public float movementVelocity = 10f;
     public float movementVelocityOnLadder = 5f;
     public float dashVelocity = 20f;
@@ -12,8 +12,6 @@ public class PlayerData : ScriptableObject
     public float stepForce;
     public float knockbackForceDamaged;
     public float knockbackForceStunned;
-
-    [Header("Jump State")]
     public float jumpVelocity = 10f;
 
     [Header("In Air State")]
