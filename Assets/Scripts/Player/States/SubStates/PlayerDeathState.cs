@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class PlayerDeathState : PlayerGroundedState
 {
+    private Animator weaponAnimator;
     public PlayerDeathState(Player player, PlayerStateMachine stateMachine, PlayerData playerData, string aminBoolName) : base(player, stateMachine, playerData, aminBoolName)
     {
+        weaponAnimator = player.weapon.GetComponent<Animator>();
     }
 
     public override void DoChecks()
@@ -17,6 +19,8 @@ public class PlayerDeathState : PlayerGroundedState
     {
         base.Enter();
         player.SetVelocityX(0f);
+
+        if (player.weapon.activeSelf) weaponAnimator.Play("Death");
     }
 
     public override void AnimationFinishTrigger()
