@@ -39,8 +39,8 @@ MonoBehaviour:
   HP: 90
   maxSP: 40
   SP: 40
-  spRegenDelayMin: 3
-  spRegenDelayMax: 4
+  spRegenDelayMin: 2
+  spRegenDelayMax: 2.5
   spRegenAmount: 1
   spRegenSpeed: 0.03
   LightDamage1: 20
