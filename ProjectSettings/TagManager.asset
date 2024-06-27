@@ -5,6 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Ground
+  - Ladder
+  - Enemy
+  - EnemyJump
+  - Breakable
   layers:
   - Default
   - TransparentFX
@@ -12,14 +16,14 @@ TagManager:
   - Ground
   - Water
   - UI
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
-  - 
+  - Player
+  - Ladder
+  - Platform
+  - IgnoreCollision
+  - Enemy
+  - Interactable
+  - Background
+  - Bullet
   - 
   - 
   - 
@@ -39,6 +43,18 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: Background
+    uniqueID: 313756375
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Creatures
+    uniqueID: 1119540263
+    locked: 0
+  - name: Foreground
+    uniqueID: 2842730821
+    locked: 0
+  - name: UI
+    uniqueID: 499984541
     locked: 0

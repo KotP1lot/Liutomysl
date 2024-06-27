@@ -1,0 +1,61 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5196f326482d06441baf24da99b365f8, type: 3}
+  m_Name: playerData
+  m_EditorClassIdentifier: 
+  movementVelocity: 7
+  movementVelocityOnLadder: 5
+  dashVelocity: 20
+  dashStaminaCost: 10
+  stepForce: 5
+  knockbackForceDamaged: 8
+  knockbackForceStunned: 4
+  jumpVelocity: 16
+  variableJumpHeightMultiplier: 0.5
+  fallDamageModifier: 10
+  groundCheckSize: {x: 0.9, y: 0.4}
+  ladderCheckDistance: 0.5
+  whatIsGround:
+    serializedVersion: 2
+    m_Bits: 8
+  whatIsPlatform:
+    serializedVersion: 2
+    m_Bits: 256
+  whatIsLadder:
+    serializedVersion: 2
+    m_Bits: 128
+  damage: 0
+  atkSpd: 1
+  maxHP: 90
+  HP: 90
+  maxSP: 40
+  SP: 40
+  spRegenDelayMin: 3
+  spRegenDelayMax: 4
+  spRegenAmount: 1
+  spRegenSpeed: 0.03
+  LightDamage1: 20
+  LightCost1: 10
+  LightDamage2: 20
+  LightCost2: 10
+  LightDamage3: 20
+  LightCost3: 10
+  StrongDamage1: 30
+  StrongCost1: 17
+  StrongDamage2: 30
+  StrongCost2: 17
+  StrongDamage3: 30
+  StrongCost3: 17
+  damageUpgrade: 3
+  atkSpdUpgrade: 0.05
+  hpUpgrade: 10
+  spUpgrade: 10

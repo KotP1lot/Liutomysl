@@ -1,0 +1,822 @@
+fileFormatVersion: 2
+guid: 9a9f43245a719ba4190c0d6604262c38
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: BlockedEnAnim_0
+      rect:
+        serializedVersion: 2
+        x: 26
+        y: 2991
+        width: 170
+        height: 205
+      alignment: 9
+      pivot: {x: 0.39446986, y: 0.5838653}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bf4e0a10cdad7f48aabd584ba2053e7
+      internalID: -298831914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_1
+      rect:
+        serializedVersion: 2
+        x: 233
+        y: 2987
+        width: 204
+        height: 204
+      alignment: 9
+      pivot: {x: 0.49267143, y: 0.59160537}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2b15ab78e19c91c4bb1e6247d0c8520f
+      internalID: 2110229054
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_2
+      rect:
+        serializedVersion: 2
+        x: 468
+        y: 2984
+        width: 202
+        height: 202
+      alignment: 9
+      pivot: {x: 0.4962992, y: 0.59621316}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4ad18587b603f604982753eb4301ad67
+      internalID: 1243193286
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_4
+      rect:
+        serializedVersion: 2
+        x: 34
+        y: 2746
+        width: 170
+        height: 202
+      alignment: 9
+      pivot: {x: 0.39547798, y: 0.5830767}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79a933d95c539954086f2b2811f47e9f
+      internalID: -691210353
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_6
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 2754
+        width: 175
+        height: 195
+      alignment: 9
+      pivot: {x: 0.42102766, y: 0.575934}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f5bb3aec07c55d4880b535dca4a638f
+      internalID: -1193480912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_7
+      rect:
+        serializedVersion: 2
+        x: 458
+        y: 2751
+        width: 190
+        height: 198
+      alignment: 9
+      pivot: {x: 0.4896089, y: 0.59472656}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a0f6ba008ae993344b4626910454c579
+      internalID: -1430230818
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_8
+      rect:
+        serializedVersion: 2
+        x: 8
+        y: 2518
+        width: 196
+        height: 197
+      alignment: 9
+      pivot: {x: 0.48544487, y: 0.5772327}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 22557e0a8567a6847a57a8099a62426a
+      internalID: -599445488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_10
+      rect:
+        serializedVersion: 2
+        x: 267
+        y: 2518
+        width: 196
+        height: 198
+      alignment: 9
+      pivot: {x: 0.33989373, y: 0.57684267}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4675f8e7e53cdab47ace28f34e3427bc
+      internalID: 498691141
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_11
+      rect:
+        serializedVersion: 2
+        x: 492
+        y: 2512
+        width: 167
+        height: 204
+      alignment: 9
+      pivot: {x: 0.39750406, y: 0.5932294}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e39c1315865a004fafc352d625d0404
+      internalID: 141743656
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 2284
+        width: 204
+        height: 204
+      alignment: 9
+      pivot: {x: 0.51541793, y: 0.6079257}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b41e727ace7a96f468d718ecd0a1bfd1
+      internalID: 1188296128
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_14
+      rect:
+        serializedVersion: 2
+        x: 274
+        y: 2285
+        width: 168
+        height: 202
+      alignment: 9
+      pivot: {x: 0.39391, y: 0.59342366}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3144cda0cecdb0644b56acfaa8c53f19
+      internalID: 1634804965
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_15
+      rect:
+        serializedVersion: 2
+        x: 13
+        y: 2034
+        width: 221
+        height: 204
+      alignment: 9
+      pivot: {x: 0.39010248, y: 0.5961591}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 44eefb7a4f61f7d4fa4397afb496e9fb
+      internalID: 739295912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_16
+      rect:
+        serializedVersion: 2
+        x: 251
+        y: 2029
+        width: 240
+        height: 184
+      alignment: 9
+      pivot: {x: 0.282672, y: 0.68276316}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ab302ac722f0c854591d2065a8650511
+      internalID: 2129226187
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_18
+      rect:
+        serializedVersion: 2
+        x: 496
+        y: 2013
+        width: 263
+        height: 114
+      alignment: 9
+      pivot: {x: 0.18746597, y: 1.1145576}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f86d1535659df174781d200c2d8187aa
+      internalID: -1388887988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_19
+      rect:
+        serializedVersion: 2
+        x: 35
+        y: 1798
+        width: 174
+        height: 204
+      alignment: 9
+      pivot: {x: 0.40555283, y: 0.5966695}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c942f8a069d55944abfa27c58d6852f3
+      internalID: 1822908976
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_20
+      rect:
+        serializedVersion: 2
+        x: 242
+        y: 1805
+        width: 171
+        height: 199
+      alignment: 9
+      pivot: {x: 0.4135064, y: 0.5784532}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cce2f2ff3fa7d004387db614bdc08c3e
+      internalID: 1884444603
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_21
+      rect:
+        serializedVersion: 2
+        x: 439
+        y: 1803
+        width: 184
+        height: 201
+      alignment: 9
+      pivot: {x: 0.44641146, y: 0.5817604}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2d964e11099a22143b91285705faa24b
+      internalID: 580916893
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_26
+      rect:
+        serializedVersion: 2
+        x: 24
+        y: 1559
+        width: 197
+        height: 201
+      alignment: 9
+      pivot: {x: 0.5044154, y: 0.590878}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0999ca52a08d14b4a9ed28342f4fea75
+      internalID: -1273596518
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_28
+      rect:
+        serializedVersion: 2
+        x: 260
+        y: 1563
+        width: 175
+        height: 201
+      alignment: 9
+      pivot: {x: 0.45526612, y: 0.5735677}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76b2ca8f21e71624faae1cf429d9521b
+      internalID: -2090429984
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_31
+      rect:
+        serializedVersion: 2
+        x: 62
+        y: 1329
+        width: 167
+        height: 192
+      alignment: 9
+      pivot: {x: 0.43133453, y: 0.64651364}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c4c53ce40b16a9419469383927e51a0
+      internalID: 1006502722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_33
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1329
+        width: 174
+        height: 189
+      alignment: 9
+      pivot: {x: 0.42126518, y: 0.6622618}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2e42ac605782a94f9cf723e63e277f3
+      internalID: -116149973
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_34
+      rect:
+        serializedVersion: 2
+        x: 445
+        y: 1326
+        width: 167
+        height: 187
+      alignment: 9
+      pivot: {x: 0.44110912, y: 0.6869954}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3bf52639ad13d2f4daa28a1ca430b795
+      internalID: -1747939650
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_36
+      rect:
+        serializedVersion: 2
+        x: 58
+        y: 1081
+        width: 184
+        height: 206
+      alignment: 9
+      pivot: {x: 0.43742943, y: 0.59887874}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb602dee3f1ad3040a1f8ed49517d273
+      internalID: -1791160082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_37
+      rect:
+        serializedVersion: 2
+        x: 243
+        y: 1082
+        width: 205
+        height: 205
+      alignment: 9
+      pivot: {x: 0.44244295, y: 0.5935124}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0e7206b9196cc034ab1f1f57b95a1ad4
+      internalID: 1833208640
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_38
+      rect:
+        serializedVersion: 2
+        x: 463
+        y: 1082
+        width: 223
+        height: 205
+      alignment: 9
+      pivot: {x: 0.44183403, y: 0.58194727}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d21aeb4bd0794f48a481cf1a9e8bb55
+      internalID: -1466290097
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_40
+      rect:
+        serializedVersion: 2
+        x: 45
+        y: 846
+        width: 207
+        height: 202
+      alignment: 9
+      pivot: {x: 0.38995114, y: 0.5919984}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecbcbab9d191a4d4195257afb7394324
+      internalID: -742480099
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_42
+      rect:
+        serializedVersion: 2
+        x: 317
+        y: 845
+        width: 192
+        height: 207
+      alignment: 9
+      pivot: {x: 0.34388623, y: 0.5637122}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 651ac5fa089b6a84ab27376e83f15048
+      internalID: 168986868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_43
+      rect:
+        serializedVersion: 2
+        x: 526
+        y: 843
+        width: 213
+        height: 201
+      alignment: 0
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 86da6ae7c9945eb468ff11386d79ed2c
+      internalID: 573178252
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_44
+      rect:
+        serializedVersion: 2
+        x: 7
+        y: 623
+        width: 228
+        height: 200
+      alignment: 9
+      pivot: {x: 0.6757132, y: 0.613324}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b02080c1a24af4a4c8715bf22b724580
+      internalID: -1728710341
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_45
+      rect:
+        serializedVersion: 2
+        x: 285
+        y: 623
+        width: 218
+        height: 201
+      alignment: 9
+      pivot: {x: 0.6401166, y: 0.6066442}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 46d6cc56da535024f90c705c4413c40a
+      internalID: 1514540406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: BlockedEnAnim_47
+      rect:
+        serializedVersion: 2
+        x: 567
+        y: 623
+        width: 195
+        height: 201
+      alignment: 9
+      pivot: {x: 0.5449316, y: 0.6005938}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 33dc570bb0ef1f744b54a369a0626f4a
+      internalID: 551468274
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      BlockedEnAnim_8: -599445488
+      BlockedEnAnim_26: -1273596518
+      BlockedEnAnim_45: 1514540406
+      BlockedEnAnim_46: -1537150091
+      BlockedEnAnim_6: -1193480912
+      BlockedEnAnim_18: -1388887988
+      BlockedEnAnim_28: -2090429984
+      BlockedEnAnim_20: 1884444603
+      BlockedEnAnim_34: -1747939650
+      BlockedEnAnim_0: -298831914
+      BlockedEnAnim_13: -1833582088
+      BlockedEnAnim_38: -1466290097
+      BlockedEnAnim_17: 1668944832
+      BlockedEnAnim_47: 551468274
+      BlockedEnAnim_37: 1833208640
+      BlockedEnAnim_33: -116149973
+      BlockedEnAnim_43: 573178252
+      BlockedEnAnim_22: -1841546906
+      BlockedEnAnim_30: 1380860405
+      BlockedEnAnim_44: -1728710341
+      BlockedEnAnim_41: 862506414
+      BlockedEnAnim_2: 1243193286
+      BlockedEnAnim_24: 12474759
+      BlockedEnAnim_42: 168986868
+      BlockedEnAnim_1: 2110229054
+      BlockedEnAnim_11: 141743656
+      BlockedEnAnim_5: 1389207083
+      BlockedEnAnim_14: 1634804965
+      BlockedEnAnim_12: 1188296128
+      BlockedEnAnim_25: -1697150295
+      BlockedEnAnim_15: 739295912
+      BlockedEnAnim_3: -129012790
+      BlockedEnAnim_10: 498691141
+      BlockedEnAnim_23: 835934531
+      BlockedEnAnim_35: 297834680
+      BlockedEnAnim_40: -742480099
+      BlockedEnAnim_29: 2086640028
+      BlockedEnAnim_4: -691210353
+      BlockedEnAnim_9: -1701628528
+      BlockedEnAnim_27: -678931441
+      BlockedEnAnim_31: 1006502722
+      BlockedEnAnim_19: 1822908976
+      BlockedEnAnim_36: -1791160082
+      BlockedEnAnim_39: 1878494655
+      BlockedEnAnim_7: -1430230818
+      BlockedEnAnim_16: 2129226187
+      BlockedEnAnim_32: -163654933
+      BlockedEnAnim_21: 580916893
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

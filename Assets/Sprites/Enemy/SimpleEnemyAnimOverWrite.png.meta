@@ -1,0 +1,719 @@
+fileFormatVersion: 2
+guid: 023f3b8c4ce280a48aa9428fbfba578d
+TextureImporter:
+  internalIDToNameTable: []
+  externalObjects: {}
+  serializedVersion: 12
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMasterTextureLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Server
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_0
+      rect:
+        serializedVersion: 2
+        x: 12
+        y: 2555
+        width: 201
+        height: 200
+      alignment: 9
+      pivot: {x: 0.5231613, y: 0.5133008}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fd3c2fb76be809943a5ac48ad7798908
+      internalID: 74963303
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_1
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 2555
+        width: 203
+        height: 199
+      alignment: 9
+      pivot: {x: 0.5360378, y: 0.5167095}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c8c0fbf12c0dbbe40942cecd4735f407
+      internalID: 2015565738
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_2
+      rect:
+        serializedVersion: 2
+        x: 466
+        y: 2554
+        width: 203
+        height: 198
+      alignment: 9
+      pivot: {x: 0.54586625, y: 0.5167939}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 09eec195943d5e64193d7129eb1cb952
+      internalID: -1829577478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_3
+      rect:
+        serializedVersion: 2
+        x: 4
+        y: 2316
+        width: 200
+        height: 193
+      alignment: 9
+      pivot: {x: 0.5244412, y: 0.51447386}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1879b1c836e6a346ae6b12b055bf778
+      internalID: 1886572196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_4
+      rect:
+        serializedVersion: 2
+        x: 239
+        y: 2319
+        width: 192
+        height: 193
+      alignment: 9
+      pivot: {x: 0.5072743, y: 0.49638218}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dc7291ad4524ac42ba7d5a1299a7bfd
+      internalID: 747942718
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_5
+      rect:
+        serializedVersion: 2
+        x: 481
+        y: 2314
+        width: 171
+        height: 198
+      alignment: 9
+      pivot: {x: 0.44691154, y: 0.5035277}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c57578cdb17ab64db879c7cb5319873
+      internalID: -941388790
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_6
+      rect:
+        serializedVersion: 2
+        x: 21
+        y: 2084
+        width: 187
+        height: 193
+      alignment: 9
+      pivot: {x: 0.49274665, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e9bbe1713837f5c4fa7e596ffd61db82
+      internalID: -145362487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_7
+      rect:
+        serializedVersion: 2
+        x: 235
+        y: 2083
+        width: 200
+        height: 194
+      alignment: 9
+      pivot: {x: 0.53051865, y: 0.503496}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2eb6464e84c1514e8d2885b56fdfd82
+      internalID: 1649079195
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_8
+      rect:
+        serializedVersion: 2
+        x: 453
+        y: 2081
+        width: 210
+        height: 196
+      alignment: 9
+      pivot: {x: 0.5484421, y: 0.50692064}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bbffbcb8f13be6542bc74d04c6f9addb
+      internalID: -190809914
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1852
+        width: 208
+        height: 198
+      alignment: 9
+      pivot: {x: 0.5379986, y: 0.5033261}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 11dec6b02babc08488d7466363ed9f24
+      internalID: -323495271
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_10
+      rect:
+        serializedVersion: 2
+        x: 234
+        y: 1851
+        width: 209
+        height: 198
+      alignment: 9
+      pivot: {x: 0.540968, y: 0.50997895}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9063f46280758cf4aa2cd1cd8f8c7642
+      internalID: -1102545361
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_11
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1606
+        width: 226
+        height: 213
+      alignment: 9
+      pivot: {x: 0.47508186, y: 0.4622304}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb23219c51d388f44b4e9ccccbd04567
+      internalID: -722352645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_12
+      rect:
+        serializedVersion: 2
+        x: 250
+        y: 1594
+        width: 254
+        height: 190
+      alignment: 9
+      pivot: {x: 0.28145486, y: 0.512703}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3253d0f6ac38c6447979e42403b071ba
+      internalID: 612273686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_13
+      rect:
+        serializedVersion: 2
+        x: 539
+        y: 1587
+        width: 253
+        height: 116
+      alignment: 9
+      pivot: {x: 0.102520004, y: 0.9161209}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 23a4820591ab43e4992902c4e86f0bed
+      internalID: -1339748840
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_16
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 1367
+        width: 190
+        height: 196
+      alignment: 9
+      pivot: {x: 0.52878517, y: 0.52391833}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4ff95de9199d734ab2f6abf12987275
+      internalID: 1197999267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_17
+      rect:
+        serializedVersion: 2
+        x: 229
+        y: 1379
+        width: 185
+        height: 192
+      alignment: 9
+      pivot: {x: 0.5337866, y: 0.4837233}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ecd929b8d8fdebe45ac2d8fa118b53cd
+      internalID: -1460546877
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_18
+      rect:
+        serializedVersion: 2
+        x: 454
+        y: 1376
+        width: 158
+        height: 193
+      alignment: 9
+      pivot: {x: 0.50989, y: 0.49595335}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 26452cd9da8a37d42ac6ecab14e4c2d0
+      internalID: -1524785036
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_19
+      rect:
+        serializedVersion: 2
+        x: 37
+        y: 1148
+        width: 154
+        height: 203
+      alignment: 9
+      pivot: {x: 0.5253673, y: 0.49230295}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff15ea6ceb2c80f41bcc59eab872f439
+      internalID: 1794676979
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_20
+      rect:
+        serializedVersion: 2
+        x: 219
+        y: 1154
+        width: 157
+        height: 207
+      alignment: 9
+      pivot: {x: 0.5298592, y: 0.48867753}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1273b15d12c69e146ae07bbb8e242534
+      internalID: 850190618
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_21
+      rect:
+        serializedVersion: 2
+        x: 16
+        y: 911
+        width: 217
+        height: 199
+      alignment: 9
+      pivot: {x: 0.54180056, y: 0.51139516}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 18c5e24508f0ab94bbb39d19b971bc44
+      internalID: -369016207
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_22
+      rect:
+        serializedVersion: 2
+        x: 257
+        y: 908
+        width: 231
+        height: 203
+      alignment: 9
+      pivot: {x: 0.5185968, y: 0.49108344}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4662b6a6fb195f458e1bda72e565843
+      internalID: -134620676
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_23
+      rect:
+        serializedVersion: 2
+        x: 557
+        y: 908
+        width: 206
+        height: 216
+      alignment: 9
+      pivot: {x: 0.40810654, y: 0.44679034}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a93b1ea6f4fed00439768ced0c3de932
+      internalID: -1344592094
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_24
+      rect:
+        serializedVersion: 2
+        x: 52
+        y: 672
+        width: 195
+        height: 232
+      alignment: 9
+      pivot: {x: 0.37622583, y: 0.41738498}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 120a89bb48f5c7f469d15472bffe881b
+      internalID: -1128132132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_25
+      rect:
+        serializedVersion: 2
+        x: 282
+        y: 669
+        width: 195
+        height: 216
+      alignment: 9
+      pivot: {x: 0.368945, y: 0.4539894}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a480a6d72bcc84740b9eb89b7074e562
+      internalID: 1389231367
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_26
+      rect:
+        serializedVersion: 2
+        x: 48
+        y: 457
+        width: 216
+        height: 203
+      alignment: 9
+      pivot: {x: 0.8477397, y: 0.48317865}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 325e1c97bcebf204bb0c3e633889ff42
+      internalID: -1928888200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_27
+      rect:
+        serializedVersion: 2
+        x: 304
+        y: 466
+        width: 217
+        height: 200
+      alignment: 9
+      pivot: {x: 0.72339517, y: 0.47486937}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 72a492bedc0d30842ac866660b301f99
+      internalID: 1026080348
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: SimpleEnemyAnimOverWrite_28
+      rect:
+        serializedVersion: 2
+        x: 533
+        y: 462
+        width: 223
+        height: 199
+      alignment: 9
+      pivot: {x: 0.58693707, y: 0.51443315}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84adcd1c95f3e23448d869ae2eeaf60a
+      internalID: -103720825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5e97eb03825dee720800000000000000
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    nameFileIdTable:
+      SimpleEnemyAnimOverWrite_11: -722352645
+      SimpleEnemyAnimOverWrite_0: 74963303
+      SimpleEnemyAnimOverWrite_14: -1106959526
+      SimpleEnemyAnimOverWrite_17: -1460546877
+      SimpleEnemyAnimOverWrite_18: -1524785036
+      SimpleEnemyAnimOverWrite_2: -1829577478
+      SimpleEnemyAnimOverWrite_20: 850190618
+      SimpleEnemyAnimOverWrite_26: -1928888200
+      SimpleEnemyAnimOverWrite_23: -1344592094
+      SimpleEnemyAnimOverWrite_15: -1326440509
+      SimpleEnemyAnimOverWrite_4: 747942718
+      SimpleEnemyAnimOverWrite_25: 1389231367
+      SimpleEnemyAnimOverWrite_5: -941388790
+      SimpleEnemyAnimOverWrite_6: -145362487
+      SimpleEnemyAnimOverWrite_9: -323495271
+      SimpleEnemyAnimOverWrite_22: -134620676
+      SimpleEnemyAnimOverWrite_16: 1197999267
+      SimpleEnemyAnimOverWrite_7: 1649079195
+      SimpleEnemyAnimOverWrite_8: -190809914
+      SimpleEnemyAnimOverWrite_27: 1026080348
+      SimpleEnemyAnimOverWrite_28: -103720825
+      SimpleEnemyAnimOverWrite_10: -1102545361
+      SimpleEnemyAnimOverWrite_13: -1339748840
+      SimpleEnemyAnimOverWrite_19: 1794676979
+      SimpleEnemyAnimOverWrite_3: 1886572196
+      SimpleEnemyAnimOverWrite_21: -369016207
+      SimpleEnemyAnimOverWrite_24: -1128132132
+      SimpleEnemyAnimOverWrite_12: 612273686
+      SimpleEnemyAnimOverWrite_1: 2015565738
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
